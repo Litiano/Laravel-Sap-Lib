@@ -5,6 +5,7 @@ namespace Litiano\SAP;
 class SAP
 {
     /**
+     * @TODO BUG IMPORTANTE
      * @INFO
      * Realizando alguns testes, quando a classe SAP é instanciada e busca um bussines object na mesma função,
      * o CLI do PHP para de funcionar.
