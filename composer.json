@@ -1,0 +1,14 @@
+{
+    "name": "litiano/sap",
+    "description": "Lib para conectar com SAP via DI-API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Litiano Moura",
+            "email": "litiano.moura@yahoo.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
