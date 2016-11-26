@@ -8,6 +8,8 @@
  */
 namespace Litiano\SAP\IdeHelper;
 
+use Litiano\SAP\Enum\BoSuppLangs;
+
 class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     /* DISPID=1610612736 */
     function QueryInterface(
@@ -161,6 +163,9 @@ class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     /* DISPID=18 */
     /* ? [29] */
     /* property language */
+    /**
+     * @var $language BoSuppLangs::const
+     */
     var $language;
 
 
@@ -315,6 +320,9 @@ class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     }
     /* DISPID=41 */
     /* VT_BSTR [8] */
+    /**
+     * @return int
+     */
     function GetNewObjectKey(
     )
     {
