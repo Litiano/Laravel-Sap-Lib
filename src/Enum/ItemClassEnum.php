@@ -13,4 +13,8 @@ class ItemClassEnum
 {
     const itcService = 1;
     const itcMaterial = 2;
+
+    public function t(){
+        BoSuppLangs::ln_Portuguese_Br;
+    }
 }

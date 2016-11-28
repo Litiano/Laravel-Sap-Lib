@@ -2,6 +2,10 @@
 
 namespace Litiano\SAP;
 
+
+use Litiano\SAP\Enum\BoSuppLangs;
+use Litiano\SAP\IdeHelper\ICompany;
+
 class SAP
 {
     /**
@@ -15,7 +19,7 @@ class SAP
      * Coisas da DI API.
      */
     /**
-     * @var $_com Mixed
+     * @var $_com ICompany
      */
     protected $_com;
     /**
@@ -45,9 +49,9 @@ class SAP
 
     protected function setConnection(){
         try{
-            $this->_com = new \COM("SAPbobsCOM.Company", [], CP_UTF8); // 65001 Seta como UTF-8
+            $this->_com = new \COM("SAPbobsCOM.Company", [], CP_UTF8);
         }catch (\Exception $e){
-            throw  new \Exception("Erro ao Conectar com SAP: ".$e->getMessage());
+            throw new \Exception("Erro ao Conectar com SAP: ".$e->getMessage());
         }
         $this->_com->DbServerType = env("SAP_DB_SERVER_TYPE");
         $this->_com->Server = env("SAP_SERVER_ADDRESS");
@@ -55,7 +59,7 @@ class SAP
         $this->_com->LicenseServer = env("SAP_LICENSE_SERVER");
         $this->_com->UserName = env("SAP_USER");
         $this->_com->Password = env("SAP_PASSWORD");
-        $this->_com->language = 29; // PT-BR
+        $this->_com->language = BoSuppLangs::ln_Portuguese_Br;
         $retVal = $this->_com->Connect();
 
         if($retVal != "0"){
