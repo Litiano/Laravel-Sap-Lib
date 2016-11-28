@@ -3,6 +3,7 @@
 namespace Litiano\Sap;
 
 
+use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\Enum\BoSuppLangs;
 use Litiano\Sap\IdeHelper\ICompany;
 
@@ -83,6 +84,11 @@ class SAP
             $this->_com->Disconnect();
         }
     }
+
+    /**
+     * @param $code int BoObjectTypes
+     * @return mixed
+     */
 
     public function getBussinesObject($code){
         return $this->_com->GetBusinessObject($code);
