@@ -8,7 +8,6 @@
             "email": "litiano.moura@yahoo.com.br"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.9"
     }
