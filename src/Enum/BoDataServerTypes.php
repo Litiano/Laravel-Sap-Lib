@@ -16,5 +16,6 @@ class BoDataServerTypes
         dst_SYBASE = 3,
         dst_MSSQL2005 = 4,
         dst_MAXDB = 5,
-        dst_MSSQL2008 = 6;
+        dst_MSSQL2008 = 6,
+        dst_MSSQL2012 = 7;
 }

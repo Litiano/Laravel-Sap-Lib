@@ -3,7 +3,6 @@
 namespace Litiano\Sap;
 
 
-use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\Enum\BoSuppLangs;
 use Litiano\Sap\IdeHelper\ICompany;
 
@@ -12,7 +11,7 @@ class Company
     /**
      * @TODO BUG IMPORTANTE
      * @INFO
-     * Realizando alguns testes, quando a classe SAP é instanciada e busca um bussines object na mesma função,
+     * Realizando alguns testes, quando a classe Company é instanciada e busca um bussines object na mesma função,
      * o CLI do PHP para de funcionar.
      * Mas se eu instanciar a classe em uma função e passa-la como parametro para outra função que busca o bussines object
      * e faz a mesma coisa, tudo funciona perfeitamente.
@@ -89,7 +88,6 @@ class Company
      * @param $code int BoObjectTypes
      * @return mixed
      */
-
     public function getBussinesObject($code){
         return $this->_com->GetBusinessObject($code);
     }

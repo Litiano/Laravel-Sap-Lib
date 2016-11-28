@@ -69,3 +69,6 @@ class COM
 {
     public function __construct(string $module_name, mixed $server_name = null, int $codepage = null, string $typelib = null){}
 }
+if(!function_exists("env")){
+    function env(string $key){}
+}
