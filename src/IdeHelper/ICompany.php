@@ -6,9 +6,9 @@
  * Date: 25/11/2016
  * Time: 15:59
  */
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
-use Litiano\SAP\Enum\BoSuppLangs;
+use Litiano\Sap\Enum\BoSuppLangs;
 
 class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     /* DISPID=1610612736 */

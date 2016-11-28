@@ -6,7 +6,7 @@
  * Time: 16:43
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 
 class IField { /* GUID={6B2A877D-56A5-4DB4-A2DB-D0D46292B0A1} */

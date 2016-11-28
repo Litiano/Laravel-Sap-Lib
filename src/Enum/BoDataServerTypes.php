@@ -6,7 +6,7 @@
  * Time: 22:47
  */
 
-namespace Litiano\SAP\Enum;
+namespace Litiano\Sap\Enum;
 
 
 class BoDataServerTypes

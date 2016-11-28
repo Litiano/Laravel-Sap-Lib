@@ -6,7 +6,7 @@
  * Time: 16:33
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 class IItems { /* GUID={1EFF6EB3-9368-4A68-B619-0B57A134F0CE} */
     /* DISPID=1610612736 */

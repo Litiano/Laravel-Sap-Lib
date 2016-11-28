@@ -1,10 +1,10 @@
 <?php
 
-namespace Litiano\SAP;
+namespace Litiano\Sap;
 
 
-use Litiano\SAP\Enum\BoSuppLangs;
-use Litiano\SAP\IdeHelper\ICompany;
+use Litiano\Sap\Enum\BoSuppLangs;
+use Litiano\Sap\IdeHelper\ICompany;
 
 class SAP
 {

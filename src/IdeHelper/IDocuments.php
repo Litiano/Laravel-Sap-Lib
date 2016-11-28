@@ -6,7 +6,7 @@
  * Date: 25/11/2016
  * Time: 16:00
  */
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 class IDocuments { /* GUID={A6DA575B-E105-4585-9F4B-50CC4044EEDD} */
     /* DISPID=1610612736 */

@@ -6,7 +6,7 @@
  * Time: 22:44
  */
 
-namespace Litiano\SAP\Enum;
+namespace Litiano\Sap\Enum;
 
 
 class BoSuppLangs

@@ -6,7 +6,7 @@
  * Time: 16:42
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 
 class IFields { /* GUID={DE680833-445E-4AF0-A7E3-377D5135268B} */

@@ -6,7 +6,7 @@
  * Time: 16:41
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 class IUserFields { /* GUID={CC279FBE-7088-42E9-A579-EB2E3E971076} */
     /* DISPID=1610612736 */

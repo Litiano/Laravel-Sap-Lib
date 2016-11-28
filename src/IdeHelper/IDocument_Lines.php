@@ -6,7 +6,7 @@
  * Time: 16:01
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 
 class IDocument_Lines { /* GUID={248B28DD-1281-4C6C-9780-22D19BA13D1F} */

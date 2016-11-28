@@ -6,7 +6,7 @@
  * Time: 16:02
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 
 class IDocumentsAdditionalExpenses { /* GUID={FF458A30-213D-4BAC-BA26-F06E1F4A7E4E} */

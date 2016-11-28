@@ -6,7 +6,7 @@
  * Time: 16:52
  */
 
-namespace Litiano\SAP\Enum;
+namespace Litiano\Sap\Enum;
 
 
 class ItemTypeEnum

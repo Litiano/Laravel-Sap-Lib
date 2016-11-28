@@ -6,7 +6,7 @@
  * Time: 16:49
  */
 
-namespace Litiano\SAP\IdeHelper;
+namespace Litiano\Sap\IdeHelper;
 
 
 class IItems_Prices { /* GUID={E343AA97-4BC8-4E0F-BE71-1B3BE345F702} */

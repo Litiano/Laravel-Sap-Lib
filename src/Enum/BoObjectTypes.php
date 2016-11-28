@@ -6,7 +6,7 @@
  * Time: 15:32
  */
 
-namespace Litiano\SAP\Enum;
+namespace Litiano\Sap\Enum;
 
 class BoObjectTypes
 {
