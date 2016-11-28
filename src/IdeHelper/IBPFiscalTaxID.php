@@ -102,6 +102,9 @@ class IBPFiscalTaxID { /* GUID={CC58BE3C-E272-40FC-97E5-3217A2C32FFE} */
     /* DISPID=11 */
     /* VT_BSTR [8] */
     /* property TaxId0 */
+    /**
+     * @var $TaxId0 string CNPJ
+     */
     var $TaxId0;
 
     /* DISPID=11 */
@@ -138,6 +141,9 @@ class IBPFiscalTaxID { /* GUID={CC58BE3C-E272-40FC-97E5-3217A2C32FFE} */
     /* DISPID=15 */
     /* VT_BSTR [8] */
     /* property TaxId4 */
+    /**
+     * @var $TaxId4 string CPF
+     */
     var $TaxId4;
 
     /* DISPID=15 */

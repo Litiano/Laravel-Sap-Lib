@@ -106,9 +106,7 @@ class IBusinessPartners { /* GUID={9DF321C2-6A1D-446B-AE8A-F7C33987D792} */
     /* DISPID=7 */
     /* VT_BSTR [8] */
     /* An address should be entered in these fields only if 					  the physical address is not the same as the mailing address.					  If there is no entry for Address in a new card the system will 					  copy the data from Mailing Address to these fields. */
-    /**
-     * @var $Address IBPAddresses
-     */
+
     var $Address;
 
     /* DISPID=7 */
@@ -779,6 +777,9 @@ class IBusinessPartners { /* GUID={9DF321C2-6A1D-446B-AE8A-F7C33987D792} */
     /* DISPID=87 */
     /* VT_PTR [26] */
     /* property Addresses */
+    /**
+     * @var $Address IBPAddresses
+     */
     var $Addresses;
 
     /* DISPID=88 */
