@@ -7,7 +7,7 @@ use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\Enum\BoSuppLangs;
 use Litiano\Sap\IdeHelper\ICompany;
 
-class SAP
+class Company
 {
     /**
      * @TODO BUG IMPORTANTE
