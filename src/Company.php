@@ -49,7 +49,7 @@ class Company
 
     protected function setConnection(){
         try{
-            $this->_com = new \COM("SAPbobsCOM.Company", [], CP_UTF8);
+            $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
         }catch (\Exception $e){
             throw new \Exception("Erro ao Conectar com SAP: ".$e->getMessage());
         }
