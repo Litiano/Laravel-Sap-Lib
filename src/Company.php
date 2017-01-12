@@ -40,6 +40,10 @@ class Company
         $this->disconnect = $disconnect;
     }
 
+    /**
+     * @INFO Existe algum bug, que se desconectar do SAP no método __destruct
+     * o schedule:run não finaliza, fica no limbo, perdido.
+     */
     public function __destruct()
     {
         if($this->disconnect){
