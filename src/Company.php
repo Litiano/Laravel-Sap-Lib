@@ -46,7 +46,7 @@ class Company
      */
     public function __destruct()
     {
-        if($this->disconnect){
+        if($this->disconnect && $this->_com){
             $this->disconnect();
         }
     }
