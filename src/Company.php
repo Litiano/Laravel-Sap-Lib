@@ -40,12 +40,13 @@ class Company
         $this->disconnect = $disconnect;
     }
 
-    /**
-     * @INFO Existe algum bug, que se desconectar do SAP no método __destruct
-     * o schedule:run não finaliza, fica no limbo, perdido.
-     */
     public function __destruct()
     {
+        /**
+         * @INFO Existe algum bug, que se desconectar do SAP no método __destruct
+         * o schedule:run não finaliza, fica no limbo, perdido.
+         * Por isso desconecto na função disconnect()
+         */
         if($this->disconnect && $this->_com){
             $this->disconnect();
         }
@@ -59,15 +60,18 @@ class Company
         }
         $this->_com->DbServerType = env("SAP_DB_SERVER_TYPE");
         $this->_com->Server = env("SAP_SERVER_ADDRESS");
-        $this->_com->CompanyDB = env("SAP_DB_NAME");
         $this->_com->LicenseServer = env("SAP_LICENSE_SERVER");
         $this->_com->UserName = env("SAP_USER");
         $this->_com->Password = env("SAP_PASSWORD");
+        $this->_com->CompanyDB = env("SAP_DB_NAME");
+        $this->_com->DbUserName = env("SAP_DB_USER");
+        $this->_com->DbPassword = env("SAP_DB_PASSWORD");
         $this->_com->language = BoSuppLangs::ln_Portuguese_Br;
         $retVal = $this->_com->Connect();
 
         if($retVal != "0"){
-            throw new \Exception("Não foi possivel conectar com o SAP: " . $this->_com->GetLastErrorDescription());
+            throw new \Exception("Não foi possivel conectar com o SAP: " .
+                $this->_com->GetLastErrorCode() . ":" .$this->_com->GetLastErrorDescription());
         }
     }
 
