@@ -5,6 +5,7 @@ namespace Litiano\Sap;
 
 use Litiano\Sap\Enum\BoSuppLangs;
 use Litiano\Sap\IdeHelper\ICompany;
+use Litiano\Sap\IdeHelper\ICompanyService;
 
 class Company
 {
@@ -53,6 +54,14 @@ class Company
     }
 
     protected function setConnection(){
+        /**
+         * @INFO Variaveis do Com não podem ser copiadas, da erro no Cli
+         * Ex:
+         * $service = $sap->_com->GetCompanyService();
+         * $service->GetBusinessService(25);
+         *
+         * Isso causa erro
+         */
         try{
             $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
         }catch (\Exception $e){
@@ -122,5 +131,10 @@ class Company
         $stmt = $this->_db->prepare($query);
         $stmt->execute($parametros);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getCompanyService()
+    {
+        return $this->_com->GetCompanyService();
     }
 }

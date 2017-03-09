@@ -352,6 +352,9 @@ class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     }
     /* DISPID=46 */
     /* VT_PTR [26] */
+    /**
+     * @return ICompanyService
+     */
     function GetCompanyService(
     )
     {
