@@ -30,7 +30,7 @@ class Company
 
     protected $disconnect;
 
-    public function __construct($setDb = true, $setConnection = true, $disconnect = true)
+    public function __construct($setDb = true, $setConnection = true, $disconnect = false)
     {
         if ($setConnection == true){
             $this->setConnection();
@@ -47,6 +47,9 @@ class Company
          * @INFO Existe algum bug, que se desconectar do SAP no método __destruct
          * o schedule:run não finaliza, fica no limbo, perdido.
          * Por isso desconecto na função disconnect()
+         * Update 2017/06/21
+         * Mes desconectando na função disconnect o browser fica carregando e trava.
+         * Portanto é melhor não desconectar.
          */
         if($this->disconnect && $this->_com){
             $this->disconnect();
