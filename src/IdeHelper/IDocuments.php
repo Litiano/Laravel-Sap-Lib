@@ -1083,6 +1083,7 @@ class IDocuments { /* GUID={A6DA575B-E105-4585-9F4B-50CC4044EEDD} */
     /* DISPID=146 */
     /* VT_PTR [26] */
     /* property TaxExtension */
+    /** @var $TaxExtension ITaxExtension */
     var $TaxExtension;
 
     /* DISPID=147 */
