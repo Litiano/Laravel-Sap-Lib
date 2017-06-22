@@ -140,4 +140,9 @@ class Company
     {
         return $this->_com->GetCompanyService();
     }
+
+    public function printTypeInfo(\COM $com, $dispinterface = null, $wantsink = false)
+    {
+        com_print_typeinfo($com, $dispinterface, $wantsink);
+    }
 }

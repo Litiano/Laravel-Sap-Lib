@@ -62,13 +62,28 @@ if(!defined("DISP_E_BADINDEX")){ define("DISP_E_BADINDEX", -1);}
 if(!defined("MK_E_UNAVAILABLE")){ define("MK_E_UNAVAILABLE", -1);}
 
 if(!function_exists("com_print_typeinfo")){
-    function com_print_typeinfo(COM $com, string $dispinterface = null, $wantsink = false){}
+    /**
+     * @param COM $com
+     * @param string|null $dispinterface
+     * @param bool $wantsink
+     */
+    function com_print_typeinfo(COM $com, $dispinterface = null, $wantsink = false){}
 }
 
 class COM
 {
-    public function __construct(string $module_name, mixed $server_name = null, int $codepage = null, string $typelib = null){}
+    /**
+     * COM constructor.
+     * @param string $module_name
+     * @param mixed|null $server_name
+     * @param int|null $codepage
+     * @param string|null $typelib
+     */
+    public function __construct($module_name, $server_name = null, $codepage = null, $typelib = null){}
 }
 if(!function_exists("env")){
-    function env(string $key){}
+    /**
+     * @param string $key
+     */
+    function env($key){}
 }
