@@ -321,7 +321,7 @@ class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     /* DISPID=41 */
     /* VT_BSTR [8] */
     /**
-     * @return int
+     * @return string
      */
     function GetNewObjectKey(
     )
