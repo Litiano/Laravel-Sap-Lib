@@ -88,14 +88,18 @@ class Company
     }
 
     protected function setDb(){
-        $server = env("SAP_SERVER_ADDRESS");
-        $port = env("SAP_SQL_PORT");
-        $database = env("SAP_DB_NAME");
-        $db = new \PDO("sqlsrv:Server=$server,$port;Database=$database", env("SAP_DB_USER") , env("SAP_DB_PASSWORD"));
-        if($db == false){
-            throw new \Exception("Erro ao conectar com SqlServer");
+        try{
+            $server = env("SAP_SERVER_ADDRESS");
+            $port = env("SAP_SQL_PORT");
+            $database = env("SAP_DB_NAME");
+            $db = new \PDO("sqlsrv:Server=$server,$port;Database=$database", env("SAP_DB_USER") , env("SAP_DB_PASSWORD"));
+            if($db == false){
+                throw new \Exception("Erro ao conectar com SqlServer.");
+            }
+            $this->_db = $db;
+        }catch (\Exception $e){
+            throw new \Exception("Erro ao conectar com SqlServer: " . $e->getMessage());
         }
-        $this->_db = $db;
     }
 
     protected function disconnect(){
