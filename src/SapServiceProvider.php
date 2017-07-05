@@ -8,8 +8,9 @@
 
 namespace Litiano\Sap;
 
+use Illuminate\Support\ServiceProvider;
 
-class SapServiceProvider extends Illuminate\Support\ServiceProvider
+class SapServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
