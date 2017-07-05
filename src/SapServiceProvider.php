@@ -21,7 +21,7 @@ class SapServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/sap.php' => config_path('sap.php'),
-        ]);
+        ], 'config');
     }
 
     /**
