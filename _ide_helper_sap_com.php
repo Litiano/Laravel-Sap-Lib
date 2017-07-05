@@ -81,9 +81,21 @@ class COM
      */
     public function __construct($module_name, $server_name = null, $codepage = null, $typelib = null){}
 }
+
 if(!function_exists("env")){
     /**
      * @param string $key
+     * @param null $default
+     * @return string
      */
-    function env($key){}
+    function env($key, $default = null){}
+}
+
+if(!function_exists("config")){
+    /**
+     * @param string $key
+     * @param null $default
+     * @return string
+     */
+    function config($key, $default = null){}
 }
