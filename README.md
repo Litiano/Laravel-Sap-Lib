@@ -19,6 +19,7 @@
 * SAP_DB_USER
 * SAP_DB_PASSWORD
 * SAP_DB_HOST
+* SAP_LANGUAGE=29 #Português Brasil - 
 
 ### Adicionar o seguinte serviceProvider
 * Litiano\Sap\SapServiceProvider::class

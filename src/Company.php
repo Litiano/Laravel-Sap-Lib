@@ -71,15 +71,15 @@ class Company
         } catch (\Exception $e) {
             throw new \Exception("Erro ao Conectar com SAP: " . $e->getMessage());
         }
-        $this->_com->DbServerType = (int)config("sap.db.type");
+        $this->_com->DbServerType = config("sap.db.type");
         $this->_com->Server = config("sap.server");
         $this->_com->LicenseServer = config("sap.license_server");
+        $this->_com->language = config("sap.language");
         $this->_com->UserName = config("sap.username");
         $this->_com->Password = config("sap.password");
         $this->_com->CompanyDB = config("sap.db.name");
         $this->_com->DbUserName = config("sap.db.username");
         $this->_com->DbPassword = config("sap.db.password");
-        $this->_com->language = (int)config("sap.db.language");
         $retVal = $this->_com->Connect();
 
         if ($retVal != "0") {
