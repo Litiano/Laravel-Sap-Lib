@@ -1,5 +1,5 @@
 {
-    "name": "litiano/sap",
+    "name": "litiano/sap-lib",
     "description": "Lib para conectar com SAP via DI-API",
     "license": "MIT",
     "authors": [
