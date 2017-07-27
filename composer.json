@@ -25,5 +25,7 @@
                 "Litiano\\Sap\\SapServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
