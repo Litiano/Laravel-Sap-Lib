@@ -69,7 +69,7 @@ class Company
         try {
             $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
         } catch (\Exception $e) {
-            throw new \Exception("Erro ao Conectar com SAP: " . $e->getMessage());
+            throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
         }
         $this->_com->DbServerType = config("sap.db.type");
         $this->_com->Server = config("sap.server");

@@ -2,7 +2,7 @@
 
 /**
  * Created by Litiano.
- * User: E-Commerce 2
+ * User: Litiano Moura
  * Date: 25/11/2016
  * Time: 13:16
  */
@@ -80,22 +80,4 @@ class COM
      * @param string|null $typelib
      */
     public function __construct($module_name, $server_name = null, $codepage = null, $typelib = null){}
-}
-
-if(!function_exists("env")){
-    /**
-     * @param string $key
-     * @param null $default
-     * @return string
-     */
-    function env($key, $default = null){}
-}
-
-if(!function_exists("config")){
-    /**
-     * @param string $key
-     * @param null $default
-     * @return string
-     */
-    function config($key, $default = null){}
 }
