@@ -381,12 +381,12 @@ class IPayments
 
     /* DISPID=37 */
     /* VT_PTR [26] */
-    /* property Invoices */
+    /* @var IPayments_Invoices $Invoices*/
     var $Invoices;
 
     /* DISPID=38 */
     /* VT_PTR [26] */
-    /* property CreditCards */
+    /* @var IPayments_CreditCards $CreditCards */
     var $CreditCards;
 
     /* DISPID=39 */
