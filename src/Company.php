@@ -2,10 +2,8 @@
 
 namespace Litiano\Sap;
 
-
-use Litiano\Sap\Enum\BoSuppLangs;
+use Illuminate\Database\Connection;
 use Litiano\Sap\IdeHelper\ICompany;
-use Litiano\Sap\IdeHelper\ICompanyService;
 
 class Company
 {
@@ -23,20 +21,16 @@ class Company
      * @var $_com ICompany
      */
     protected $_com;
-    /**
-     * @var $_db \PDO;
-     */
-    protected $_db;
+
+    /** @var Connection */
+    protected $dbConnection;
 
     protected $disconnect;
 
-    public function __construct($setDb = true, $setConnection = true, $disconnect = false)
+    public function __construct($setConnection = true, $disconnect = false)
     {
         if ($setConnection == true) {
             $this->setConnection();
-        }
-        if ($setDb == true) {
-            $this->setDb();
         }
         $this->disconnect = $disconnect;
     }
@@ -77,7 +71,7 @@ class Company
         $this->_com->language = config("sap.language");
         $this->_com->UserName = config("sap.username");
         $this->_com->Password = config("sap.password");
-        $this->_com->CompanyDB = config("sap.db.name");
+        $this->_com->CompanyDB = config("sap.db.database");
         $this->_com->DbUserName = config("sap.db.username");
         $this->_com->DbPassword = config("sap.db.password");
         $retVal = $this->_com->Connect();
@@ -85,25 +79,6 @@ class Company
         if ($retVal != "0") {
             throw new \Exception("Não foi possivel conectar com o SAP: " .
                 $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
-        }
-    }
-
-    protected function setDb()
-    {
-        try {
-            $server = config("sap.db.host");
-            $port = config("sap.db.port");
-            $database = config("sap.db.name");
-            $db = new \PDO("sqlsrv:Server=$server,$port;Database=$database",
-                config("sap.db.username"), config("sap.db.password"));
-
-            if ($db == false) {
-                throw new \Exception("Erro ao conectar com SqlServer.");
-            }
-
-            $this->_db = $db;
-        } catch (\Exception $e) {
-            throw new \Exception("Erro ao conectar com SqlServer: " . $e->getMessage());
         }
     }
 
@@ -118,7 +93,7 @@ class Company
      * @param $code int BoObjectTypes
      * @return mixed
      */
-    public function getBussinesObject($code)
+    public function getBusinessObject($code)
     {
         return $this->_com->GetBusinessObject($code);
     }
@@ -134,21 +109,27 @@ class Company
     }
 
     /**
+     * @return Connection
+     */
+    public function getDb()
+    {
+        if (isset($this->dbConnection)) {
+            return $this->dbConnection;
+        }
+        $this->dbConnection = \DB::connection('sap');
+        return $this->dbConnection;
+    }
+
+    /**
      * @return string
      * Não Funciona!!!
+     * @deprecated no work
      */
     private function getNewObjectCode()
     {
         $codigo = "";
         $this->_com->GetNewObjectCode($codigo);
         return $codigo;
-    }
-
-    public function query($query, $parametros = null)
-    {
-        $stmt = $this->_db->prepare($query);
-        $stmt->execute($parametros);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function getCompanyService()

@@ -8,6 +8,7 @@
 
 namespace Litiano\Sap;
 
+use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\ServiceProvider;
 
 class SapServiceProvider extends ServiceProvider
@@ -20,8 +21,12 @@ class SapServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/sap.php' => config_path('sap.php'),
+            __DIR__ . '/../config/sap.php' => config_path('sap.php'),
         ], 'config');
+
+        /** @var Manager $databaseManager */
+        $databaseManager = $this->app->make(Manager::class);
+        $databaseManager->addConnection(config('sap.db'), 'sap');
     }
 
     /**
