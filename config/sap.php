@@ -25,5 +25,7 @@ return [
         'charset' => 'utf8',
         'prefix' => '',
         'type' => env('SAP_DB_TYPE', ''),
+        'odbc' => (bool)env('SAP_USE_ODBC_DRIVER', false),
+        'odbc_datasource_name' => env('SAP_ODBC_DATA_SOURCE', ''),
     ],
 ];

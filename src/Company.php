@@ -3,7 +3,9 @@
 namespace Litiano\Sap;
 
 use Illuminate\Database\Connection;
+use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\IdeHelper\ICompany;
+use Litiano\Sap\IdeHelper\IRecordset;
 
 class Company
 {
@@ -80,6 +82,15 @@ class Company
             throw new \Exception("Não foi possivel conectar com o SAP: " .
                 $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
         }
+    }
+
+    public function queryWithRecordSet($query)
+    {
+        /** @see http://www.b1tech.tips/2016/01/utility-object-how-use-recordset-object.html */
+        /** @var IRecordset $rs */
+        $rs = $this->_com->getBusinessObject(BoObjectTypes::BoRecordset);
+        $rs->DoQuery($query);
+        return $rs;
     }
 
     protected function disconnect()
