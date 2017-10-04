@@ -132,6 +132,18 @@ class Company
     }
 
     /**
+     * @param string $query
+     * @param null $parameters
+     * @return array
+     */
+    public function query($query, $parameters = null)
+    {
+        $stmt = $this->getDb()->getPdo()->prepare($query);
+        $stmt->execute($parameters);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
      * @return string
      * Não Funciona!!!
      * @deprecated no work
