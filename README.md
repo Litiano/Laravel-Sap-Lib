@@ -37,3 +37,4 @@ SAP_LANGUAGE=29 #Português Brasil<br/>
 ### Recomendações
 * Executar artisan schedule:run com usuário "Sistema" e/ou com privilégios de administrador
 * Usar conexão ODBC se tiver erros de conexão com sqlsrv ou DIAPI.
+* Gerenciador ODBC 32 Bits C:\Windows\SysWOW64\odbcad32.exe
