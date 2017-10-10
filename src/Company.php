@@ -67,15 +67,19 @@ class Company
         } catch (\Exception $e) {
             throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
         }
+
+        // Inicio Parametros obrigatorios
         $this->_com->DbServerType = config("sap.db.type");
         $this->_com->Server = config("sap.server");
-        $this->_com->LicenseServer = config("sap.license_server");
-        $this->_com->language = config("sap.language");
         $this->_com->UserName = config("sap.username");
         $this->_com->Password = config("sap.password");
         $this->_com->CompanyDB = config("sap.db.database");
+        // Fim Parametros obrigatorios
+        $this->_com->language = config("sap.language");
+        $this->_com->LicenseServer = config("sap.license_server");
         $this->_com->DbUserName = config("sap.db.username");
         $this->_com->DbPassword = config("sap.db.password");
+
         $retVal = $this->_com->Connect();
 
         if ($retVal != "0") {

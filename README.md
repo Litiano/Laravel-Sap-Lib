@@ -17,7 +17,6 @@ SAP_DB_USERNAME=<br/>
 SAP_DB_PASSWORD=<br/>
 SAP_DB_HOST=<br/>
 SAP_DB_PORT=<br/>
-\#Use ODBC se tiver problemas com pdo_sqlsrv e DIAPI<br/>
 SAP_USE_ODBC_DRIVER=false<br/>
 SAP_ODBC_DATA_SOURCE=<br/>
 SAP_SERVER_ADDRESS=<br/>
@@ -38,3 +37,8 @@ SAP_LANGUAGE=29 #Português Brasil<br/>
 * Executar artisan schedule:run com usuário "Sistema" e/ou com privilégios de administrador
 * Usar conexão ODBC se tiver erros de conexão com sqlsrv ou DIAPI.
 * Gerenciador ODBC 32 Bits C:\Windows\SysWOW64\odbcad32.exe
+
+### Problemas conhecidos
+* -10: - Não foi possível encontrar o nome do recurso especificado no arquivo de imagem.
+Solução: Abra a conexão com SAP antes de qualquer conexão com SQLSRV (direta ou ODBC) e execute como administrador;
+Solução2: primeiro use o método AuthenticateUser, depois Connect;
