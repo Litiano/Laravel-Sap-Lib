@@ -35,10 +35,16 @@ SAP_LANGUAGE=29 #Português Brasil<br/>
 
 ### Recomendações
 * Executar artisan schedule:run com usuário "Sistema" e/ou com privilégios de administrador
-* Usar conexão ODBC se tiver erros de conexão com sqlsrv ou DIAPI.
-* Gerenciador ODBC 32 Bits C:\Windows\SysWOW64\odbcad32.exe
+
 
 ### Problemas conhecidos
 * -10: - Não foi possível encontrar o nome do recurso especificado no arquivo de imagem.
 Solução: Abra a conexão com SAP antes de qualquer conexão com SQLSRV (direta ou ODBC) e execute como administrador;
 Solução2: primeiro use o método AuthenticateUser, depois Connect;
+Solução3: Usar conexão ODBC se tiver erros de conexão com sqlsrv ou DIAPI: 
+Driver: SQL Server Native Client 11.0 - funcionou
+Driver: SQL Server - não funcionou
+Driver: ODBC Driver 11 for SQL Server - não funcionou
+Driver: ODBC Driver 13 for SQL Server - não funcionou
+
+* Gerenciador ODBC 32 Bits C:\Windows\SysWOW64\odbcad32.exe
