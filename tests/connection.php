@@ -15,7 +15,7 @@ dst_MSSQL2008 = 6,
 dst_MSSQL2012 = 7;
 
 $startTime = new DateTime();
-echo "Starting... {$startTime->format("H:%I:%S")}\n";
+echo "Starting... {$startTime->format("H:i:s")}\n";
 
 /** @var \Litiano\Sap\IdeHelper\ICompany $sap */
 $sap = new COM("SAPbobsCOM.Company");
@@ -31,27 +31,26 @@ $sap->DbServerType = dst_MSSQL2008;
 $sap->CompanyDB = "";
 
 //////////
-$sap->LicenseServer = "";
-$sap->DbUserName = "sa";
-$sap->DbPassword = "";
-
+//$sap->LicenseServer = "";
+//$sap->DbUserName = "sa";
+//$sap->DbPassword = "";
 $sap->Connect();
+
+if(!$sap->Connected){
+    //echo "Last Code-Message: {$sap->GetLastErrorCode()} {$sap->GetLastErrorDescription()}\n";
+    // Authenticate before Connect()
+    $sap->AuthenticateUser("manager", "");
+    $sap->Connect();
+    echo "Last Code-Message: {$sap->GetLastErrorCode()} {$sap->GetLastErrorDescription()}\n";
+    return;
+}
 
 $connectionTime = new DateTime();
 echo "Connection time: {$instanceTime->diff($connectionTime)->format("%I:%S")}\n";
 
 echo "Connected: " . ($sap->Connected ? "True" : "False") . "\n";
 
-if(!$sap->Connected){
-    echo "Last Code-Message: {$sap->GetLastErrorCode()} {$sap->GetLastErrorDescription()}\n";
-    // Authenticate before Connect()
-    $sap->AuthenticateUser("manager", "");
-    echo "Last Code-Message: {$sap->GetLastErrorCode()} {$sap->GetLastErrorDescription()}\n";
-    return;
-}
-
 echo "Disconnecting...\n";
-
 $sap->Disconnect();
 $disconnectTime = new DateTime();
 echo "Disconnect time: {$connectionTime->diff($disconnectTime)->format("%I:%S")}\n";
