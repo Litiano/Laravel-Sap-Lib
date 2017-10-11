@@ -47,7 +47,7 @@ class Company
          * Mes desconectando na função disconnect o browser fica carregando e trava.
          * Portanto é melhor não desconectar.
          */
-        if ($this->disconnect && $this->_com) {
+        if ($this->disconnect) {
             $this->disconnect();
         }
     }
@@ -80,11 +80,18 @@ class Company
         $this->_com->DbUserName = config("sap.db.username");
         $this->_com->DbPassword = config("sap.db.password");
 
-        $retVal = $this->_com->Connect();
+        if($this->_com->AuthenticateUser(config("sap.username"), config("sap.password")) !== 0) {
+            throw new \Exception("Não foi possivel autenticar usuário e senha no SAP: " .
+                $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
+        }
 
-        if ($retVal != "0") {
+        if ($this->_com->Connect() !== 0) {
             throw new \Exception("Não foi possivel conectar com o SAP: " .
                 $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
+        }
+
+        if (!$this->_com->Connected) {
+            throw new \Exception("SAP não conectado!");
         }
     }
 
@@ -99,7 +106,7 @@ class Company
 
     protected function disconnect()
     {
-        if ($this->_com) {
+        if ($this->_com && $this->_com->Connected) {
             $this->_com->Disconnect();
         }
     }
