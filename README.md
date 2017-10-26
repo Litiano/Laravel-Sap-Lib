@@ -48,3 +48,12 @@ Driver: ODBC Driver 11 for SQL Server - não funcionou
 Driver: ODBC Driver 13 for SQL Server - não funcionou
 
 * Gerenciador ODBC 32 Bits C:\Windows\SysWOW64\odbcad32.exe
+
+* -10: - The specified resource name cannot be found in the image file.
+
+* Possivel solução 4 (SAP 9.2 PL >= 5)
+Usar somente SLDServer ao invés de LicenseServer.
+Observer a tag name="SLDAddress" no arquivo:
+C:\Program Files (x86)\SAP\SAP Business One DI API\Conf\b1-local-machine.xml
+O valor do mesmo pode variar entre 30010 e 40000
+ 
