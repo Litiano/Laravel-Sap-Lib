@@ -29,6 +29,12 @@ class Company
 
     protected $disconnect;
 
+    /**
+     * Company constructor.
+     * @param bool $setConnection
+     * @param bool $disconnect
+     * @throws \Exception
+     */
     public function __construct($setConnection = true, $disconnect = false)
     {
         if ($setConnection == true) {
@@ -52,6 +58,9 @@ class Company
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     protected function setConnection()
     {
         /**
@@ -76,11 +85,29 @@ class Company
         $this->_com->CompanyDB = config("sap.db.database");
         // Fim Parametros obrigatorios
         $this->_com->language = config("sap.language");
-        $this->_com->LicenseServer = config("sap.license_server");
-        $this->_com->DbUserName = config("sap.db.username");
-        $this->_com->DbPassword = config("sap.db.password");
 
-        if($this->_com->AuthenticateUser(config("sap.username"), config("sap.password")) !== 0) {
+        if (config('sap.license_server') !== null) {
+            $this->_com->LicenseServer = config("sap.license_server");
+        }
+
+        /** After SAP 9.2 PL 05 use "SLDServer" property instead of "LicenseServer" property */
+        if (config('sap.sld_server') !== null && property_exists($this->_com, "SLDServer")) {
+            $this->_com->SLDServer = config("sap.sld_server");
+        }
+
+        if (config('sap.use_trusted') !== null) {
+            $this->_com->UseTrusted = (bool)config('sap.use_trusted');
+        }
+
+        if (config('sap.db.username') !== null) {
+            $this->_com->DbUserName = config("sap.db.username");
+        }
+
+        if (config('sap.db.password') !== null) {
+            $this->_com->DbPassword = config("sap.db.password");
+        }
+
+        if ($this->_com->AuthenticateUser(config("sap.username"), config("sap.password")) !== 0) {
             throw new \Exception("Não foi possivel autenticar usuário e senha no SAP: " .
                 $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
         }
