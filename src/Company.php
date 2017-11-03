@@ -152,6 +152,11 @@ class Company
         return $this->_com->GetLastErrorDescription();
     }
 
+    public function getLastErrorCode()
+    {
+        return $this->_com->GetLastErrorCode();
+    }
+
     public function getNewObjectKey()
     {
         return $this->_com->GetNewObjectKey();

@@ -313,6 +313,9 @@ class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     }
     /* DISPID=40 */
     /* VT_I4 [3] */
+    /**
+     * @return int
+     */
     function GetLastErrorCode(
     )
     {
