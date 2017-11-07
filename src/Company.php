@@ -44,11 +44,10 @@ class Company
      */
     public function __construct($setConnection = true, $disconnect = false)
     {
-        if(config("sap.debug")) {
-            $this->startTime = Carbon::now();
-            // Read and write + create if not exists
-            $this->logFile = fopen(storage_path("logs/sap-debug.log"), "a+");
-        }
+        $this->log("========================== START DEBUG ==========================");
+        $this->startTime = Carbon::now();
+        // Read and write + create if not exists
+        $this->logFile = fopen(storage_path("logs/sap-debug.log"), "a+");
 
         if ($setConnection == true) {
             $this->setConnection();
@@ -68,7 +67,10 @@ class Company
          */
         if ($this->disconnect) {
             $this->disconnect();
+            $this->log("Disconnection time: " . $this->startTime->diffForHumans());
         }
+
+        $this->log("========================== END DEBUG ==========================");
     }
 
     /**
@@ -76,10 +78,9 @@ class Company
      */
     protected function setConnection()
     {
-        if(config("sap.debug")) {
-            fwrite($this->logFile, "User:" . shell_exec("whoami"));
-            fwrite($this->logFile, "Starting connection:" . $this->startTime->toAtomString());
-        }
+        $this->log("User:" . shell_exec("whoami"));
+        $this->log("Starting connection:" . $this->startTime->toAtomString());
+
         /**
          * @INFO Variaveis do Com não podem ser copiadas, da erro no Cli
          * Ex:
@@ -90,9 +91,7 @@ class Company
          */
         try {
             $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
-            if(config("sap.debug")) {
-                fwrite($this->logFile, "Instance time:" . $this->startTime->diffForHumans());
-            }
+            $this->log("Instance time:" . $this->startTime->diffForHumans());
         } catch (\Exception $e) {
             throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
         }
@@ -133,17 +132,20 @@ class Company
         }
 
         if ($this->_com->Connect() !== 0) {
-            throw new \Exception("Não foi possivel conectar com o SAP: " .
-                $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
+            $msg = $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription();
+
+            $this->log("Connection Error:" . $msg);
+            $this->log("Connection time + instance time:" . $this->startTime->diffForHumans());
+
+            throw new \Exception("Não foi possivel conectar com o SAP: " . $msg);
         }
 
         if (!$this->_com->Connected) {
+            $this->log("Connection generic error!");
             throw new \Exception("SAP não conectado!");
         }
 
-        if(config("sap.debug")) {
-            fwrite($this->logFile, "Connection time + instance time:" . $this->startTime->diffForHumans());
-        }
+        $this->log("Connection time + instance time:" . $this->startTime->diffForHumans());
     }
 
     public function queryWithRecordSet($query)
@@ -230,5 +232,12 @@ class Company
     public function printTypeInfo(\COM $com, $dispinterface = null, $wantsink = false)
     {
         com_print_typeinfo($com, $dispinterface, $wantsink);
+    }
+
+    protected function log($msg)
+    {
+        if (config("sap.debug")) {
+            fwrite($this->logFile, $msg . "\n");
+        }
     }
 }
