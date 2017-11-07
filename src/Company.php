@@ -2,6 +2,7 @@
 
 namespace Litiano\Sap;
 
+use Carbon\Carbon;
 use Illuminate\Database\Connection;
 use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\IdeHelper\ICompany;
@@ -29,6 +30,12 @@ class Company
 
     protected $disconnect;
 
+    /** @var  Carbon */
+    protected $startTime;
+
+    /** @var bool|resource */
+    protected $logFile;
+
     /**
      * Company constructor.
      * @param bool $setConnection
@@ -37,6 +44,12 @@ class Company
      */
     public function __construct($setConnection = true, $disconnect = false)
     {
+        if(config("sap.debug")) {
+            $this->startTime = Carbon::now();
+            // Read and write + create if not exists
+            $this->logFile = fopen(storage_path("logs/sap-debug.log"), "a+");
+        }
+
         if ($setConnection == true) {
             $this->setConnection();
         }
@@ -63,6 +76,9 @@ class Company
      */
     protected function setConnection()
     {
+        if(config("sap.debug")) {
+            fwrite($this->logFile, "Starting connection :" . $this->startTime->toAtomString());
+        }
         /**
          * @INFO Variaveis do Com não podem ser copiadas, da erro no Cli
          * Ex:
@@ -73,6 +89,9 @@ class Company
          */
         try {
             $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
+            if(config("sap.debug")) {
+                fwrite($this->logFile, "Instance time :" . $this->startTime->diffForHumans());
+            }
         } catch (\Exception $e) {
             throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
         }
@@ -119,6 +138,10 @@ class Company
 
         if (!$this->_com->Connected) {
             throw new \Exception("SAP não conectado!");
+        }
+
+        if(config("sap.debug")) {
+            fwrite($this->logFile, "Connection time + instance time:" . $this->startTime->diffForHumans());
         }
     }
 
