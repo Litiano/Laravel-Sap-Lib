@@ -77,7 +77,8 @@ class Company
     protected function setConnection()
     {
         if(config("sap.debug")) {
-            fwrite($this->logFile, "Starting connection :" . $this->startTime->toAtomString());
+            fwrite($this->logFile, "User:" . shell_exec("whoami"));
+            fwrite($this->logFile, "Starting connection:" . $this->startTime->toAtomString());
         }
         /**
          * @INFO Variaveis do Com não podem ser copiadas, da erro no Cli
@@ -90,7 +91,7 @@ class Company
         try {
             $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
             if(config("sap.debug")) {
-                fwrite($this->logFile, "Instance time :" . $this->startTime->diffForHumans());
+                fwrite($this->logFile, "Instance time:" . $this->startTime->diffForHumans());
             }
         } catch (\Exception $e) {
             throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
