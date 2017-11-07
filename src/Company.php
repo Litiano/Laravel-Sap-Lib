@@ -44,10 +44,10 @@ class Company
      */
     public function __construct($setConnection = true, $disconnect = false)
     {
-        $this->log("========================== START DEBUG ==========================");
         $this->startTime = Carbon::now();
         // Read and write + create if not exists
         $this->logFile = fopen(storage_path("logs/sap-debug.log"), "a+");
+        $this->log("========================== START DEBUG ==========================");
 
         if ($setConnection == true) {
             $this->setConnection();
