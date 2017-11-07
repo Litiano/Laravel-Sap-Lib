@@ -145,7 +145,7 @@ class Company
             throw new \Exception("SAP não conectado!");
         }
 
-        $this->log("Connection time + instance time:" . $this->startTime->diffForHumans());
+        $this->log("Connection successful. Connection time + instance time:" . $this->startTime->diffForHumans());
     }
 
     public function queryWithRecordSet($query)
