@@ -57,3 +57,5 @@ Observer a tag name="SLDAddress" no arquivo:
 C:\Program Files (x86)\SAP\SAP Business One DI API\Conf\b1-local-machine.xml
 O valor do mesmo pode variar entre 30010 e 40000
  
+* Melhor solução do erro -10:
+Usar DI-API x64, com PHP x64.
