@@ -588,6 +588,7 @@ class IBusinessPartners { /* GUID={9DF321C2-6A1D-446B-AE8A-F7C33987D792} */
     /* DISPID=64 */
     /* VT_PTR [26] */
     /* property ContactEmployees */
+    /** @var IContactEmployees */
     var $ContactEmployees;
 
     /* DISPID=65 */
