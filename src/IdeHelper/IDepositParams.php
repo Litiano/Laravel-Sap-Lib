@@ -1,16 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: E-Commerce 2
- * Date: 09/03/2017
- * Time: 11:48
+ * User: Litiano
+ * Date: 31/01/2018
+ * Time: 17:25
  */
 
 namespace Litiano\Sap\IdeHelper;
 
 
 
-class IDepositsService { /* GUID={8D14FB10-4616-4AF3-B477-0B87C797AEBC} */
+class IDepositParams { /* GUID={163F1DF1-B468-4E1D-BEA3-0BAEE94C6733} */
     /* DISPID=1610612736 */
     function QueryInterface(
         /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
@@ -68,69 +68,65 @@ class IDepositsService { /* GUID={8D14FB10-4616-4AF3-B477-0B87C797AEBC} */
     {
     }
     /* DISPID=1 */
-    /* VT_DISPATCH [9] */
-    function GetDataInterface(
-        /* ? [29] [in] */ $enumMSDI
-    )
-    {
-        if($enumMSDI == 0){return new IDeposit();}
-        /* GetDataInterface */
-    }
-    /* DISPID=2 */
-    /* VT_DISPATCH [9] */
-    function GetDataInterfaceFromXMLFile(
+    function ToXMLFile(
         /* VT_BSTR [8] [in] */ $bstrFileName
     )
     {
-        /* GetDataInterfaceFromXMLFile */
+        /* method ToXMLFile */
+    }
+    /* DISPID=2 */
+    /* VT_BSTR [8] */
+    function ToXMLString(
+    )
+    {
+        /* method ToXMLString */
     }
     /* DISPID=3 */
-    /* VT_DISPATCH [9] */
-    function GetDataInterfaceFromXMLString(
-        /* VT_BSTR [8] [in] */ $bstrXMLString
+    /* VT_BSTR [8] */
+    function GetXMLSchema(
     )
     {
-        /* GetDataInterfaceFromXMLString */
+        /* method GetXMLSchema */
+    }
+    /* DISPID=4 */
+    function FromXMLFile(
+        /* VT_BSTR [8] [in] */ $bstrFileName
+    )
+    {
+        /* method FromXMLFile */
+    }
+    /* DISPID=5 */
+    function FromXMLString(
+        /* VT_BSTR [8] [in] */ $bstrXML
+    )
+    {
+        /* method FromXMLString */
     }
     /* DISPID=10 */
-    /* VT_PTR [26] */
-    function GetDeposit(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$pIDepositParams
-    )
-    {
-        /* GetDeposit */
-    }
+    /* VT_I4 [3] */
+    /* property DepositNumber */
+    var $DepositNumber;
+
+    /* DISPID=10 */
+    /* property DepositNumber */
+    var $DepositNumber;
+
     /* DISPID=11 */
-    /* VT_PTR [26] */
-    /**
-     * @param IDeposit &$pIDeposit
-     * @return IDepositParams
-     */
-    function AddDeposit(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$pIDeposit
-    )
-    {
-        /* AddDeposit */
-    }
+    /* VT_I4 [3] */
+    /* property AbsEntry */
+    var $AbsEntry;
+
+    /* DISPID=11 */
+    /* property AbsEntry */
+    var $AbsEntry;
+
     /* DISPID=12 */
-    function UpdateDeposit(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$pIDeposit
-    )
-    {
-        /* UpdateDeposit */
-    }
-    /* DISPID=13 */
-    function CancelDeposit(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$pIDepositParams
-    )
-    {
-        /* CancelDeposit */
-    }
-    /* DISPID=14 */
-    /* VT_PTR [26] */
-    function GetDepositList(
-    )
-    {
-        /* GetDepositList */
-    }
+    /* VT_I4 [3] */
+    /* property Series */
+    var $Series;
+
+    /* DISPID=12 */
+    /* property Series */
+    var $Series;
+
 }

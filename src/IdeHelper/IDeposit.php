@@ -305,6 +305,7 @@ class IDeposit { /* GUID={29A116DF-AE12-4A45-A5F0-3436E170B26B} */
     /* DISPID=34 */
     /* VT_PTR [26] */
     /* property Credits */
+    /** @var ICreditLines */
     var $Credits;
 
     /* DISPID=35 */
