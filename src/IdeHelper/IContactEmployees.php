@@ -328,4 +328,3 @@ class IContactEmployees { /* GUID={52C8673B-CA79-4476-9F2E-28109AE17545} */
     var $ContactEmployeeBlockSendingMarketingContents;
 
 }
-bool(true)
