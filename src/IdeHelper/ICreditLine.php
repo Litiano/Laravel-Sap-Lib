@@ -2,15 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: Litiano
- * Date: 31/01/2018
- * Time: 17:19
+ * Date: 01/02/2018
+ * Time: 10:05
  */
 
 namespace Litiano\Sap\IdeHelper;
 
 
 
-class ICreditLines { /* GUID={0219BFB4-6A47-47F5-942F-8B05389A05FB} */
+class ICreditLine { /* GUID={AFFBD91B-08A8-4972-B8B1-2E923B3F989A} */
     /* DISPID=1610612736 */
     function QueryInterface(
         /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
@@ -67,51 +67,103 @@ class ICreditLines { /* GUID={0219BFB4-6A47-47F5-942F-8B05389A05FB} */
     )
     {
     }
-    /* DISPID=-4 */
-    /* VT_UNKNOWN [13] */
-    /* _NewEnum */
-    var $_NewEnum;
-
-    /* DISPID=0 */
-    /* VT_PTR [26] */
-    function Item(
-        /* VT_VARIANT [12] [in] */ $vtIndex
-    )
-    {
-        /* DISPID_VALUE */
-    }
     /* DISPID=1 */
-    /* VT_I4 [3] */
-    /* Count */
-    var $Count;
-
-    /* DISPID=2 */
-    /* VT_PTR [26] */
-    /** @return ICreditLine */
-    function Add(
-    )
-    {
-        /* method Add */
-    }
-    /* DISPID=3 */
     function ToXMLFile(
         /* VT_BSTR [8] [in] */ $bstrFileName
     )
     {
         /* method ToXMLFile */
     }
-    /* DISPID=4 */
+    /* DISPID=2 */
     /* VT_BSTR [8] */
     function ToXMLString(
     )
     {
         /* method ToXMLString */
     }
-    /* DISPID=5 */
+    /* DISPID=3 */
     /* VT_BSTR [8] */
     function GetXMLSchema(
     )
     {
         /* method GetXMLSchema */
     }
+    /* DISPID=4 */
+    function FromXMLFile(
+        /* VT_BSTR [8] [in] */ $bstrFileName
+    )
+    {
+        /* method FromXMLFile */
+    }
+    /* DISPID=5 */
+    function FromXMLString(
+        /* VT_BSTR [8] [in] */ $bstrXML
+    )
+    {
+        /* method FromXMLString */
+    }
+    /* DISPID=10 */
+    /* VT_I4 [3] */
+    /* property AbsId */
+    var $AbsId;
+
+    /* DISPID=10 */
+    /* property AbsId */
+    var $AbsId;
+
+    /* DISPID=11 */
+    /* VT_I4 [3] */
+    /* property CreditCard */
+    var $CreditCard;
+
+    /* DISPID=12 */
+    /* VT_BSTR [8] */
+    /* property VoucherNumber */
+    var $VoucherNumber;
+
+    /* DISPID=13 */
+    /* VT_I4 [3] */
+    /* property PaymentMethodCode */
+    var $PaymentMethodCode;
+
+    /* DISPID=14 */
+    /* VT_DATE [7] */
+    /* property PayDate */
+    var $PayDate;
+
+    /* DISPID=15 */
+    /* ? [29] */
+    /* property Deposited */
+    var $Deposited;
+
+    /* DISPID=16 */
+    /* VT_I4 [3] */
+    /* property NumOfPayments */
+    var $NumOfPayments;
+
+    /* DISPID=17 */
+    /* VT_BSTR [8] */
+    /* property Customer */
+    var $Customer;
+
+    /* DISPID=18 */
+    /* VT_BSTR [8] */
+    /* property Reference */
+    var $Reference;
+
+    /* DISPID=19 */
+    /* ? [29] */
+    /* property Transferred */
+    var $Transferred;
+
+    /* DISPID=20 */
+    /* VT_R8 [5] */
+    /* property Total */
+    var $Total;
+
+    /* DISPID=21 */
+    /* VT_BSTR [8] */
+    /* property CreditCurrency */
+    var $CreditCurrency;
+
 }
