@@ -31,5 +31,5 @@ return [
         'odbc_datasource_name' => env('SAP_ODBC_DATA_SOURCE'),
     ],
 
-    (bool)env('SAP_DEBUG', false)
+    'debug' => (bool)env('SAP_DEBUG', false)
 ];

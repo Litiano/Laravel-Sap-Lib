@@ -93,6 +93,7 @@ class Company
             $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
             $this->log("Instance time:" . $this->startTime->diffForHumans());
         } catch (\Exception $e) {
+            $this->log("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
             throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
         }
 
