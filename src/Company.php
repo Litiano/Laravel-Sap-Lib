@@ -4,6 +4,7 @@ namespace Litiano\Sap;
 
 use Carbon\Carbon;
 use Illuminate\Database\Connection;
+use Illuminate\Database\Query\Builder;
 use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\IdeHelper\ICompany;
 use Litiano\Sap\IdeHelper\IRecordset;
@@ -240,5 +241,35 @@ class Company
         if (config("sap.debug")) {
             fwrite($this->logFile, $msg . "\n");
         }
+    }
+
+    /**
+     * @param $table
+     * @return Builder
+     */
+    public function getBuilderValidItem($table)
+    {
+        return $this->getDb()
+            ->table($table)
+            ->where(function (Builder $builder) {
+                $builder->where(function (Builder $query) {
+                    $query->where('validFor', '=', 'N')
+                        ->orWhere(function (Builder $builder) {
+                            $builder->whereNull('validFrom')
+                                ->orWhereDate('validFrom', '<=', Carbon::now());
+                        })
+                        ->where(function (Builder $builder) {
+                            $builder->whereNull('validTo')
+                                ->orWhereDate('validTo', '>=', Carbon::now());
+                        });
+                })
+                    ->where(function (Builder $builder) {
+                        $builder->where('frozenFor', '=', 'N')
+                            ->orWhereNotNull('frozenFrom')
+                            ->whereDate('frozenFrom', '>', Carbon::now())
+                            ->orWhereNotNull('frozenTo')
+                            ->whereDate('frozenTo', '<', Carbon::now());
+                    });
+            });
     }
 }
