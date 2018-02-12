@@ -247,7 +247,7 @@ class Company
      * @param $table
      * @return Builder
      */
-    public function getBuilderValidItem($table)
+    public function getValidItemQueryBuilder($table)
     {
         return $this->getDb()
             ->table($table)
@@ -271,5 +271,55 @@ class Company
                             ->whereDate('frozenTo', '<', Carbon::now());
                     });
             });
+    }
+
+    /**
+     * @return Builder
+     */
+    public function getProjectsQueryBuilder()
+    {
+        //SELECT T0.[PrjCode], T0.[PrjCode], T0.[PrjName] FROM [dbo].[OPRJ] T0 WHERE T0.[Active] = (@P1)   ORDER BY T0.[PrjCode]
+        return $this->getDb()
+            ->table('OPRJ')
+            ->where('Active', '=', 'Y')
+            ->where(function (Builder $builder) {
+                $builder->whereNull('validFrom')
+                    ->orWhereDate('validFrom', '<=', Carbon::now());
+            })
+            ->where(function (Builder $builder) {
+                $builder->whereNull('validTo')
+                    ->orWhereDate('validTo', '>=', Carbon::now());
+            })
+            ->orderBy('PrjCode');
+    }
+
+    /**
+     * @return Builder
+     */
+    public function getDistributionRulesQueryBuilder()
+    {
+        return $this->getDb()
+            ->table('OOCR')
+            ->join('OCR1', 'OOCR.OcrCode', '=', 'OCR1.OcrCode')
+            ->where('OOCR.Active', '=', 'Y')
+            ->where(function (Builder $builder) {
+                $builder->whereNull('OCR1.ValidFrom')
+                    ->orWhereDate('OCR1.ValidFrom', '<=', Carbon::now());
+            })
+            ->where(function (Builder $builder) {
+                $builder->whereNull('OCR1.ValidTo')
+                    ->orWhereDate('OCR1.ValidTo', '>=', Carbon::now());
+            })
+            ->where('OOCR.DimCode', '=', 1)
+            ->orderBy('OOCR.OcrCode')
+            ->distinct();
+    }
+
+    public function getAccountsQueryBuilder()
+    {
+        return $this->getValidItemQueryBuilder('OACT')
+            ->where('LocManTran', '<>', 'Y')
+            ->where('Postable', '=', 'Y')
+            ->orderBy('AcctCode');
     }
 }
