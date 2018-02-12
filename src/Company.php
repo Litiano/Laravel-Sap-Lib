@@ -315,6 +315,9 @@ class Company
             ->distinct();
     }
 
+    /**
+     * @return Builder
+     */
     public function getAccountsQueryBuilder()
     {
         return $this->getValidItemQueryBuilder('OACT')
