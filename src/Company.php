@@ -274,12 +274,13 @@ class Company
     }
 
     /**
+     * @param bool $toArray
      * @return Builder
      */
-    public function getProjectsQueryBuilder()
+    public function getProjectsQueryBuilder($toArray = false)
     {
         //SELECT T0.[PrjCode], T0.[PrjCode], T0.[PrjName] FROM [dbo].[OPRJ] T0 WHERE T0.[Active] = (@P1)   ORDER BY T0.[PrjCode]
-        return $this->getDb()
+        $query = $this->getDb()
             ->table('OPRJ')
             ->where('Active', '=', 'Y')
             ->where(function (Builder $builder) {
@@ -291,14 +292,20 @@ class Company
                     ->orWhereDate('validTo', '>=', Carbon::now());
             })
             ->orderBy('PrjCode');
+
+        if($toArray) {
+            return $query->get(['PrjCode as value', 'PrjName as name']);
+        }
+        return $query;
     }
 
     /**
+     * @param bool $toArray
      * @return Builder
      */
-    public function getDistributionRulesQueryBuilder()
+    public function getDistributionRulesQueryBuilder($toArray = false)
     {
-        return $this->getDb()
+        $query = $this->getDb()
             ->table('OOCR')
             ->join('OCR1', 'OOCR.OcrCode', '=', 'OCR1.OcrCode')
             ->where('OOCR.Active', '=', 'Y')
@@ -313,6 +320,30 @@ class Company
             ->where('OOCR.DimCode', '=', 1)
             ->orderBy('OOCR.OcrCode')
             ->distinct();
+        if($toArray) {
+            return $query->get(['OOCR.OcrCode as value', 'OOCR.OcrName as name']);
+        }
+        return $query;
+    }
+
+    public function getCostCentersQueryBuilder($toArray = false)
+    {
+        $query = $this->getDb()->table('OPRC')
+            ->where(function (Builder $builder) {
+                $builder->where(function (Builder $query) {
+                    $query->where(function (Builder $builder) {
+                        $builder->whereNull('ValidFrom')
+                            ->orWhereDate('ValidFrom', '<=', Carbon::now());
+                    })->where(function (Builder $builder) {
+                        $builder->whereNull('ValidTo')
+                            ->orWhereDate('ValidTo', '>=', Carbon::now());
+                    });
+                });
+            })->where('Active', '=', 'Y');
+        if($toArray) {
+            return $query->get(['PrcCode as value', 'PrcName as name']);
+        }
+        return $query;
     }
 
     /**
