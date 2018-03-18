@@ -293,10 +293,20 @@ class Company
             })
             ->orderBy('PrjCode');
 
-        if($toArray) {
+        if ($toArray) {
             return $query->get(['PrjCode as value', 'PrjName as name']);
         }
         return $query;
+    }
+
+    public function getProjectName($code)
+    {
+        $project = $this->getProjectsQueryBuilder()
+            ->where('PrjCode', '=', $code)->first(['PrjName']);
+        if ($project) {
+            return $project->PrjName;
+        }
+        return '';
     }
 
     /**
@@ -320,10 +330,20 @@ class Company
             ->where('OOCR.DimCode', '=', 1)
             ->orderBy('OOCR.OcrCode')
             ->distinct();
-        if($toArray) {
+        if ($toArray) {
             return $query->get(['OOCR.OcrCode as value', 'OOCR.OcrName as name']);
         }
         return $query;
+    }
+
+    public function getDistributionRuleName($code)
+    {
+        $dr = $this->getDistributionRulesQueryBuilder()
+            ->where('OOCR.OcrCode', '=', $code)->first(['OOCR.OcrName']);
+        if($dr) {
+            return $dr->OcrName;
+        }
+        return '';
     }
 
     public function getCostCentersQueryBuilder($toArray = false)
@@ -340,10 +360,20 @@ class Company
                     });
                 });
             })->where('Active', '=', 'Y');
-        if($toArray) {
+        if ($toArray) {
             return $query->get(['PrcCode as value', 'PrcName as name']);
         }
         return $query;
+    }
+
+    public function getCostCenterName($code)
+    {
+        $costCenter = $this->getCostCentersQueryBuilder()
+            ->where('PrcCode', '=', $code)->first(['PrcName']);
+        if ($costCenter) {
+            return $costCenter->PrcName;
+        }
+        return '';
     }
 
     /**
