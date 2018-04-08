@@ -420,4 +420,28 @@ class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     {
         /* Get Company DATE */
     }
+    /* DISPID=509 */
+    /* VT_BSTR [8] */
+    function GetDBServerTime(
+    )
+    {
+        /* method GetDBServerTime */
+    }
+    /* DISPID=510 */
+    /* VT_DATE [7] */
+    function GetDBServerDate(
+    )
+    {
+        /* method GetDBServerDate */
+    }
+    /* DISPID=55 */
+    /* VT_BSTR [8] */
+    /* property SLDServer */
+    var $SLDServer;
+
+    /* DISPID=56 */
+    /* VT_BSTR [8] */
+    /* property SecurityCode */
+    var $SecurityCode;
+
 }
