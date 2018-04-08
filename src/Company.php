@@ -339,7 +339,7 @@ class Company
     public function getDistributionRuleName($code)
     {
         $dr = $this->getDistributionRulesQueryBuilder()
-            ->where('OOCR.OcrCode', '=', $code)->first(['OOCR.OcrName']);
+            ->where('OOCR.OcrCode', '=', $code)->first(['OOCR.OcrCode', 'OOCR.OcrName']);
         if($dr) {
             return $dr->OcrName;
         }
