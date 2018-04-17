@@ -128,10 +128,11 @@ class Company
             $this->_com->DbPassword = config("sap.db.password");
         }
 
-        if ($this->_com->AuthenticateUser(config("sap.username"), config("sap.password")) !== 0) {
+        /** @info faz com que o php não finalize */
+        /*if ($this->_com->AuthenticateUser(config("sap.username"), config("sap.password")) !== 0) {
             throw new \Exception("Não foi possivel autenticar usuário e senha no SAP: " .
                 $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
-        }
+        }*/
 
         if ($this->_com->Connect() !== 0) {
             $msg = $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription();
