@@ -1,31 +1,32 @@
 {
-    "name": "litiano/sap",
-    "description": "Lib para conectar com SAP via DI-API",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Litiano Moura",
-            "email": "litiano.moura@yahoo.com.br"
-        }
-    ],
-    "require": {
-        "php": ">=5.6.4",
-        "ext-com_dotnet": "*",
-        "ext-pdo_sqlsrv": "*",
-        "laravel/framework": "5.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Litiano\\Sap\\": "src"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Litiano\\Sap\\SapServiceProvider"
-            ]
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "litiano/sap",
+  "description": "Lib para conectar com SAP via DI-API",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Litiano Moura",
+      "email": "litiano.moura@yahoo.com.br"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.3",
+    "ext-com_dotnet": "*",
+    "ext-pdo_sqlsrv": "*",
+    "laravel/framework": "^5.5",
+    "ext-com": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Litiano\\Sap\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Litiano\\Sap\\SapServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
