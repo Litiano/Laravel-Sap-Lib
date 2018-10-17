@@ -18,7 +18,7 @@ class Item extends Model
     protected $primaryKey = 'ItemCode';
     public $incrementing = false;
     public $timestamps = false;
-    protected $dates = ['validFrom', 'validFor', 'validTo', 'frozenFor', 'frozenTo'];
+    protected $dates = ['validFrom', 'validTo', 'frozenTo'];
 
 
     /**
