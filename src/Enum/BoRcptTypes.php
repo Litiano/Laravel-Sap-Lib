@@ -1,4 +1,5 @@
 ﻿<?php
+namespace Litiano\Sap\Enum;
 // Decompiled with JetBrains decompiler
 // Type: SAPbobsCOM.BoRcptTypes
 // Assembly: SAPBusinessOneSDK, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c7c3cb60e45d119f
@@ -7,7 +8,6 @@
 
 //using System.Runtime.InteropServices;
 
-namespace Litiano\Sap\Enum;
 //[Guid("03104AC0-0DEC-4C3D-B1A0-833313B13E82")]
 class BoRcptTypes
 {

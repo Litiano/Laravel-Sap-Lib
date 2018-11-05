@@ -1,5 +1,5 @@
 ﻿<?php
-
+namespace Litiano\Sap\Enum;
 // Decompiled with JetBrains decompiler
 // Type: SAPbobsCOM.DownPaymentTypeEnum
 // Assembly: SAPBusinessOneSDK, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c7c3cb60e45d119f
@@ -8,7 +8,6 @@
 
 //using System.Runtime.InteropServices;
 
-namespace Litiano\Sap\Enum;
 //[Guid("3B775D28-AAB8-4AA4-8698-33FC1817A9DD")]
 class DownPaymentTypeEnum
 {

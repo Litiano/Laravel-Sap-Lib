@@ -1,4 +1,5 @@
 ﻿<?php
+namespace Litiano\Sap\Enum;
 // Decompiled with JetBrains decompiler
 // Type: SAPbobsCOM.BoPaymentsObjectType
 // Assembly: SAPBusinessOneSDK, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c7c3cb60e45d119f
@@ -7,7 +8,6 @@
 
 //using System.Runtime.InteropServices;
 
-namespace Litiano\Sap\Enum;
 //[Guid("BF00A858-EA62-434E-B593-F86CF4F6A5E1")]
 class BoPaymentsObjectType
 {
