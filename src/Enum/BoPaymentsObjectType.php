@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace Litiano\Sap\Enum;
 // Decompiled with JetBrains decompiler
 // Type: SAPbobsCOM.BoPaymentsObjectType
