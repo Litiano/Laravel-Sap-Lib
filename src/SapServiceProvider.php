@@ -35,5 +35,9 @@ class SapServiceProvider extends ServiceProvider
     {
         $configPath = __DIR__ . '/../config/sap.php';
         $this->mergeConfigFrom($configPath, 'sap');
+
+        $this->app->singleton(NewCompany::class, function () {
+            return new NewCompany();
+        });
     }
 }

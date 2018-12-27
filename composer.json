@@ -12,7 +12,8 @@
     "php": ">=7.2.3",
     "ext-com_dotnet": "*",
     "ext-pdo_sqlsrv": "*",
-    "laravel/framework": "^5.5"
+    "laravel/framework": "^5.5",
+    "ext-pdo": "*"
   },
   "autoload": {
     "psr-4": {
