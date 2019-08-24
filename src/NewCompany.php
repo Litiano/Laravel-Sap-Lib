@@ -141,6 +141,9 @@ final class NewCompany
         com_print_typeinfo($com, $dispinterface, $wantsink);
     }
 
+    /**
+     * @return NewCompany
+     */
     public static function getInstance()
     {
         return resolve(self::class);
