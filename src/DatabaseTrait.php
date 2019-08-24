@@ -10,17 +10,19 @@ namespace Litiano\Sap;
 
 
 use Carbon\Carbon;
+use DB;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Query\Builder;
+use PDO;
 
 trait DatabaseTrait
 {
     /**
      * @return Connection
      */
-    public function getDb()
+    public static function getDb()
     {
-        return \DB::connection('sap');
+        return DB::connection('sap');
     }
 
     /**
@@ -177,6 +179,6 @@ trait DatabaseTrait
     {
         $stmt = $this->getDb()->getPdo()->prepare($query);
         $stmt->execute($parameters);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
