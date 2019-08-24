@@ -91,9 +91,10 @@ trait DatabaseTrait
 
     /**
      * @param bool $toArray
+     * @param int $dimension
      * @return Builder
      */
-    public function getDistributionRulesQueryBuilder($toArray = false)
+    public function getDistributionRulesQueryBuilder($toArray = false, $dimension = 1)
     {
         $query = $this->getDb()
             ->table('OOCR')
@@ -107,7 +108,7 @@ trait DatabaseTrait
                 $builder->whereNull('OCR1.ValidTo')
                     ->orWhereDate('OCR1.ValidTo', '>=', Carbon::now());
             })
-            ->where('OOCR.DimCode', '=', 1)
+            ->where('OOCR.DimCode', '=', $dimension)
             ->orderBy('OOCR.OcrCode')
             ->distinct();
         if ($toArray) {
@@ -116,9 +117,9 @@ trait DatabaseTrait
         return $query;
     }
 
-    public function getDistributionRuleName($code)
+    public function getDistributionRuleName($code, $dimension = 1)
     {
-        $dr = $this->getDistributionRulesQueryBuilder()
+        $dr = $this->getDistributionRulesQueryBuilder(false, $dimension)
             ->where('OOCR.OcrCode', '=', $code)->first(['OOCR.OcrCode', 'OOCR.OcrName']);
         if ($dr) {
             return $dr->OcrName;
