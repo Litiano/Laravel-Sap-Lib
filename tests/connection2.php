@@ -27,11 +27,11 @@ function testDIAPI()
     echo "Instance Company time: {$startTime->diff($instanceTime)->format("%I:%S")}\n";
 
     //Required
-    $sap->Server = "";
-    $sap->UserName = "";
-    $sap->Password = "";
-    $sap->DbServerType = dst_MSSQL2008;
-    $sap->CompanyDB = "";
+    $sap->Server = "192.168.0.2";
+    $sap->UserName = "manager";
+    $sap->Password = "12345";
+    $sap->DbServerType = dst_MSSQL2012;
+    $sap->CompanyDB = "SBO_TRAGUARDO";
 
     //$sap->LicenseServer = "";
     //$sap->SLDServer = "https://<Server-name>:40000/";

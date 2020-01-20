@@ -46,13 +46,18 @@ final class NewCompany
     }
 
     /**
+     * @param null $config
+     * @return \COM|ICompany
      * @throws \Exception
      */
-    public function getCompany()
+    public function getCompany($config = null)
     {
         if ($this->_com && $this->_com->Connected) {
             return $this->_com;
         }
+        /**
+         * @TODO use config,
+         */
         $this->startTime = Carbon::now();
 
         $this->log->info("User:" . shell_exec("whoami"));
