@@ -28,7 +28,7 @@ final class NewCompany
     public function __construct()
     {
         $this->log = new Logger('SAP');
-        $this->log->pushHandler(new RotatingFileHandler(storage_path('logs/SAP.log')));
+        $this->log->pushHandler(new RotatingFileHandler(storage_path('logs/SAP.log'), config('log_max_files', 90)));
     }
 
     public function __destruct()
