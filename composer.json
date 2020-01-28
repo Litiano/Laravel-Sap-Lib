@@ -1,6 +1,6 @@
 {
   "name": "litiano/sap",
-  "version": "2.2.5",
+  "version": "2.2.7",
   "description": "Lib para conectar com SAP via DI-API",
   "license": "MIT",
   "authors": [
@@ -11,10 +11,11 @@
   ],
   "require": {
     "php": ">=7.2.3",
-    "ext-com_dotnet": "*",
-    "ext-pdo_sqlsrv": "*",
-    "laravel/framework": "^5.5|^6.0",
-    "ext-pdo": "*"
+    "laravel/framework": "^5.5|^6.0"
+  },
+  "suggest": {
+    "ext-pdo_sqlsrv": "Necessário para conectar com SqlServer.",
+    "ext-com_dotnet": "Necessário para conectar com SAP DI API."
   },
   "autoload": {
     "psr-4": {
