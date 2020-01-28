@@ -10,6 +10,8 @@ namespace Litiano\Sap;
 
 
 use Carbon\Carbon;
+use COM;
+use Exception;
 use Litiano\Sap\IdeHelper\ICompany;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -31,6 +33,19 @@ final class NewCompany
         $this->log->pushHandler(new RotatingFileHandler(storage_path('logs/SAP.log'), config('log_max_files', 90)));
     }
 
+    public static function printTypeInfo(COM $com, $dispinterface = null, $wantsink = false)
+    {
+        com_print_typeinfo($com, $dispinterface, $wantsink);
+    }
+
+    /**
+     * @return NewCompany
+     */
+    public static function getInstance()
+    {
+        return resolve(self::class);
+    }
+
     public function __destruct()
     {
         /**
@@ -47,8 +62,8 @@ final class NewCompany
 
     /**
      * @param null $config
-     * @return \COM|ICompany
-     * @throws \Exception
+     * @return COM|ICompany
+     * @throws Exception
      */
     public function getCompany($config = null)
     {
@@ -72,21 +87,21 @@ final class NewCompany
          * Isso causa erro
          */
         try {
-            $this->_com = new \COM("SAPbobsCOM.Company", null, CP_UTF8);
+            $this->_com = new COM("SAPbobsCOM.Company", null, CP_UTF8);
             $this->log->info("Instance time:" . $this->startTime->diffForHumans());
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->log->error("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
-            throw new \Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
+            throw new Exception("Erro ao instanciar SAPbobsCOM.Company: " . $e->getMessage());
         }
 
         // Inicio Parametros obrigatorios
-        $this->_com->DbServerType = config("sap.db.type");
+        $this->_com->DbServerType = (int)config("sap.db.type");
         $this->_com->Server = config("sap.server");
         $this->_com->UserName = config("sap.username");
         $this->_com->Password = config("sap.password");
         $this->_com->CompanyDB = config("sap.db.database");
         // Fim Parametros obrigatorios
-        $this->_com->language = config("sap.language");
+        $this->_com->language = (int)config("sap.language");
 
         if (config('sap.license_server') !== null) {
             $this->_com->LicenseServer = config("sap.license_server");
@@ -121,12 +136,12 @@ final class NewCompany
             $this->log->error("Connection Error:" . $msg);
             $this->log->error("Connection time + instance time:" . $this->startTime->diffForHumans());
 
-            throw new \Exception("Não foi possivel conectar com o SAP: " . $msg);
+            throw new Exception("Não foi possivel conectar com o SAP: " . $msg);
         }
 
         if (!$this->_com->Connected) {
             $this->log->error("Connection generic error!");
-            throw new \Exception("SAP não conectado!");
+            throw new Exception("SAP não conectado!");
         }
 
         $this->log->info("Connection successful. Connection time + instance time:" . $this->startTime->diffForHumans());
@@ -139,19 +154,6 @@ final class NewCompany
         if ($this->_com && $this->_com->Connected) {
             $this->_com->Disconnect();
         }
-    }
-
-    public static function printTypeInfo(\COM $com, $dispinterface = null, $wantsink = false)
-    {
-        com_print_typeinfo($com, $dispinterface, $wantsink);
-    }
-
-    /**
-     * @return NewCompany
-     */
-    public static function getInstance()
-    {
-        return resolve(self::class);
     }
 
 }
