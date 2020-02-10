@@ -10,11 +10,14 @@ namespace Litiano\Sap;
 
 
 use Carbon\Carbon;
+use Closure;
 use COM;
 use Exception;
+use Litiano\Sap\Enum\BoWfTransOpt;
 use Litiano\Sap\IdeHelper\ICompany;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
+use Throwable;
 
 final class NewCompany
 {
@@ -146,6 +149,25 @@ final class NewCompany
 
         $this->log->info("Connection successful. Connection time + instance time:" . $this->startTime->diffForHumans());
         return $this->_com;
+    }
+
+    /**
+     * @param Closure $closure
+     * @return mixed
+     * @throws Throwable
+     */
+    public function transaction(Closure $closure)
+    {
+        $sap = NewCompany::getInstance()->getCompany();
+        $sap->StartTransaction();
+        try {
+            $result = \DB::transaction($closure);
+            $sap->EndTransaction(BoWfTransOpt::wf_Commit);
+            return $result;
+        } catch (Throwable $e) {
+            $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
+            throw $e;
+        }
     }
 
     /** @deprecated Buga a conexão */
