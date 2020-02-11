@@ -60,7 +60,7 @@ final class NewCompany
          * Portanto é melhor não desconectar.
          */
         //$this->disconnect();
-        //$this->log->info("Disconnection time: " . $this->startTime->diffForHumans());
+        //
     }
 
     /**
@@ -143,7 +143,8 @@ final class NewCompany
         }
 
         if (!$this->_com->Connected) {
-            $this->log->error("Connection generic error!");
+            $msg = $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription();
+            $this->log->error("Connection generic error:" . $msg);
             throw new Exception("SAP não conectado!");
         }
 
@@ -172,11 +173,14 @@ final class NewCompany
         }
     }
 
-    /** @deprecated Buga a conexão */
+    /** @info Em alguns casos Buga a conexão
+     *  @info Desconectando o apache não consome muita memória.
+     */
     protected function disconnect()
     {
-        if ($this->_com && $this->_com->Connected) {
+        if (config('sap.disconnect') && $this->_com && $this->_com->Connected) {
             $this->_com->Disconnect();
+            $this->log->info("Disconnection time: " . $this->startTime->diffForHumans());
         }
     }
 

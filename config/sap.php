@@ -16,6 +16,7 @@ return [
     'language' => env('SAP_LANGUAGE', BoSuppLangs::ln_Portuguese_Br),
     'use_trusted' => env('SAP_USE_TRUSTED', false),
     'sld_server' => env('SAP_SLD_SERVER'),
+    'disconnect' => env('SAP_DISCONNECT', false),
 
     'db' => [
         'driver' => env('SAP_DB_DRIVER', 'sqlsrv'),
