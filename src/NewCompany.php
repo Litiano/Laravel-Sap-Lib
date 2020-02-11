@@ -58,9 +58,9 @@ final class NewCompany
          * Update 2017/06/21
          * Mas desconectando na função disconnect o browser fica carregando e trava.
          * Portanto é melhor não desconectar.
+         * 2020-02-11 - Adicionada a conf disconnect, desconectar poupa memória do apache.
          */
-        //$this->disconnect();
-        //
+        $this->disconnect();
     }
 
     /**
