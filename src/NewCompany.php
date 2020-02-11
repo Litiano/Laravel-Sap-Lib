@@ -165,7 +165,9 @@ final class NewCompany
             $sap->EndTransaction(BoWfTransOpt::wf_Commit);
             return $result;
         } catch (Throwable $e) {
-            $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
+            if($sap->InTransaction) {
+                $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
+            }
             throw $e;
         }
     }
