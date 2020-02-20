@@ -17,6 +17,7 @@ return [
     'use_trusted' => env('SAP_USE_TRUSTED', false),
     'sld_server' => env('SAP_SLD_SERVER'),
     'disconnect' => env('SAP_DISCONNECT', false),
+    'login_attempts' => env('SAP_LOGIN_ATTEMPTS', 3),
 
     'db' => [
         'driver' => env('SAP_DB_DRIVER', 'sqlsrv'),

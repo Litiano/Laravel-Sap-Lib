@@ -12,6 +12,7 @@ namespace Litiano\Sap;
 use Carbon\Carbon;
 use Closure;
 use COM;
+use DB;
 use Exception;
 use Litiano\Sap\Enum\BoWfTransOpt;
 use Litiano\Sap\IdeHelper\ICompany;
@@ -41,14 +42,6 @@ final class NewCompany
         com_print_typeinfo($com, $dispinterface, $wantsink);
     }
 
-    /**
-     * @return NewCompany
-     */
-    public static function getInstance()
-    {
-        return resolve(self::class);
-    }
-
     public function __destruct()
     {
         /**
@@ -61,6 +54,38 @@ final class NewCompany
          * 2020-02-11 - Adicionada a conf disconnect, desconectar poupa memória do apache.
          */
         $this->disconnect();
+    }
+
+    /** @info Em alguns casos Buga a conexão
+     * @info Desconectando o apache não consome muita memória.
+     */
+    protected function disconnect()
+    {
+        if (config('sap.disconnect') && $this->_com && $this->_com->Connected) {
+            $this->_com->Disconnect();
+            $this->log->info("Disconnection time: " . $this->startTime->diffForHumans());
+        }
+    }
+
+    /**
+     * @param Closure $closure
+     * @return mixed
+     * @throws Throwable
+     */
+    public function transaction(Closure $closure)
+    {
+        $sap = NewCompany::getInstance()->getCompany();
+        $sap->StartTransaction();
+        try {
+            $result = DB::transaction($closure);
+            $sap->EndTransaction(BoWfTransOpt::wf_Commit);
+            return $result;
+        } catch (Throwable $e) {
+            if ($sap->InTransaction) {
+                $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
+            }
+            throw $e;
+        }
     }
 
     /**
@@ -132,14 +157,20 @@ final class NewCompany
             throw new \Exception("Não foi possivel autenticar usuário e senha no SAP: " .
                 $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription());
         }*/
-
-        if ($this->_com->Connect() !== 0) {
+        $attempt = 0;
+        while ($attempt < max(config("sap.login_attempts"), 1)) {
+            if ($this->_com->Connect() === 0) {
+                break;
+            }
+            $attempt++;
             $msg = $this->_com->GetLastErrorCode() . ":" . $this->_com->GetLastErrorDescription();
-
-            $this->log->error("Connection Error:" . $msg);
+            $this->log->error("Attempt {$attempt}, Connection Error:" . $msg);
             $this->log->error("Connection time + instance time:" . $this->startTime->diffForHumans());
-
-            throw new Exception("Não foi possivel conectar com o SAP: " . $msg);
+            if ($attempt === (int)config("sap.login_attempts")) {
+                $msg = "Connection failed after {$attempt} attempts.";
+                $this->log->error($msg);
+                throw new Exception($msg);
+            }
         }
 
         if (!$this->_com->Connected) {
@@ -153,35 +184,11 @@ final class NewCompany
     }
 
     /**
-     * @param Closure $closure
-     * @return mixed
-     * @throws Throwable
+     * @return NewCompany
      */
-    public function transaction(Closure $closure)
+    public static function getInstance()
     {
-        $sap = NewCompany::getInstance()->getCompany();
-        $sap->StartTransaction();
-        try {
-            $result = \DB::transaction($closure);
-            $sap->EndTransaction(BoWfTransOpt::wf_Commit);
-            return $result;
-        } catch (Throwable $e) {
-            if($sap->InTransaction) {
-                $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
-            }
-            throw $e;
-        }
-    }
-
-    /** @info Em alguns casos Buga a conexão
-     *  @info Desconectando o apache não consome muita memória.
-     */
-    protected function disconnect()
-    {
-        if (config('sap.disconnect') && $this->_com && $this->_com->Connected) {
-            $this->_com->Disconnect();
-            $this->log->info("Disconnection time: " . $this->startTime->diffForHumans());
-        }
+        return resolve(self::class);
     }
 
 }
