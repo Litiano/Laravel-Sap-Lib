@@ -6,442 +6,548 @@
  * Date: 25/11/2016
  * Time: 15:59
  */
+
 namespace Litiano\Sap\IdeHelper;
 
-use Litiano\Sap\Enum\BoSuppLangs;
+use DateTime;
 
-class ICompany { /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
-    /* DISPID=1610612736 */
-    function QueryInterface(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
-        /* VT_PTR [26] [out] --> VT_PTR [26]  */ &$ppvObj
-    )
-    {
-    }
-    /* DISPID=1610612737 */
-    /* VT_UI4 [19] */
-    function AddRef(
-    )
-    {
-    }
-    /* DISPID=1610612738 */
-    /* VT_UI4 [19] */
-    function Release(
-    )
-    {
-    }
-    /* DISPID=1610678272 */
-    function GetTypeInfoCount(
-        /* VT_PTR [26] [out] --> VT_UINT [23]  */ &$pctinfo
-    )
-    {
-    }
-    /* DISPID=1610678273 */
-    function GetTypeInfo(
-        /* VT_UINT [23] [in] */ $itinfo,
-        /* VT_UI4 [19] [in] */ $lcid,
-        /* VT_PTR [26] [out] --> VT_PTR [26]  */ &$pptinfo
-    )
-    {
-    }
-    /* DISPID=1610678274 */
-    function GetIDsOfNames(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
-        /* VT_PTR [26] [in] --> VT_PTR [26]  */ &$rgszNames,
-        /* VT_UINT [23] [in] */ $cNames,
-        /* VT_UI4 [19] [in] */ $lcid,
-        /* VT_PTR [26] [out] --> VT_I4 [3]  */ &$rgdispid
-    )
-    {
-    }
-    /* DISPID=1610678275 */
-    function Invoke(
-        /* VT_I4 [3] [in] */ $dispidMember,
-        /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
-        /* VT_UI4 [19] [in] */ $lcid,
-        /* VT_UI2 [18] [in] */ $wFlags,
-        /* VT_PTR [26] [in] --> ? [29]  */ &$pdispparams,
-        /* VT_PTR [26] [out] --> VT_VARIANT [12]  */ &$pvarResult,
-        /* VT_PTR [26] [out] --> ? [29]  */ &$pexcepinfo,
-        /* VT_PTR [26] [out] --> VT_UINT [23]  */ &$puArgErr
-    )
-    {
-    }
-    /* DISPID=1 */
-    /* VT_I4 [3] */
-    function Connect(
-    )
-    {
-        /* Use this function for establishing connection to the database. */
-    }
-    /* DISPID=2 */
-    /* VT_BSTR [8] */
-    /* The SQL server name to connect to. */
-    var $Server;
-
-
-    /* DISPID=4 */
-    /* VT_BSTR [8] */
-    /* The company's database to connet. */
-    var $CompanyDB;
-
-
-    /* DISPID=5 */
-    /* VT_I4 [3] */
-    /* The current user signature. */
-    var $UserSignature;
-
-    /* DISPID=6 */
-    /* VT_BSTR [8] */
-    /* The Current company name. */
-    var $CompanyName;
-
-    /* DISPID=7 */
-    /* VT_BSTR [8] */
-    /* The system path to the exported Word documents. */
-    var $WordDocsPath;
-
-    /* DISPID=8 */
-    /* VT_BSTR [8] */
-    /* The system path to the Bitmaps. */
-    var $BitMapPath;
-
-    /* DISPID=9 */
-    /* VT_BSTR [8] */
-    /* The system path to the exported Excel documents. */
-    var $ExcelDocsPath;
-
-    /* DISPID=10 */
-    /* VT_BSTR [8] */
-    /* The user name used for establishing connection to the system. */
-    var $UserName;
-
-
-    /* DISPID=11 */
-    /* VT_BSTR [8] */
-    /* The password used for establishing connection to the system. */
-    var $Password;
-
-
-    /* DISPID=12 */
-    /* VT_BOOL [11] */
-    /* Use this property to find out about connection status. */
-    var $Connected;
-
-    /* DISPID=13 */
-    /* VT_BSTR [8] */
-    /* The system path to the Attachments. */
-    var $AttachMentPath;
-
-    /* DISPID=14 */
-    /* VT_DISPATCH [9] */
+class ICompany
+{ /* GUID={3BA8DAED-5B33-4CE4-A4B8-B4308D86E524} */
     /**
-     * @param $Object
+     * DISPID=2
+     * @var string $Server The SQL server name to connect to.
+     */
+    var $Server;
+    /**
+     * DISPID=4
+     * @var string $CompanyDB The company's database to connet.
+     */
+    var $CompanyDB;
+    /**
+     * DISPID=5
+     * @var int $UserSignature The current user signature.
+     */
+    var $UserSignature;
+    /**
+     * DISPID=6
+     * @var string $CompanyName The Current company name.
+     */
+    var $CompanyName;
+    /**
+     * DISPID=7
+     * @var string $WordDocsPath The system path to the exported Word documents.
+     */
+    var $WordDocsPath;
+    /**
+     * DISPID=8
+     * @var string $BitMapPath The system path to the Bitmaps.
+     */
+    var $BitMapPath;
+    /**
+     * DISPID=9
+     * @var string $ExcelDocsPath The system path to the exported Excel documents.
+     */
+    var $ExcelDocsPath;
+    /**
+     * DISPID=10
+     * @var string $UserName The user name used for establishing connection to the system.
+     */
+    var $UserName;
+    /**
+     * DISPID=11
+     * @var string $Password The password used for establishing connection to the system.
+     */
+    var $Password;
+    /**
+     * DISPID=12
+     * @var bool $Connected Use this property to find out about connection status.
+     */
+    var $Connected;
+    /**
+     * DISPID=13
+     * @var string $AttachMentPath The system path to the Attachments.
+     */
+    var $AttachMentPath;
+    /**
+     * DISPID=18
+     * @var int $language property language
+     * Use BoSuppLangs
+     */
+    var $language;
+    /**
+     * DISPID=23
+     * @var bool $UseTrusted property UseTrusted
+     */
+    var $UseTrusted;
+    /**
+     * DISPID=27
+     * @var mixed $UserTables property User Tables
+     */
+    var $UserTables;
+    /**
+     * DISPID=28
+     * @var bool $XMLAsString property XMLAsString
+     */
+    var $XMLAsString;
+    /**
+     * DISPID=30
+     * @var int $XmlExportType property XmlExportType
+     */
+    var $XmlExportType;
+    /**
+     * DISPID=31
+     * @var bool $InTransaction property InTransaction
+     */
+    var $InTransaction;
+    /**
+     * DISPID=32
+     * @var string $DbUserName property DbUserName
+     */
+    var $DbUserName;
+    /**
+     * DISPID=33
+     * @var string $DbPassword property DbPassword
+     */
+    var $DbPassword;
+    /**
+     * DISPID=36
+     * @var int $DbServerType property DbServerType
+     */
+    var $DbServerType;
+    /**
+     * DISPID=37
+     * @var string $AddonIdentifier property AddonIdentifier
+     */
+    var $AddonIdentifier;
+    /**
+     * DISPID=38
+     * @var string $LicenseServer property LicenseServer
+     */
+    var $LicenseServer;
+    /**
+     * DISPID=42
+     * @var int $Version Version
+     */
+    var $Version;
+    /**
+     * DISPID=43
+     * @var int $MinimalSupportedVersion MinimalSupportedVersion
+     */
+    var $MinimalSupportedVersion;
+    /**
+     * DISPID=44
+     * @var mixed $DTCTransactionObject property DTCTransactionObject
+     */
+    var $DTCTransactionObject;
+    /**
+     * DISPID=49
+     * @var void $Application property Application
+     */
+    var $Application;
+    /**
+     * DISPID=55
+     * @var string $SLDServer property SLDServer
+     */
+    var $SLDServer;
+    /**
+     * DISPID=56
+     * @var string $SecurityCode property SecurityCode
+     */
+    var $SecurityCode;
+
+    /**
+     * DISPID=1610612736
+     * @param int $riid [in]
+     * @param mixed $ppvObj [out]
+     * @return void
+     */
+    function QueryInterface(
+        /* mixed [26] [in] --> int [29]  */ &$riid,
+        /* mixed [26] [out] --> mixed [26]  */ &$ppvObj
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610612737
+     * @return int
+     */
+    function AddRef()
+    {
+    }
+
+    /**
+     * DISPID=1610612738
+     * @return int
+     */
+    function Release()
+    {
+    }
+
+    /**
+     * DISPID=1610678272
+     * @param int $pctinfo [out]
+     * @return void
+     */
+    function GetTypeInfoCount(
+        /* mixed [26] [out] --> int [23]  */ &$pctinfo
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610678273
+     * @param int $itinfo [in]
+     * @param int $lcid [in]
+     * @param mixed $pptinfo [out]
+     * @return void
+     */
+    function GetTypeInfo(
+        /* int [23] [in] */ $itinfo,
+        /* int [19] [in] */ $lcid,
+        /* mixed [26] [out] --> mixed [26]  */ &$pptinfo
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610678274
+     * @param int $riid [in]
+     * @param mixed $rgszNames [in]
+     * @param int $cNames [in]
+     * @param int $lcid [in]
+     * @param int $rgdispid [out]
+     * @return void
+     */
+    function GetIDsOfNames(
+        /* mixed [26] [in] --> int [29]  */ &$riid,
+        /* mixed [26] [in] --> mixed [26]  */ &$rgszNames,
+        /* int [23] [in] */ $cNames,
+        /* int [19] [in] */ $lcid,
+        /* mixed [26] [out] --> int [3]  */ &$rgdispid
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610678275
+     * @param int $dispidMember [in]
+     * @param int $riid [in]
+     * @param int $lcid [in]
+     * @param int $wFlags [in]
+     * @param int $pdispparams [in]
+     * @param object $pvarResult [out]
+     * @param int $pexcepinfo [out]
+     * @param int $puArgErr [out]
+     * @return void
+     */
+    function Invoke(
+        /* int [3] [in] */ $dispidMember,
+        /* mixed [26] [in] --> int [29]  */ &$riid,
+        /* int [19] [in] */ $lcid,
+        /* int [18] [in] */ $wFlags,
+        /* mixed [26] [in] --> int [29]  */ &$pdispparams,
+        /* mixed [26] [out] --> object [12]  */ &$pvarResult,
+        /* mixed [26] [out] --> int [29]  */ &$pexcepinfo,
+        /* mixed [26] [out] --> int [23]  */ &$puArgErr
+    )
+    {
+    }
+
+    /**
+     * DISPID=1
+     * @return int
+     * Use this function for establishing connection to the database.
+     */
+    function Connect()
+    {
+    }
+
+    /**
+     * DISPID=14
+     * @param int $Object
+     * Get a new initialized business object.
      * @return mixed
      */
     function GetBusinessObject(
-        /* ? [29]  */ $Object
+        /* int [29]  */ $Object
     )
     {
-        /* Get a new initialized business object. */
     }
-    /* DISPID=15 */
-    /* VT_DISPATCH [9] */
+
+    /**
+     * DISPID=15
+     * @param string $FileName [in]
+     * @param int $Index [in]
+     * Get a saved business object.
+     * @return mixed
+     */
     function GetBusinessObjectFromXML(
-        /* VT_BSTR [8] [in] */ $FileName,
-        /* VT_I4 [3] [in] */ $Index
+        /* string [8] [in] */ $FileName,
+        /* int [3] [in] */ $Index
     )
     {
-        /* Get a saved business object. */
     }
-    /* DISPID=17 */
-    function Disconnect(
-    )
-    {
-        /* Use this function to dissconnect from the server */
-    }
-    /* DISPID=18 */
-    /* ? [29] */
-    /* property language */
+
     /**
-     * @var $language BoSuppLangs::const
+     * DISPID=17
+     * @return void
+     * Use this function to dissconnect from the server
      */
-    var $language;
+    function Disconnect()
+    {
+    }
 
-
-    /* DISPID=19 */
+    /**
+     * DISPID=19
+     * @param int $errCode [out]
+     * @param string $errMsg [out]
+     * Use this function for establishing connection to the database.
+     * @return void
+     */
     function GetLastError(
-        /* VT_PTR [26] [out] --> VT_I4 [3]  */ &$errCode,
-        /* VT_PTR [26] [out] --> VT_BSTR [8]  */ &$errMsg
+        /* mixed [26] [out] --> int [3]  */ &$errCode,
+        /* mixed [26] [out] --> string [8]  */ &$errMsg
     )
     {
-        /* Use this function for establishing connection to the database. */
     }
-    /* DISPID=20 */
-    function StartTransaction(
-    )
-    {
-        /* method StartTransaction */
-    }
-    /* DISPID=21 */
-    function EndTransaction(
-        /* ? [29]  */ $endType
-    )
-    {
-        /* method EndTransaction */
-    }
-    /* DISPID=22 */
-    function GetNewObjectCode(
-        /* VT_PTR [26] [out] --> VT_BSTR [8]  */ &$ObjectCode
-    )
-    {
-        /* method GetNewObjectCode */
-    }
-    /* DISPID=23 */
-    /* VT_BOOL [11] */
-    /* property UseTrusted */
-    var $UseTrusted;
 
-
-    /* DISPID=24 */
-    /* VT_PTR [26] */
-    function GetCompanyList(
-    )
-    {
-        /* method GetCompanyList */
-    }
-    /* DISPID=25 */
-    /* ? [29] */
-    function GetXMLobjectType(
-        /* VT_BSTR [8] [in] */ $FileName,
-        /* VT_I4 [3] [in] */ $Index
-    )
-    {
-        /* method GetXMLobjectType */
-    }
-    /* DISPID=26 */
-    /* VT_I4 [3] */
-    function GetXMLelementCount(
-        /* VT_BSTR [8] [in] */ $FileName
-    )
-    {
-        /* method GetXMLelementCount */
-    }
-    /* DISPID=27 */
-    /* VT_PTR [26] */
-    /* property User Tables */
-    var $UserTables;
-
-    /* DISPID=28 */
-    /* VT_BOOL [11] */
-    /* property XMLAsString */
-    var $XMLAsString;
-
-
-    /* DISPID=29 */
-    /* VT_BSTR [8] */
-    function GetBusinessObjectXmlSchema(
-        /* ? [29] [in] */ $Object
-    )
-    {
-        /* method GetBusinessObjectXmlSchema */
-    }
-    /* DISPID=30 */
-    /* ? [29] */
-    /* property XmlExportType */
-    var $XmlExportType;
-
-
-    /* DISPID=31 */
-    /* VT_BOOL [11] */
-    /* property InTransaction */
-    var $InTransaction;
-
-    /* DISPID=32 */
-    /* VT_BSTR [8] */
-    /* property DbUserName */
-    var $DbUserName;
-
-
-    /* DISPID=33 */
-    /* VT_BSTR [8] */
-    /* property DbPassword */
-    var $DbPassword;
-
-
-    /* DISPID=34 */
-    /* VT_BSTR [8] */
-    function GetContextCookie(
-    )
-    {
-        /* method GetContextCookie */
-    }
-    /* DISPID=35 */
-    /* VT_I4 [3] */
-    function SetSboLoginContext(
-        /* VT_BSTR [8] [in] */ $conStr
-    )
-    {
-        /* method SetSboLoginContext */
-    }
-    /* DISPID=36 */
-    /* ? [29] */
-    /* property DbServerType */
-    var $DbServerType;
-
-
-    /* DISPID=37 */
-    /* VT_BSTR [8] */
-    /* property AddonIdentifier */
-    var $AddonIdentifier;
-
-
-    /* DISPID=38 */
-    /* VT_BSTR [8] */
-    /* property LicenseServer */
-    var $LicenseServer;
-
-    /* DISPID=39 */
-    /* VT_BSTR [8] */
     /**
-     * @return string
+     * DISPID=20
+     * @return void
+     * method StartTransaction
      */
-    function GetLastErrorDescription(
+    function StartTransaction()
+    {
+    }
+
+    /**
+     * DISPID=21
+     * @param int $endType
+     * method EndTransaction
+     * @return void
+     */
+    function EndTransaction(
+        /* int [29]  */ $endType
     )
     {
-        /* method GetLastErrorDescription */
     }
-    /* DISPID=40 */
-    /* VT_I4 [3] */
+
     /**
+     * DISPID=22
+     * @param string $ObjectCode [out]
+     * method GetNewObjectCode
+     * @return void
+     */
+    function GetNewObjectCode(
+        /* mixed [26] [out] --> string [8]  */ &$ObjectCode
+    )
+    {
+    }
+
+    /**
+     * DISPID=24
+     * @return mixed
+     * method GetCompanyList
+     */
+    function GetCompanyList()
+    {
+    }
+
+    /**
+     * DISPID=25
+     * @param string $FileName [in]
+     * @param int $Index [in]
+     * method GetXMLobjectType
      * @return int
      */
-    function GetLastErrorCode(
+    function GetXMLobjectType(
+        /* string [8] [in] */ $FileName,
+        /* int [3] [in] */ $Index
     )
     {
-        /* method GetLastErrorCode */
     }
-    /* DISPID=41 */
-    /* VT_BSTR [8] */
+
     /**
+     * DISPID=26
+     * @param string $FileName [in]
+     * method GetXMLelementCount
+     * @return int
+     */
+    function GetXMLelementCount(
+        /* string [8] [in] */ $FileName
+    )
+    {
+    }
+
+    /**
+     * DISPID=29
+     * @param int $Object [in]
+     * method GetBusinessObjectXmlSchema
      * @return string
      */
-    function GetNewObjectKey(
+    function GetBusinessObjectXmlSchema(
+        /* int [29] [in] */ $Object
     )
     {
-        /* method GetNewObjectKey */
     }
-    /* DISPID=42 */
-    /* VT_I4 [3] */
-    /* Version */
-    var $Version;
 
-    /* DISPID=43 */
-    /* VT_I4 [3] */
-    /* MinimalSupportedVersion */
-    var $MinimalSupportedVersion;
-
-    /* DISPID=44 */
-    /* VT_UNKNOWN [13] */
-    /* property DTCTransactionObject */
-    var $DTCTransactionObject;
-
-    /* DISPID=45 */
-    /* VT_BOOL [11] */
-    function IsDTCTransactionObjectSet(
-    )
-    {
-        /* IsDTCTransactionObjectSet */
-    }
-    /* DISPID=46 */
-    /* VT_PTR [26] */
     /**
-     * @return ICompanyService
+     * DISPID=34
+     * @return string
+     * method GetContextCookie
      */
-    function GetCompanyService(
+    function GetContextCookie()
+    {
+    }
+
+    /**
+     * DISPID=35
+     * @param string $conStr [in]
+     * method SetSboLoginContext
+     * @return int
+     */
+    function SetSboLoginContext(
+        /* string [8] [in] */ $conStr
     )
     {
-        /* GetCompanyService */
     }
-    /* DISPID=47 */
-    /* VT_I4 [3] */
+
+    /**
+     * DISPID=39
+     * @return string
+     * method GetLastErrorDescription
+     */
+    function GetLastErrorDescription()
+    {
+    }
+
+    /**
+     * DISPID=40
+     * @return int
+     * method GetLastErrorCode
+     */
+    function GetLastErrorCode()
+    {
+    }
+
+    /**
+     * DISPID=41
+     * @return string
+     * method GetNewObjectKey
+     */
+    function GetNewObjectKey()
+    {
+    }
+
+    /**
+     * DISPID=45
+     * @return bool
+     * IsDTCTransactionObjectSet
+     */
+    function IsDTCTransactionObjectSet()
+    {
+    }
+
+    /**
+     * DISPID=46
+     * @return ICompanyService
+     * GetCompanyService
+     */
+    function GetCompanyService()
+    {
+    }
+
+    /**
+     * DISPID=47
+     * @param string $NewPassword [in]
+     * ChangePassword
+     * @return int
+     */
     function ChangePassword(
-        /* VT_BSTR [8] [in] */ $NewPassword
+        /* string [8] [in] */ $NewPassword
     )
     {
-        /* ChangePassword */
     }
-    /* DISPID=48 */
-    /* VT_I4 [3] */
+
+    /**
+     * DISPID=48
+     * @param string $TableName [in]
+     * InvalidateCache
+     * @return int
+     */
     function InvalidateCache(
-        /* VT_BSTR [8] [in] */ $TableName
+        /* string [8] [in] */ $TableName
     )
     {
-        /* InvalidateCache */
     }
-    /* DISPID=49 */
-    /* property Application */
-    var $Application;
 
-    /* DISPID=50 */
-    /* VT_PTR [26] */
-    function GetRegisteredServersList(
-    )
+    /**
+     * DISPID=50
+     * @return mixed
+     * method GetRegisteredServersList
+     */
+    function GetRegisteredServersList()
     {
-        /* method GetRegisteredServersList */
     }
-    /* DISPID=51 */
-    /* ? [29] */
+
+    /**
+     * DISPID=51
+     * @param string $bstrUserName [in]
+     * @param string $bstrPassword [in]
+     * method AuthenticateUser
+     * @return int
+     */
     function AuthenticateUser(
-        /* VT_BSTR [8] [in] */ $bstrUserName,
-        /* VT_BSTR [8] [in] */ $bstrPassword
+        /* string [8] [in] */ $bstrUserName,
+        /* string [8] [in] */ $bstrPassword
     )
     {
-        /* method AuthenticateUser */
     }
-    /* DISPID=52 */
-    /* VT_BSTR [8] */
-    function GetNewObjectType(
-    )
-    {
-        /* method GetNewObjectType */
-    }
-    /* DISPID=53 */
-    /* VT_BSTR [8] */
-    function GetCompanyTime(
-    )
-    {
-        /* Get Company Time */
-    }
-    /* DISPID=54 */
-    /* VT_DATE [7] */
-    function GetCompanyDate(
-    )
-    {
-        /* Get Company DATE */
-    }
-    /* DISPID=509 */
-    /* VT_BSTR [8] */
-    function GetDBServerTime(
-    )
-    {
-        /* method GetDBServerTime */
-    }
-    /* DISPID=510 */
-    /* VT_DATE [7] */
-    function GetDBServerDate(
-    )
-    {
-        /* method GetDBServerDate */
-    }
-    /* DISPID=55 */
-    /* VT_BSTR [8] */
-    /* property SLDServer */
-    var $SLDServer;
 
-    /* DISPID=56 */
-    /* VT_BSTR [8] */
-    /* property SecurityCode */
-    var $SecurityCode;
+    /**
+     * DISPID=52
+     * @return string
+     * method GetNewObjectType
+     */
+    function GetNewObjectType()
+    {
+    }
+
+    /**
+     * DISPID=53
+     * @return string
+     * Get Company Time
+     */
+    function GetCompanyTime()
+    {
+    }
+
+    /**
+     * DISPID=54
+     * @return DateTime|mixed
+     * Get Company DATE
+     */
+    function GetCompanyDate()
+    {
+    }
+
+    /**
+     * DISPID=509
+     * @return string
+     * method GetDBServerTime
+     */
+    function GetDBServerTime()
+    {
+    }
+
+    /**
+     * DISPID=510
+     * @return DateTime|mixed
+     * method GetDBServerDate
+     */
+    function GetDBServerDate()
+    {
+    }
 
 }
