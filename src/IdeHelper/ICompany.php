@@ -27,21 +27,21 @@ use DateTime;
  * @property string $Password The password used for establishing connection to the system.
  * @property-read bool $Connected Use this property to find out about connection status.
  * @property-read string $AttachMentPath The system path to the Attachments.
- * @property mixed|VT_USERDEFINED $language property language
+ * @property int|VT_USERDEFINED $language property language
  * @property bool $UseTrusted property UseTrusted
  * @property-read mixed|VT_PTR $UserTables property User Tables
  * @property bool $XMLAsString property XMLAsString
- * @property mixed|VT_USERDEFINED $XmlExportType property XmlExportType
+ * @property int|VT_USERDEFINED $XmlExportType property XmlExportType
  * @property-read bool $InTransaction property InTransaction
  * @property string $DbUserName property DbUserName
  * @property string $DbPassword property DbPassword
- * @property mixed|VT_USERDEFINED $DbServerType property DbServerType
+ * @property int|VT_USERDEFINED $DbServerType property DbServerType
  * @property string $AddonIdentifier property AddonIdentifier
  * @property string $LicenseServer property LicenseServer
  * @property-read int $Version Version
  * @property-read int $MinimalSupportedVersion MinimalSupportedVersion
  * @property mixed|VT_UNKNOWN $DTCTransactionObject property DTCTransactionObject
- * @property-read void $Application property Application
+ * @property-write void $Application property Application
  * @property string $SLDServer property SLDServer
  * @property string $SecurityCode property SecurityCode
  */
@@ -49,12 +49,12 @@ class ICompany
 {
     /**
      * DISPID=1610612736
-     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param int|VT_USERDEFINED $riid [in]
      * @param mixed|VT_PTR $ppvObj [out]
      * @return void
      */
     function QueryInterface(
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$riid,
         /* mixed|VT_PTR [26] [out] --> mixed|VT_PTR [26]  */ &$ppvObj
     )
     {
@@ -104,7 +104,7 @@ class ICompany
 
     /**
      * DISPID=1610678274
-     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param int|VT_USERDEFINED $riid [in]
      * @param mixed|VT_PTR $rgszNames [in]
      * @param int $cNames [in]
      * @param string $lcid [in]
@@ -112,7 +112,7 @@ class ICompany
      * @return void
      */
     function GetIDsOfNames(
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$riid,
         /* mixed|VT_PTR [26] [in] --> mixed|VT_PTR [26]  */ &$rgszNames,
         /* int [23] [in] */ $cNames,
         /* string [19] [in] */ $lcid,
@@ -124,23 +124,23 @@ class ICompany
     /**
      * DISPID=1610678275
      * @param int $dispidMember [in]
-     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param int|VT_USERDEFINED $riid [in]
      * @param string $lcid [in]
      * @param string $wFlags [in]
-     * @param mixed|VT_USERDEFINED $pdispparams [in]
+     * @param int|VT_USERDEFINED $pdispparams [in]
      * @param variant|VT_VARIANT $pvarResult [out]
-     * @param mixed|VT_USERDEFINED $pexcepinfo [out]
+     * @param int|VT_USERDEFINED $pexcepinfo [out]
      * @param int $puArgErr [out]
      * @return void
      */
     function Invoke(
         /* int [3] [in] */ $dispidMember,
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$riid,
         /* string [19] [in] */ $lcid,
         /* string [18] [in] */ $wFlags,
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$pdispparams,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$pdispparams,
         /* mixed|VT_PTR [26] [out] --> variant|VT_VARIANT [12]  */ &$pvarResult,
-        /* mixed|VT_PTR [26] [out] --> mixed|VT_USERDEFINED [29]  */ &$pexcepinfo,
+        /* mixed|VT_PTR [26] [out] --> int|VT_USERDEFINED [29]  */ &$pexcepinfo,
         /* mixed|VT_PTR [26] [out] --> int [23]  */ &$puArgErr
     )
     {
@@ -223,12 +223,12 @@ class ICompany
 
     /**
      * DISPID=14
-     * @param mixed|VT_USERDEFINED $Object
+     * @param int|VT_USERDEFINED $Object
      * @return mixed|VT_DISPATCH
      * Get a new initialized business object.
      */
     function GetBusinessObject(
-        /* mixed|VT_USERDEFINED [29]  */ $Object
+        /* int|VT_USERDEFINED [29]  */ $Object
     )
     {
     }
@@ -258,7 +258,7 @@ class ICompany
 
     /**
      * DISPID=18
-     * @var mixed|VT_USERDEFINED $language [29] property language
+     * @var int|VT_USERDEFINED $language [29] property language
      */
     var $language;
 
@@ -287,12 +287,12 @@ class ICompany
 
     /**
      * DISPID=21
-     * @param mixed|VT_USERDEFINED $endType
+     * @param int|VT_USERDEFINED $endType
      * @return void
      * method EndTransaction
      */
     function EndTransaction(
-        /* mixed|VT_USERDEFINED [29]  */ $endType
+        /* int|VT_USERDEFINED [29]  */ $endType
     )
     {
     }
@@ -328,7 +328,7 @@ class ICompany
      * DISPID=25
      * @param string $FileName [in]
      * @param int $Index [in]
-     * @return mixed|VT_USERDEFINED
+     * @return int|VT_USERDEFINED
      * method GetXMLobjectType
      */
     function GetXMLobjectType(
@@ -364,19 +364,19 @@ class ICompany
 
     /**
      * DISPID=29
-     * @param mixed|VT_USERDEFINED $Object [in]
+     * @param int|VT_USERDEFINED $Object [in]
      * @return string
      * method GetBusinessObjectXmlSchema
      */
     function GetBusinessObjectXmlSchema(
-        /* mixed|VT_USERDEFINED [29] [in] */ $Object
+        /* int|VT_USERDEFINED [29] [in] */ $Object
     )
     {
     }
 
     /**
      * DISPID=30
-     * @var mixed|VT_USERDEFINED $XmlExportType [29] property XmlExportType
+     * @var int|VT_USERDEFINED $XmlExportType [29] property XmlExportType
      */
     var $XmlExportType;
 
@@ -421,7 +421,7 @@ class ICompany
 
     /**
      * DISPID=36
-     * @var mixed|VT_USERDEFINED $DbServerType [29] property DbServerType
+     * @var int|VT_USERDEFINED $DbServerType [29] property DbServerType
      */
     var $DbServerType;
 
@@ -543,7 +543,7 @@ class ICompany
      * DISPID=51
      * @param string $bstrUserName [in]
      * @param string $bstrPassword [in]
-     * @return mixed|VT_USERDEFINED
+     * @return int|VT_USERDEFINED
      * method AuthenticateUser
      */
     function AuthenticateUser(

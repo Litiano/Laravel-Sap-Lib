@@ -15,9 +15,9 @@ namespace Litiano\Sap\IdeHelper;
  *
  * @property-read IDocument_Lines $Lines Invoke the lines object
  * @property int $DocNum Doc num
- * @property mixed|VT_USERDEFINED $DocType Doc type
- * @property mixed|VT_USERDEFINED $HandWritten Hand Written
- * @property mixed|VT_USERDEFINED $Printed Printed
+ * @property int|VT_USERDEFINED $DocType Doc type
+ * @property int|VT_USERDEFINED $HandWritten Hand Written
+ * @property int|VT_USERDEFINED $Printed Printed
  * @property string|VT_DATE $DocDate Doc date
  * @property string|VT_DATE $DocDueDate Doc due date
  * @property string $CardCode Card code
@@ -35,16 +35,16 @@ namespace Litiano\Sap\IdeHelper;
  * @property string|VT_DATE $DocTime Doc time
  * @property int $SalesPersonCode Sales person code
  * @property int $TransportationCode Transportation code
- * @property mixed|VT_USERDEFINED $Confirmed Confirmed
+ * @property int|VT_USERDEFINED $Confirmed Confirmed
  * @property int $ImportFileNum Import file num
- * @property mixed|VT_USERDEFINED $SummeryType Summery type
+ * @property int|VT_USERDEFINED $SummeryType Summery type
  * @property int $ContactPersonCode Contact person code
- * @property mixed|VT_USERDEFINED $ShowSCN Show scn
+ * @property int|VT_USERDEFINED $ShowSCN Show scn
  * @property int $Series Series
  * @property string|VT_DATE $TaxDate Tax date
- * @property mixed|VT_USERDEFINED $PartialSupply Partial supply
+ * @property int|VT_USERDEFINED $PartialSupply Partial supply
  * @property-read mixed|VT_PTR $UserFields Invoke the user fields object
- * @property mixed|VT_USERDEFINED $DocObjectCode property DocObjectCode
+ * @property int|VT_USERDEFINED $DocObjectCode property DocObjectCode
  * @property string $ShipToCode property ShipToCode
  * @property string $Indicator property Indicator
  * @property string $FederalTaxID property FederalTaxID
@@ -59,46 +59,46 @@ namespace Litiano\Sap\IdeHelper;
  * @property-read float $VatSum property VatSum
  * @property-read float $VatSumSys property VatSumSys
  * @property-read float $VatSumFc property VatSumFc
- * @property-read mixed|VT_USERDEFINED $NetProcedure property NetProcedure
+ * @property-read int|VT_USERDEFINED $NetProcedure property NetProcedure
  * @property float $DocTotalFc property DocTotalFc
  * @property-read float $DocTotalSys property DocTotalSys
  * @property int $Form1099 property Form1099
  * @property string $Box1099 property Box1099
- * @property mixed|VT_USERDEFINED $RevisionPo property RevisionPo
+ * @property int|VT_USERDEFINED $RevisionPo property RevisionPo
  * @property string|VT_DATE $RequriedDate property RequriedDate
  * @property string|VT_DATE $CancelDate property CancelDate
- * @property mixed|VT_USERDEFINED $BlockDunning property BlockDunning
- * @property-read mixed|VT_USERDEFINED $Submitted property Submitted
+ * @property int|VT_USERDEFINED $BlockDunning property BlockDunning
+ * @property-read int|VT_USERDEFINED $Submitted property Submitted
  * @property-read int $Segment property Segment
- * @property-read mixed|VT_USERDEFINED $PickStatus property PickStatus
- * @property mixed|VT_USERDEFINED $Pick property Pick
+ * @property-read int|VT_USERDEFINED $PickStatus property PickStatus
+ * @property int|VT_USERDEFINED $Pick property Pick
  * @property string $PaymentMethod property PaymentMethod
- * @property mixed|VT_USERDEFINED $PaymentBlock property PaymentBlock
+ * @property int|VT_USERDEFINED $PaymentBlock property PaymentBlock
  * @property int $PaymentBlockEntry property PaymentBlockEntry
  * @property string $CentralBankIndicator property CentralBankIndicator
- * @property mixed|VT_USERDEFINED $MaximumCashDiscount property MaximumCashDiscount
- * @property-read mixed|VT_USERDEFINED $Reserve property Reserve
+ * @property int|VT_USERDEFINED $MaximumCashDiscount property MaximumCashDiscount
+ * @property-read int|VT_USERDEFINED $Reserve property Reserve
  * @property string $Project property Project
  * @property string|VT_DATE $ExemptionValidityDateFrom property ExemptionValidityDateFrom
  * @property string|VT_DATE $ExemptionValidityDateTo property ExemptionValidityDateTo
- * @property mixed|VT_USERDEFINED $WareHouseUpdateType property WareHouseUpdateType
+ * @property int|VT_USERDEFINED $WareHouseUpdateType property WareHouseUpdateType
  * @property-read IDocumentsAdditionalExpenses $Expenses property Expenses
- * @property mixed|VT_USERDEFINED $Rounding property Rounding
+ * @property int|VT_USERDEFINED $Rounding property Rounding
  * @property string $ExternalCorrectedDocNum property ExternalCorrectedDocNum
  * @property int $InternalCorrectedDocNum property InternalCorrectedDocNum
  * @property-read int $NextCorrectingDocument property NextCorrectingDocument
- * @property mixed|VT_USERDEFINED $DeferredTax property DeferredTax
+ * @property int|VT_USERDEFINED $DeferredTax property DeferredTax
  * @property string $TaxExemptionLetterNum property TaxExemptionLetterNum
  * @property-read float $WTApplied property WTApplied
  * @property-read float $WTAppliedFC property WTAppliedFC
- * @property-read mixed|VT_USERDEFINED $BillOfExchangeReserved property BillOfExchangeReserved
+ * @property-read int|VT_USERDEFINED $BillOfExchangeReserved property BillOfExchangeReserved
  * @property string $AgentCode property AgentCode
  * @property-read float $WTAppliedSC property WTAppliedSC
  * @property-read float $TotalEqualizationTax property TotalEqualizationTax
  * @property-read float $TotalEqualizationTaxFC property TotalEqualizationTaxFC
  * @property-read float $TotalEqualizationTaxSC property TotalEqualizationTaxSC
  * @property int $NumberOfInstallments property NumberOfInstallments
- * @property mixed|VT_USERDEFINED $ApplyTaxOnFirstInstallment property ApplyTaxOnFirstInstallment
+ * @property int|VT_USERDEFINED $ApplyTaxOnFirstInstallment property ApplyTaxOnFirstInstallment
  * @property-read float $WTNonSubjectAmount property WTNonSubjectAmount
  * @property-read float $WTNonSubjectAmountSC property WTNonSubjectAmountSC
  * @property-read float $WTNonSubjectAmountFC property WTNonSubjectAmountFC
@@ -113,20 +113,20 @@ namespace Litiano\Sap\IdeHelper;
  * @property-read float $WTAmount property WTAmount
  * @property string|VT_DATE $VatDate property VatDate
  * @property string $ManualNumber property ManualNumber
- * @property mixed|VT_USERDEFINED $UseShpdGoodsAct property UseShpdGoodsAct
+ * @property int|VT_USERDEFINED $UseShpdGoodsAct property UseShpdGoodsAct
  * @property int $FolioNumber property FolioNumber
- * @property mixed|VT_USERDEFINED $DocumentSubType property DocumentSubType
+ * @property int|VT_USERDEFINED $DocumentSubType property DocumentSubType
  * @property string $BPChannelCode property BPChannelCode
  * @property int $BPChannelContact property BPChannelContact
  * @property-read mixed|VT_PTR $WithholdingTaxData property WithholdingTaxData
  * @property string $DocObjectCodeEx property DocObjectCodeEx
  * @property string $Address2 property Address2
- * @property-read mixed|VT_USERDEFINED $DocumentStatus property DocumentStatus
+ * @property-read int|VT_USERDEFINED $DocumentStatus property DocumentStatus
  * @property-read string $PeriodIndicator property Period Indicator
  * @property string $PayToCode property Pay to code
  * @property int $DocumentsOwner property DocumentsOwner
  * @property string $FolioPrefixString property FolioPrefixString
- * @property mixed|VT_USERDEFINED $IsPayToBank property IsPayToBank
+ * @property int|VT_USERDEFINED $IsPayToBank property IsPayToBank
  * @property string $PayToBankCountry property PayToBankCountry
  * @property string $PayToBankCode property PayToBankCode
  * @property string $PayToBankAccountNo property PayToBankAccountNo
@@ -140,11 +140,11 @@ namespace Litiano\Sap\IdeHelper;
  * @property string $SequenceModel property SequenceModel
  * @property-read ITaxExtension $TaxExtension property TaxExtension
  * @property float $DownPayment property DownPayment
- * @property mixed|VT_USERDEFINED $ReserveInvoice property ReserveInvoice
+ * @property int|VT_USERDEFINED $ReserveInvoice property ReserveInvoice
  * @property int $LanguageCode property LanguageCode
  * @property string $TrackingNumber property TrackingNumber
  * @property string $PickRemark property PickRemark
- * @property mixed|VT_USERDEFINED $UseCorrectionVATGroup property UseCorrectionVATGroup
+ * @property int|VT_USERDEFINED $UseCorrectionVATGroup property UseCorrectionVATGroup
  * @property-read float $TotalDiscount property TotalDiscount
  * @property float $VatPercent property VatPercent
  * @property-read mixed|VT_PTR $Packages property Packages
@@ -152,7 +152,7 @@ namespace Litiano\Sap\IdeHelper;
  * @property-read mixed|VT_PTR $SpecialLines property SpecialLines
  * @property float $DownPaymentAmount property DownPaymentAmount
  * @property float $DownPaymentPercentage property DownPaymentPercentage
- * @property mixed|VT_USERDEFINED $DownPaymentType property DownPaymentType
+ * @property int|VT_USERDEFINED $DownPaymentType property DownPaymentType
  * @property-read mixed|VT_PTR $DownPaymentsToDraw property DownPaymentsToDraw
  * @property float $DownPaymentAmountFC property DownPaymentAmountFC
  * @property float $DownPaymentAmountSC property DownPaymentAmountSC
@@ -161,19 +161,19 @@ namespace Litiano\Sap\IdeHelper;
  * @property float $RoundingDiffAmount property RoundingDiffAmount
  * @property-read float $RoundingDiffAmountFC property RoundingDiffAmountFC
  * @property-read float $RoundingDiffAmountSC property RoundingDiffAmountSC
- * @property-read mixed|VT_USERDEFINED $Cancelled property Cancelled
- * @property mixed|VT_USERDEFINED $InsuranceOperation347 property InsuranceOperation347
+ * @property-read int|VT_USERDEFINED $Cancelled property Cancelled
+ * @property int|VT_USERDEFINED $InsuranceOperation347 property InsuranceOperation347
  * @property float $ServiceGrossProfitPercent property ServiceGrossProfitPercent
  * @property-read mixed|VT_PTR $AddressExtension property AddressExtension
  * @property string $ControlAccount property ControlAccount
- * @property mixed|VT_USERDEFINED $ArchiveNonremovableSalesQuotation property ArchiveNonremovableSalesQuotation
+ * @property int|VT_USERDEFINED $ArchiveNonremovableSalesQuotation property ArchiveNonremovableSalesQuotation
  * @property int $GTSChecker property GTSChecker
  * @property int $GTSPayee property GTSPayee
  * @property int $ExtraMonth property ExtraMonth
  * @property int $ExtraDays property ExtraDays
  * @property int $CashDiscountDateOffset property CashDiscountDateOffset
- * @property mixed|VT_USERDEFINED $StartFrom property StartFrom
- * @property mixed|VT_USERDEFINED $NTSApproved property NTSApproved
+ * @property int|VT_USERDEFINED $StartFrom property StartFrom
+ * @property int|VT_USERDEFINED $NTSApproved property NTSApproved
  * @property int $ETaxWebSite property ETaxWebSite
  * @property string $ETaxNumber property ETaxNumber
  * @property string $NTSApprovedNumber property NTSApprovedNumber
@@ -183,28 +183,28 @@ namespace Litiano\Sap\IdeHelper;
  * @property-read int $PrivateKeyVersion property PrivateKeyVersion
  * @property int $GroupSeries property GroupSeries
  * @property int $GroupNumber property GroupNumber
- * @property mixed|VT_USERDEFINED $GroupHandWritten property GroupHandWritten
- * @property mixed|VT_USERDEFINED $ReopenOriginalDocument property ReopenOriginalDocument
- * @property mixed|VT_USERDEFINED $ReopenManuallyClosedOrCanceledDocument property ReopenManuallyClosedOrCanceledDocument
- * @property mixed|VT_USERDEFINED $EDocGenerationType property EDocGenerationType
+ * @property int|VT_USERDEFINED $GroupHandWritten property GroupHandWritten
+ * @property int|VT_USERDEFINED $ReopenOriginalDocument property ReopenOriginalDocument
+ * @property int|VT_USERDEFINED $ReopenManuallyClosedOrCanceledDocument property ReopenManuallyClosedOrCanceledDocument
+ * @property int|VT_USERDEFINED $EDocGenerationType property EDocGenerationType
  * @property int $EDocSeries property EDocSeries
  * @property string $EDocNum property EDocNum
  * @property int $EDocExportFormat property EDocExportFormat
- * @property mixed|VT_USERDEFINED $DownPaymentStatus property DownPaymentStatus
- * @property mixed|VT_USERDEFINED $CreateOnlineQuotation property CreateOnlineQuotation
+ * @property int|VT_USERDEFINED $DownPaymentStatus property DownPaymentStatus
+ * @property int|VT_USERDEFINED $CreateOnlineQuotation property CreateOnlineQuotation
  * @property string $POSEquipmentNumber property POSEquipmentNumber
  * @property string $POSManufacturerSerialNumber property POSManufacturerSerialNumber
  * @property int $POSCashierNumber property POSCashierNumber
- * @property mixed|VT_USERDEFINED $ApplyCurrentVATRatesForDownPaymentsToDraw property ApplyCurrentVATRatesForDownPaymentsToDraw
- * @property mixed|VT_USERDEFINED $ClosingOption property ClosingOption
+ * @property int|VT_USERDEFINED $ApplyCurrentVATRatesForDownPaymentsToDraw property ApplyCurrentVATRatesForDownPaymentsToDraw
+ * @property int|VT_USERDEFINED $ClosingOption property ClosingOption
  * @property string|VT_DATE $SpecifiedClosingDate property SpecifiedClosingDate
- * @property mixed|VT_USERDEFINED $OpenForLandedCosts property OpenForLandedCosts
+ * @property int|VT_USERDEFINED $OpenForLandedCosts property OpenForLandedCosts
  * @property-read mixed|VT_PTR $Document_ApprovalRequests property Document_ApprovalRequests
- * @property-read mixed|VT_USERDEFINED $AuthorizationStatus property AuthorizationStatus
+ * @property-read int|VT_USERDEFINED $AuthorizationStatus property AuthorizationStatus
  * @property-read float $TotalDiscountFC property TotalDiscountFC
  * @property-read float $TotalDiscountSC property TotalDiscountSC
- * @property mixed|VT_USERDEFINED $RelevantToGTS property RelevantToGTS
- * @property mixed|VT_USERDEFINED $EDocStatus property EDocStatus
+ * @property int|VT_USERDEFINED $RelevantToGTS property RelevantToGTS
+ * @property int|VT_USERDEFINED $EDocStatus property EDocStatus
  * @property string $EDocErrorCode property EDocErrorCode
  * @property string $EDocErrorMessage property EDocErrorMessage
  * @property-read string $BPLName property BPLName
@@ -214,20 +214,20 @@ namespace Litiano\Sap\IdeHelper;
  * @property int $Releaser property Releaser
  * @property int $Receiver property Receiver
  * @property int $BlanketAgreementNumber property BlanketAgreementNumber
- * @property mixed|VT_USERDEFINED $IsAlteration property IsAlteration
+ * @property int|VT_USERDEFINED $IsAlteration property IsAlteration
  * @property string|VT_DATE $AssetValueDate property AssetValueDate
  * @property string $Requester property Requester
  * @property string $RequesterName property RequesterName
  * @property int $RequesterBranch property RequesterBranch
  * @property int $RequesterDepartment property RequesterDepartment
  * @property string $RequesterEmail property RequesterEmail
- * @property mixed|VT_USERDEFINED $SendNotification property SendNotification
+ * @property int|VT_USERDEFINED $SendNotification property SendNotification
  * @property int $AttachmentEntry property AttachmentEntry
  * @property int $ReqType property ReqType
- * @property-read mixed|VT_USERDEFINED $CancelStatus Property CancelStatus
- * @property mixed|VT_USERDEFINED $DocumentDelivery Property DocumentDelivery
- * @property mixed|VT_USERDEFINED $ReuseDocumentNum property ReuseDocumentNum
- * @property mixed|VT_USERDEFINED $ReuseNotaFiscalNum property ReuseNotaFiscalNum
+ * @property-read int|VT_USERDEFINED $CancelStatus Property CancelStatus
+ * @property int|VT_USERDEFINED $DocumentDelivery Property DocumentDelivery
+ * @property int|VT_USERDEFINED $ReuseDocumentNum property ReuseDocumentNum
+ * @property int|VT_USERDEFINED $ReuseNotaFiscalNum property ReuseNotaFiscalNum
  * @property string $AuthorizationCode property AuthorizationCode
  * @property string|VT_DATE $StartDeliveryDate property StartDeliveryDate
  * @property string|VT_DATE $StartDeliveryTime property StartDeliveryTime
@@ -235,17 +235,17 @@ namespace Litiano\Sap\IdeHelper;
  * @property string|VT_DATE $EndDeliveryTime property EndDeliveryTime
  * @property string $VehiclePlate property VehiclePlate
  * @property string $ATDocumentType property ATDocumentType
- * @property mixed|VT_USERDEFINED $ElecCommStatus property ElecCommStatus
+ * @property int|VT_USERDEFINED $ElecCommStatus property ElecCommStatus
  * @property-read string $ElecCommMessage property ElecCommMessage
- * @property mixed|VT_USERDEFINED $PrintSEPADirect property PrintSEPADirect
+ * @property int|VT_USERDEFINED $PrintSEPADirect property PrintSEPADirect
  * @property string $FiscalDocNum property FiscalDocNum
  * @property int $POSDailySummaryNo property POSDailySummaryNo
  * @property int $POSReceiptNo property POSReceiptNo
  * @property string $PointOfIssueCode property PointOfIssueCode
- * @property mixed|VT_USERDEFINED $Letter property Letter
+ * @property int|VT_USERDEFINED $Letter property Letter
  * @property int $FolioNumberFrom property FolioNumberFrom
  * @property int $FolioNumberTo property FolioNumberTo
- * @property mixed|VT_USERDEFINED $InterimType property InterimType
+ * @property int|VT_USERDEFINED $InterimType property InterimType
  * @property int $RelatedType property RelatedType
  * @property int $RelatedEntry property RelatedEntry
  * @property-read mixed|VT_PTR $WithholdingTaxDataWTX property WithholdingTaxDataWTX
@@ -254,12 +254,12 @@ class IDocuments
 {
     /**
      * DISPID=1610612736
-     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param int|VT_USERDEFINED $riid [in]
      * @param mixed|VT_PTR $ppvObj [out]
      * @return void
      */
     function QueryInterface(
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$riid,
         /* mixed|VT_PTR [26] [out] --> mixed|VT_PTR [26]  */ &$ppvObj
     )
     {
@@ -309,7 +309,7 @@ class IDocuments
 
     /**
      * DISPID=1610678274
-     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param int|VT_USERDEFINED $riid [in]
      * @param mixed|VT_PTR $rgszNames [in]
      * @param int $cNames [in]
      * @param string $lcid [in]
@@ -317,7 +317,7 @@ class IDocuments
      * @return void
      */
     function GetIDsOfNames(
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$riid,
         /* mixed|VT_PTR [26] [in] --> mixed|VT_PTR [26]  */ &$rgszNames,
         /* int [23] [in] */ $cNames,
         /* string [19] [in] */ $lcid,
@@ -329,23 +329,23 @@ class IDocuments
     /**
      * DISPID=1610678275
      * @param int $dispidMember [in]
-     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param int|VT_USERDEFINED $riid [in]
      * @param string $lcid [in]
      * @param string $wFlags [in]
-     * @param mixed|VT_USERDEFINED $pdispparams [in]
+     * @param int|VT_USERDEFINED $pdispparams [in]
      * @param variant|VT_VARIANT $pvarResult [out]
-     * @param mixed|VT_USERDEFINED $pexcepinfo [out]
+     * @param int|VT_USERDEFINED $pexcepinfo [out]
      * @param int $puArgErr [out]
      * @return void
      */
     function Invoke(
         /* int [3] [in] */ $dispidMember,
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$riid,
         /* string [19] [in] */ $lcid,
         /* string [18] [in] */ $wFlags,
-        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$pdispparams,
+        /* mixed|VT_PTR [26] [in] --> int|VT_USERDEFINED [29]  */ &$pdispparams,
         /* mixed|VT_PTR [26] [out] --> variant|VT_VARIANT [12]  */ &$pvarResult,
-        /* mixed|VT_PTR [26] [out] --> mixed|VT_USERDEFINED [29]  */ &$pexcepinfo,
+        /* mixed|VT_PTR [26] [out] --> int|VT_USERDEFINED [29]  */ &$pexcepinfo,
         /* mixed|VT_PTR [26] [out] --> int [23]  */ &$puArgErr
     )
     {
@@ -374,19 +374,19 @@ class IDocuments
 
     /**
      * DISPID=4
-     * @var mixed|VT_USERDEFINED $DocType [29] Doc type
+     * @var int|VT_USERDEFINED $DocType [29] Doc type
      */
     var $DocType;
 
     /**
      * DISPID=5
-     * @var mixed|VT_USERDEFINED $HandWritten [29] Hand Written
+     * @var int|VT_USERDEFINED $HandWritten [29] Hand Written
      */
     var $HandWritten;
 
     /**
      * DISPID=6
-     * @var mixed|VT_USERDEFINED $Printed [29] Printed
+     * @var int|VT_USERDEFINED $Printed [29] Printed
      */
     var $Printed;
 
@@ -494,7 +494,7 @@ class IDocuments
 
     /**
      * DISPID=25
-     * @var mixed|VT_USERDEFINED $Confirmed [29] Confirmed
+     * @var int|VT_USERDEFINED $Confirmed [29] Confirmed
      */
     var $Confirmed;
 
@@ -506,7 +506,7 @@ class IDocuments
 
     /**
      * DISPID=27
-     * @var mixed|VT_USERDEFINED $SummeryType [29] Summery type
+     * @var int|VT_USERDEFINED $SummeryType [29] Summery type
      */
     var $SummeryType;
 
@@ -518,7 +518,7 @@ class IDocuments
 
     /**
      * DISPID=29
-     * @var mixed|VT_USERDEFINED $ShowSCN [29] Show scn
+     * @var int|VT_USERDEFINED $ShowSCN [29] Show scn
      */
     var $ShowSCN;
 
@@ -536,7 +536,7 @@ class IDocuments
 
     /**
      * DISPID=32
-     * @var mixed|VT_USERDEFINED $PartialSupply [29] Partial supply
+     * @var int|VT_USERDEFINED $PartialSupply [29] Partial supply
      */
     var $PartialSupply;
 
@@ -581,7 +581,7 @@ class IDocuments
 
     /**
      * DISPID=40
-     * @var mixed|VT_USERDEFINED $DocObjectCode [29] property DocObjectCode
+     * @var int|VT_USERDEFINED $DocObjectCode [29] property DocObjectCode
      */
     var $DocObjectCode;
 
@@ -698,7 +698,7 @@ class IDocuments
 
     /**
      * DISPID=59
-     * @var mixed|VT_USERDEFINED $NetProcedure [29] property NetProcedure
+     * @var int|VT_USERDEFINED $NetProcedure [29] property NetProcedure
      */
     var $NetProcedure;
 
@@ -728,7 +728,7 @@ class IDocuments
 
     /**
      * DISPID=64
-     * @var mixed|VT_USERDEFINED $RevisionPo [29] property RevisionPo
+     * @var int|VT_USERDEFINED $RevisionPo [29] property RevisionPo
      */
     var $RevisionPo;
 
@@ -746,13 +746,13 @@ class IDocuments
 
     /**
      * DISPID=67
-     * @var mixed|VT_USERDEFINED $BlockDunning [29] property BlockDunning
+     * @var int|VT_USERDEFINED $BlockDunning [29] property BlockDunning
      */
     var $BlockDunning;
 
     /**
      * DISPID=68
-     * @var mixed|VT_USERDEFINED $Submitted [29] property Submitted
+     * @var int|VT_USERDEFINED $Submitted [29] property Submitted
      */
     var $Submitted;
 
@@ -764,13 +764,13 @@ class IDocuments
 
     /**
      * DISPID=70
-     * @var mixed|VT_USERDEFINED $PickStatus [29] property PickStatus
+     * @var int|VT_USERDEFINED $PickStatus [29] property PickStatus
      */
     var $PickStatus;
 
     /**
      * DISPID=71
-     * @var mixed|VT_USERDEFINED $Pick [29] property Pick
+     * @var int|VT_USERDEFINED $Pick [29] property Pick
      */
     var $Pick;
 
@@ -782,7 +782,7 @@ class IDocuments
 
     /**
      * DISPID=73
-     * @var mixed|VT_USERDEFINED $PaymentBlock [29] property PaymentBlock
+     * @var int|VT_USERDEFINED $PaymentBlock [29] property PaymentBlock
      */
     var $PaymentBlock;
 
@@ -800,13 +800,13 @@ class IDocuments
 
     /**
      * DISPID=76
-     * @var mixed|VT_USERDEFINED $MaximumCashDiscount [29] property MaximumCashDiscount
+     * @var int|VT_USERDEFINED $MaximumCashDiscount [29] property MaximumCashDiscount
      */
     var $MaximumCashDiscount;
 
     /**
      * DISPID=77
-     * @var mixed|VT_USERDEFINED $Reserve [29] property Reserve
+     * @var int|VT_USERDEFINED $Reserve [29] property Reserve
      */
     var $Reserve;
 
@@ -830,7 +830,7 @@ class IDocuments
 
     /**
      * DISPID=82
-     * @var mixed|VT_USERDEFINED $WareHouseUpdateType [29] property WareHouseUpdateType
+     * @var int|VT_USERDEFINED $WareHouseUpdateType [29] property WareHouseUpdateType
      */
     var $WareHouseUpdateType;
 
@@ -842,7 +842,7 @@ class IDocuments
 
     /**
      * DISPID=84
-     * @var mixed|VT_USERDEFINED $Rounding [29] property Rounding
+     * @var int|VT_USERDEFINED $Rounding [29] property Rounding
      */
     var $Rounding;
 
@@ -866,7 +866,7 @@ class IDocuments
 
     /**
      * DISPID=92
-     * @var mixed|VT_USERDEFINED $DeferredTax [29] property DeferredTax
+     * @var int|VT_USERDEFINED $DeferredTax [29] property DeferredTax
      */
     var $DeferredTax;
 
@@ -890,7 +890,7 @@ class IDocuments
 
     /**
      * DISPID=96
-     * @var mixed|VT_USERDEFINED $BillOfExchangeReserved [29] property BillOfExchangeReserved
+     * @var int|VT_USERDEFINED $BillOfExchangeReserved [29] property BillOfExchangeReserved
      */
     var $BillOfExchangeReserved;
 
@@ -932,7 +932,7 @@ class IDocuments
 
     /**
      * DISPID=103
-     * @var mixed|VT_USERDEFINED $ApplyTaxOnFirstInstallment [29] property ApplyTaxOnFirstInstallment
+     * @var int|VT_USERDEFINED $ApplyTaxOnFirstInstallment [29] property ApplyTaxOnFirstInstallment
      */
     var $ApplyTaxOnFirstInstallment;
 
@@ -1022,7 +1022,7 @@ class IDocuments
 
     /**
      * DISPID=118
-     * @var mixed|VT_USERDEFINED $UseShpdGoodsAct [29] property UseShpdGoodsAct
+     * @var int|VT_USERDEFINED $UseShpdGoodsAct [29] property UseShpdGoodsAct
      */
     var $UseShpdGoodsAct;
 
@@ -1034,7 +1034,7 @@ class IDocuments
 
     /**
      * DISPID=120
-     * @var mixed|VT_USERDEFINED $DocumentSubType [29] property DocumentSubType
+     * @var int|VT_USERDEFINED $DocumentSubType [29] property DocumentSubType
      */
     var $DocumentSubType;
 
@@ -1070,7 +1070,7 @@ class IDocuments
 
     /**
      * DISPID=126
-     * @var mixed|VT_USERDEFINED $DocumentStatus [29] property DocumentStatus
+     * @var int|VT_USERDEFINED $DocumentStatus [29] property DocumentStatus
      */
     var $DocumentStatus;
 
@@ -1100,7 +1100,7 @@ class IDocuments
 
     /**
      * DISPID=132
-     * @var mixed|VT_USERDEFINED $IsPayToBank [29] property IsPayToBank
+     * @var int|VT_USERDEFINED $IsPayToBank [29] property IsPayToBank
      */
     var $IsPayToBank;
 
@@ -1205,7 +1205,7 @@ class IDocuments
 
     /**
      * DISPID=148
-     * @var mixed|VT_USERDEFINED $ReserveInvoice [29] property ReserveInvoice
+     * @var int|VT_USERDEFINED $ReserveInvoice [29] property ReserveInvoice
      */
     var $ReserveInvoice;
 
@@ -1229,7 +1229,7 @@ class IDocuments
 
     /**
      * DISPID=152
-     * @var mixed|VT_USERDEFINED $UseCorrectionVATGroup [29] property UseCorrectionVATGroup
+     * @var int|VT_USERDEFINED $UseCorrectionVATGroup [29] property UseCorrectionVATGroup
      */
     var $UseCorrectionVATGroup;
 
@@ -1277,7 +1277,7 @@ class IDocuments
 
     /**
      * DISPID=160
-     * @var mixed|VT_USERDEFINED $DownPaymentType [29] property DownPaymentType
+     * @var int|VT_USERDEFINED $DownPaymentType [29] property DownPaymentType
      */
     var $DownPaymentType;
 
@@ -1331,7 +1331,7 @@ class IDocuments
 
     /**
      * DISPID=169
-     * @var mixed|VT_USERDEFINED $Cancelled [29] property Cancelled
+     * @var int|VT_USERDEFINED $Cancelled [29] property Cancelled
      */
     var $Cancelled;
 
@@ -1346,7 +1346,7 @@ class IDocuments
 
     /**
      * DISPID=170
-     * @var mixed|VT_USERDEFINED $InsuranceOperation347 [29] property InsuranceOperation347
+     * @var int|VT_USERDEFINED $InsuranceOperation347 [29] property InsuranceOperation347
      */
     var $InsuranceOperation347;
 
@@ -1370,7 +1370,7 @@ class IDocuments
 
     /**
      * DISPID=175
-     * @var mixed|VT_USERDEFINED $ArchiveNonremovableSalesQuotation [29] property ArchiveNonremovableSalesQuotation
+     * @var int|VT_USERDEFINED $ArchiveNonremovableSalesQuotation [29] property ArchiveNonremovableSalesQuotation
      */
     var $ArchiveNonremovableSalesQuotation;
 
@@ -1406,13 +1406,13 @@ class IDocuments
 
     /**
      * DISPID=181
-     * @var mixed|VT_USERDEFINED $StartFrom [29] property StartFrom
+     * @var int|VT_USERDEFINED $StartFrom [29] property StartFrom
      */
     var $StartFrom;
 
     /**
      * DISPID=182
-     * @var mixed|VT_USERDEFINED $NTSApproved [29] property NTSApproved
+     * @var int|VT_USERDEFINED $NTSApproved [29] property NTSApproved
      */
     var $NTSApproved;
 
@@ -1472,25 +1472,25 @@ class IDocuments
 
     /**
      * DISPID=192
-     * @var mixed|VT_USERDEFINED $GroupHandWritten [29] property GroupHandWritten
+     * @var int|VT_USERDEFINED $GroupHandWritten [29] property GroupHandWritten
      */
     var $GroupHandWritten;
 
     /**
      * DISPID=193
-     * @var mixed|VT_USERDEFINED $ReopenOriginalDocument [29] property ReopenOriginalDocument
+     * @var int|VT_USERDEFINED $ReopenOriginalDocument [29] property ReopenOriginalDocument
      */
     var $ReopenOriginalDocument;
 
     /**
      * DISPID=194
-     * @var mixed|VT_USERDEFINED $ReopenManuallyClosedOrCanceledDocument [29] property ReopenManuallyClosedOrCanceledDocument
+     * @var int|VT_USERDEFINED $ReopenManuallyClosedOrCanceledDocument [29] property ReopenManuallyClosedOrCanceledDocument
      */
     var $ReopenManuallyClosedOrCanceledDocument;
 
     /**
      * DISPID=195
-     * @var mixed|VT_USERDEFINED $EDocGenerationType [29] property EDocGenerationType
+     * @var int|VT_USERDEFINED $EDocGenerationType [29] property EDocGenerationType
      */
     var $EDocGenerationType;
 
@@ -1514,13 +1514,13 @@ class IDocuments
 
     /**
      * DISPID=199
-     * @var mixed|VT_USERDEFINED $DownPaymentStatus [29] property DownPaymentStatus
+     * @var int|VT_USERDEFINED $DownPaymentStatus [29] property DownPaymentStatus
      */
     var $DownPaymentStatus;
 
     /**
      * DISPID=200
-     * @var mixed|VT_USERDEFINED $CreateOnlineQuotation [29] property CreateOnlineQuotation
+     * @var int|VT_USERDEFINED $CreateOnlineQuotation [29] property CreateOnlineQuotation
      */
     var $CreateOnlineQuotation;
 
@@ -1544,13 +1544,13 @@ class IDocuments
 
     /**
      * DISPID=204
-     * @var mixed|VT_USERDEFINED $ApplyCurrentVATRatesForDownPaymentsToDraw [29] property ApplyCurrentVATRatesForDownPaymentsToDraw
+     * @var int|VT_USERDEFINED $ApplyCurrentVATRatesForDownPaymentsToDraw [29] property ApplyCurrentVATRatesForDownPaymentsToDraw
      */
     var $ApplyCurrentVATRatesForDownPaymentsToDraw;
 
     /**
      * DISPID=210
-     * @var mixed|VT_USERDEFINED $ClosingOption [29] property ClosingOption
+     * @var int|VT_USERDEFINED $ClosingOption [29] property ClosingOption
      */
     var $ClosingOption;
 
@@ -1562,7 +1562,7 @@ class IDocuments
 
     /**
      * DISPID=212
-     * @var mixed|VT_USERDEFINED $OpenForLandedCosts [29] property OpenForLandedCosts
+     * @var int|VT_USERDEFINED $OpenForLandedCosts [29] property OpenForLandedCosts
      */
     var $OpenForLandedCosts;
 
@@ -1592,7 +1592,7 @@ class IDocuments
 
     /**
      * DISPID=216
-     * @var mixed|VT_USERDEFINED $AuthorizationStatus [29] property AuthorizationStatus
+     * @var int|VT_USERDEFINED $AuthorizationStatus [29] property AuthorizationStatus
      */
     var $AuthorizationStatus;
 
@@ -1622,13 +1622,13 @@ class IDocuments
 
     /**
      * DISPID=220
-     * @var mixed|VT_USERDEFINED $RelevantToGTS [29] property RelevantToGTS
+     * @var int|VT_USERDEFINED $RelevantToGTS [29] property RelevantToGTS
      */
     var $RelevantToGTS;
 
     /**
      * DISPID=221
-     * @var mixed|VT_USERDEFINED $EDocStatus [29] property EDocStatus
+     * @var int|VT_USERDEFINED $EDocStatus [29] property EDocStatus
      */
     var $EDocStatus;
 
@@ -1688,7 +1688,7 @@ class IDocuments
 
     /**
      * DISPID=231
-     * @var mixed|VT_USERDEFINED $IsAlteration [29] property IsAlteration
+     * @var int|VT_USERDEFINED $IsAlteration [29] property IsAlteration
      */
     var $IsAlteration;
 
@@ -1739,7 +1739,7 @@ class IDocuments
 
     /**
      * DISPID=239
-     * @var mixed|VT_USERDEFINED $SendNotification [29] property SendNotification
+     * @var int|VT_USERDEFINED $SendNotification [29] property SendNotification
      */
     var $SendNotification;
 
@@ -1757,25 +1757,25 @@ class IDocuments
 
     /**
      * DISPID=242
-     * @var mixed|VT_USERDEFINED $CancelStatus [29] Property CancelStatus
+     * @var int|VT_USERDEFINED $CancelStatus [29] Property CancelStatus
      */
     var $CancelStatus;
 
     /**
      * DISPID=243
-     * @var mixed|VT_USERDEFINED $DocumentDelivery [29] Property DocumentDelivery
+     * @var int|VT_USERDEFINED $DocumentDelivery [29] Property DocumentDelivery
      */
     var $DocumentDelivery;
 
     /**
      * DISPID=244
-     * @var mixed|VT_USERDEFINED $ReuseDocumentNum [29] property ReuseDocumentNum
+     * @var int|VT_USERDEFINED $ReuseDocumentNum [29] property ReuseDocumentNum
      */
     var $ReuseDocumentNum;
 
     /**
      * DISPID=245
-     * @var mixed|VT_USERDEFINED $ReuseNotaFiscalNum [29] property ReuseNotaFiscalNum
+     * @var int|VT_USERDEFINED $ReuseNotaFiscalNum [29] property ReuseNotaFiscalNum
      */
     var $ReuseNotaFiscalNum;
 
@@ -1832,7 +1832,7 @@ class IDocuments
 
     /**
      * DISPID=254
-     * @var mixed|VT_USERDEFINED $ElecCommStatus [29] property ElecCommStatus
+     * @var int|VT_USERDEFINED $ElecCommStatus [29] property ElecCommStatus
      */
     var $ElecCommStatus;
 
@@ -1844,7 +1844,7 @@ class IDocuments
 
     /**
      * DISPID=256
-     * @var mixed|VT_USERDEFINED $PrintSEPADirect [29] property PrintSEPADirect
+     * @var int|VT_USERDEFINED $PrintSEPADirect [29] property PrintSEPADirect
      */
     var $PrintSEPADirect;
 
@@ -1874,7 +1874,7 @@ class IDocuments
 
     /**
      * DISPID=261
-     * @var mixed|VT_USERDEFINED $Letter [29] property Letter
+     * @var int|VT_USERDEFINED $Letter [29] property Letter
      */
     var $Letter;
 
@@ -1892,7 +1892,7 @@ class IDocuments
 
     /**
      * DISPID=264
-     * @var mixed|VT_USERDEFINED $InterimType [29] property InterimType
+     * @var int|VT_USERDEFINED $InterimType [29] property InterimType
      */
     var $InterimType;
 
