@@ -8,1731 +8,1911 @@
  */
 namespace Litiano\Sap\IdeHelper;
 
-class IDocuments { /* GUID={A6DA575B-E105-4585-9F4B-50CC4044EEDD} */
-    /* DISPID=1610612736 */
-    function QueryInterface(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
-        /* VT_PTR [26] [out] --> VT_PTR [26]  */ &$ppvObj
-    )
-    {
-    }
-    /* DISPID=1610612737 */
-    /* VT_UI4 [19] */
-    function AddRef(
-    )
-    {
-    }
-    /* DISPID=1610612738 */
-    /* VT_UI4 [19] */
-    function Release(
-    )
-    {
-    }
-    /* DISPID=1610678272 */
-    function GetTypeInfoCount(
-        /* VT_PTR [26] [out] --> VT_UINT [23]  */ &$pctinfo
-    )
-    {
-    }
-    /* DISPID=1610678273 */
-    function GetTypeInfo(
-        /* VT_UINT [23] [in] */ $itinfo,
-        /* VT_UI4 [19] [in] */ $lcid,
-        /* VT_PTR [26] [out] --> VT_PTR [26]  */ &$pptinfo
-    )
-    {
-    }
-    /* DISPID=1610678274 */
-    function GetIDsOfNames(
-        /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
-        /* VT_PTR [26] [in] --> VT_PTR [26]  */ &$rgszNames,
-        /* VT_UINT [23] [in] */ $cNames,
-        /* VT_UI4 [19] [in] */ $lcid,
-        /* VT_PTR [26] [out] --> VT_I4 [3]  */ &$rgdispid
-    )
-    {
-    }
-    /* DISPID=1610678275 */
-    function Invoke(
-        /* VT_I4 [3] [in] */ $dispidMember,
-        /* VT_PTR [26] [in] --> ? [29]  */ &$riid,
-        /* VT_UI4 [19] [in] */ $lcid,
-        /* VT_UI2 [18] [in] */ $wFlags,
-        /* VT_PTR [26] [in] --> ? [29]  */ &$pdispparams,
-        /* VT_PTR [26] [out] --> VT_VARIANT [12]  */ &$pvarResult,
-        /* VT_PTR [26] [out] --> ? [29]  */ &$pexcepinfo,
-        /* VT_PTR [26] [out] --> VT_UINT [23]  */ &$puArgErr
-    )
-    {
-    }
-    /* DISPID=1 */
-    /* VT_I4 [3] */
-    function Add(
-    )
-    {
-        /* Add */
-    }
-    /* DISPID=2 */
-    /* VT_PTR [26] */
-    /* Invoke the lines object */
+
+/**
+ * Class IDocuments
+ * GUID={A6DA575B-E105-4585-9F4B-50CC4044EEDD}
+ *
+ * @property-read IDocument_Lines $Lines Invoke the lines object
+ * @property int $DocNum Doc num
+ * @property mixed|VT_USERDEFINED $DocType Doc type
+ * @property mixed|VT_USERDEFINED $HandWritten Hand Written
+ * @property mixed|VT_USERDEFINED $Printed Printed
+ * @property string|VT_DATE $DocDate Doc date
+ * @property string|VT_DATE $DocDueDate Doc due date
+ * @property string $CardCode Card code
+ * @property string $CardName Card name
+ * @property string $Address Address
+ * @property string $NumAtCard Num at card
+ * @property string $DocCurrency Doc currency
+ * @property float $DocRate Doc rate
+ * @property float $DocTotal Doc total
+ * @property string $Reference1 Referance 1
+ * @property string $Reference2 Referance 2
+ * @property string $Comments Comments
+ * @property string $JournalMemo Jurnal memo
+ * @property int $PaymentGroupCode Payment group code
+ * @property string|VT_DATE $DocTime Doc time
+ * @property int $SalesPersonCode Sales person code
+ * @property int $TransportationCode Transportation code
+ * @property mixed|VT_USERDEFINED $Confirmed Confirmed
+ * @property int $ImportFileNum Import file num
+ * @property mixed|VT_USERDEFINED $SummeryType Summery type
+ * @property int $ContactPersonCode Contact person code
+ * @property mixed|VT_USERDEFINED $ShowSCN Show scn
+ * @property int $Series Series
+ * @property string|VT_DATE $TaxDate Tax date
+ * @property mixed|VT_USERDEFINED $PartialSupply Partial supply
+ * @property-read mixed|VT_PTR $UserFields Invoke the user fields object
+ * @property mixed|VT_USERDEFINED $DocObjectCode property DocObjectCode
+ * @property string $ShipToCode property ShipToCode
+ * @property string $Indicator property Indicator
+ * @property string $FederalTaxID property FederalTaxID
+ * @property-read mixed|VT_PTR $Browser User fields for this object.
+ * @property float $DiscountPercent property DiscountPercent
+ * @property string $PaymentReference property PaymentReference
+ * @property-read int $DocEntry property DocEntry
+ * @property-read string|VT_DATE $CreationDate property CreationDate
+ * @property-read string|VT_DATE $UpdateDate property UpdateDate
+ * @property-read int $FinancialPeriod property FinancialPeriod
+ * @property-read int $TransNum property TransNum
+ * @property-read float $VatSum property VatSum
+ * @property-read float $VatSumSys property VatSumSys
+ * @property-read float $VatSumFc property VatSumFc
+ * @property-read mixed|VT_USERDEFINED $NetProcedure property NetProcedure
+ * @property float $DocTotalFc property DocTotalFc
+ * @property-read float $DocTotalSys property DocTotalSys
+ * @property int $Form1099 property Form1099
+ * @property string $Box1099 property Box1099
+ * @property mixed|VT_USERDEFINED $RevisionPo property RevisionPo
+ * @property string|VT_DATE $RequriedDate property RequriedDate
+ * @property string|VT_DATE $CancelDate property CancelDate
+ * @property mixed|VT_USERDEFINED $BlockDunning property BlockDunning
+ * @property-read mixed|VT_USERDEFINED $Submitted property Submitted
+ * @property-read int $Segment property Segment
+ * @property-read mixed|VT_USERDEFINED $PickStatus property PickStatus
+ * @property mixed|VT_USERDEFINED $Pick property Pick
+ * @property string $PaymentMethod property PaymentMethod
+ * @property mixed|VT_USERDEFINED $PaymentBlock property PaymentBlock
+ * @property int $PaymentBlockEntry property PaymentBlockEntry
+ * @property string $CentralBankIndicator property CentralBankIndicator
+ * @property mixed|VT_USERDEFINED $MaximumCashDiscount property MaximumCashDiscount
+ * @property-read mixed|VT_USERDEFINED $Reserve property Reserve
+ * @property string $Project property Project
+ * @property string|VT_DATE $ExemptionValidityDateFrom property ExemptionValidityDateFrom
+ * @property string|VT_DATE $ExemptionValidityDateTo property ExemptionValidityDateTo
+ * @property mixed|VT_USERDEFINED $WareHouseUpdateType property WareHouseUpdateType
+ * @property-read IDocumentsAdditionalExpenses $Expenses property Expenses
+ * @property mixed|VT_USERDEFINED $Rounding property Rounding
+ * @property string $ExternalCorrectedDocNum property ExternalCorrectedDocNum
+ * @property int $InternalCorrectedDocNum property InternalCorrectedDocNum
+ * @property-read int $NextCorrectingDocument property NextCorrectingDocument
+ * @property mixed|VT_USERDEFINED $DeferredTax property DeferredTax
+ * @property string $TaxExemptionLetterNum property TaxExemptionLetterNum
+ * @property-read float $WTApplied property WTApplied
+ * @property-read float $WTAppliedFC property WTAppliedFC
+ * @property-read mixed|VT_USERDEFINED $BillOfExchangeReserved property BillOfExchangeReserved
+ * @property string $AgentCode property AgentCode
+ * @property-read float $WTAppliedSC property WTAppliedSC
+ * @property-read float $TotalEqualizationTax property TotalEqualizationTax
+ * @property-read float $TotalEqualizationTaxFC property TotalEqualizationTaxFC
+ * @property-read float $TotalEqualizationTaxSC property TotalEqualizationTaxSC
+ * @property int $NumberOfInstallments property NumberOfInstallments
+ * @property mixed|VT_USERDEFINED $ApplyTaxOnFirstInstallment property ApplyTaxOnFirstInstallment
+ * @property-read float $WTNonSubjectAmount property WTNonSubjectAmount
+ * @property-read float $WTNonSubjectAmountSC property WTNonSubjectAmountSC
+ * @property-read float $WTNonSubjectAmountFC property WTNonSubjectAmountFC
+ * @property-read float $WTExemptedAmount property WTExemptedAmount
+ * @property-read float $WTExemptedAmountSC property WTExemptedAmountSC
+ * @property-read float $WTExemptedAmountFC property WTExemptedAmountFC
+ * @property-read float $BaseAmountSC property BaseAmountSC
+ * @property-read float $BaseAmountFC property BaseAmountFC
+ * @property-read float $WTAmountFC property WTAmountFC
+ * @property-read float $WTAmountSC property WTAmountSC
+ * @property-read float $BaseAmount property BaseAmount
+ * @property-read float $WTAmount property WTAmount
+ * @property string|VT_DATE $VatDate property VatDate
+ * @property string $ManualNumber property ManualNumber
+ * @property mixed|VT_USERDEFINED $UseShpdGoodsAct property UseShpdGoodsAct
+ * @property int $FolioNumber property FolioNumber
+ * @property mixed|VT_USERDEFINED $DocumentSubType property DocumentSubType
+ * @property string $BPChannelCode property BPChannelCode
+ * @property int $BPChannelContact property BPChannelContact
+ * @property-read mixed|VT_PTR $WithholdingTaxData property WithholdingTaxData
+ * @property string $DocObjectCodeEx property DocObjectCodeEx
+ * @property string $Address2 property Address2
+ * @property-read mixed|VT_USERDEFINED $DocumentStatus property DocumentStatus
+ * @property-read string $PeriodIndicator property Period Indicator
+ * @property string $PayToCode property Pay to code
+ * @property int $DocumentsOwner property DocumentsOwner
+ * @property string $FolioPrefixString property FolioPrefixString
+ * @property mixed|VT_USERDEFINED $IsPayToBank property IsPayToBank
+ * @property string $PayToBankCountry property PayToBankCountry
+ * @property string $PayToBankCode property PayToBankCode
+ * @property string $PayToBankAccountNo property PayToBankAccountNo
+ * @property string $PayToBankBranch property PayToBankBranch
+ * @property int $BPL_IDAssignedToInvoice property BPL_IDAssignedToInvoice
+ * @property string|VT_DATE $ClosingDate property ClosingDate
+ * @property int $SequenceSerial property SequenceSerial
+ * @property int $SequenceCode property SequenceCode
+ * @property string $SeriesString property SeriesString
+ * @property string $SubSeriesString property SubSeriesString
+ * @property string $SequenceModel property SequenceModel
+ * @property-read ITaxExtension $TaxExtension property TaxExtension
+ * @property float $DownPayment property DownPayment
+ * @property mixed|VT_USERDEFINED $ReserveInvoice property ReserveInvoice
+ * @property int $LanguageCode property LanguageCode
+ * @property string $TrackingNumber property TrackingNumber
+ * @property string $PickRemark property PickRemark
+ * @property mixed|VT_USERDEFINED $UseCorrectionVATGroup property UseCorrectionVATGroup
+ * @property-read float $TotalDiscount property TotalDiscount
+ * @property float $VatPercent property VatPercent
+ * @property-read mixed|VT_PTR $Packages property Packages
+ * @property-read mixed|VT_PTR $Installments property Installments
+ * @property-read mixed|VT_PTR $SpecialLines property SpecialLines
+ * @property float $DownPaymentAmount property DownPaymentAmount
+ * @property float $DownPaymentPercentage property DownPaymentPercentage
+ * @property mixed|VT_USERDEFINED $DownPaymentType property DownPaymentType
+ * @property-read mixed|VT_PTR $DownPaymentsToDraw property DownPaymentsToDraw
+ * @property float $DownPaymentAmountFC property DownPaymentAmountFC
+ * @property float $DownPaymentAmountSC property DownPaymentAmountSC
+ * @property string $OpeningRemarks property OpeningRemarks
+ * @property string $ClosingRemarks property ClosingRemarks
+ * @property float $RoundingDiffAmount property RoundingDiffAmount
+ * @property-read float $RoundingDiffAmountFC property RoundingDiffAmountFC
+ * @property-read float $RoundingDiffAmountSC property RoundingDiffAmountSC
+ * @property-read mixed|VT_USERDEFINED $Cancelled property Cancelled
+ * @property mixed|VT_USERDEFINED $InsuranceOperation347 property InsuranceOperation347
+ * @property float $ServiceGrossProfitPercent property ServiceGrossProfitPercent
+ * @property-read mixed|VT_PTR $AddressExtension property AddressExtension
+ * @property string $ControlAccount property ControlAccount
+ * @property mixed|VT_USERDEFINED $ArchiveNonremovableSalesQuotation property ArchiveNonremovableSalesQuotation
+ * @property int $GTSChecker property GTSChecker
+ * @property int $GTSPayee property GTSPayee
+ * @property int $ExtraMonth property ExtraMonth
+ * @property int $ExtraDays property ExtraDays
+ * @property int $CashDiscountDateOffset property CashDiscountDateOffset
+ * @property mixed|VT_USERDEFINED $StartFrom property StartFrom
+ * @property mixed|VT_USERDEFINED $NTSApproved property NTSApproved
+ * @property int $ETaxWebSite property ETaxWebSite
+ * @property string $ETaxNumber property ETaxNumber
+ * @property string $NTSApprovedNumber property NTSApprovedNumber
+ * @property-read string $SignatureInputMessage property SignatureInputMessage
+ * @property-read string $SignatureDigest property SignatureDigest
+ * @property-read string $CertificationNumber property CertificationNumber
+ * @property-read int $PrivateKeyVersion property PrivateKeyVersion
+ * @property int $GroupSeries property GroupSeries
+ * @property int $GroupNumber property GroupNumber
+ * @property mixed|VT_USERDEFINED $GroupHandWritten property GroupHandWritten
+ * @property mixed|VT_USERDEFINED $ReopenOriginalDocument property ReopenOriginalDocument
+ * @property mixed|VT_USERDEFINED $ReopenManuallyClosedOrCanceledDocument property ReopenManuallyClosedOrCanceledDocument
+ * @property mixed|VT_USERDEFINED $EDocGenerationType property EDocGenerationType
+ * @property int $EDocSeries property EDocSeries
+ * @property string $EDocNum property EDocNum
+ * @property int $EDocExportFormat property EDocExportFormat
+ * @property mixed|VT_USERDEFINED $DownPaymentStatus property DownPaymentStatus
+ * @property mixed|VT_USERDEFINED $CreateOnlineQuotation property CreateOnlineQuotation
+ * @property string $POSEquipmentNumber property POSEquipmentNumber
+ * @property string $POSManufacturerSerialNumber property POSManufacturerSerialNumber
+ * @property int $POSCashierNumber property POSCashierNumber
+ * @property mixed|VT_USERDEFINED $ApplyCurrentVATRatesForDownPaymentsToDraw property ApplyCurrentVATRatesForDownPaymentsToDraw
+ * @property mixed|VT_USERDEFINED $ClosingOption property ClosingOption
+ * @property string|VT_DATE $SpecifiedClosingDate property SpecifiedClosingDate
+ * @property mixed|VT_USERDEFINED $OpenForLandedCosts property OpenForLandedCosts
+ * @property-read mixed|VT_PTR $Document_ApprovalRequests property Document_ApprovalRequests
+ * @property-read mixed|VT_USERDEFINED $AuthorizationStatus property AuthorizationStatus
+ * @property-read float $TotalDiscountFC property TotalDiscountFC
+ * @property-read float $TotalDiscountSC property TotalDiscountSC
+ * @property mixed|VT_USERDEFINED $RelevantToGTS property RelevantToGTS
+ * @property mixed|VT_USERDEFINED $EDocStatus property EDocStatus
+ * @property string $EDocErrorCode property EDocErrorCode
+ * @property string $EDocErrorMessage property EDocErrorMessage
+ * @property-read string $BPLName property BPLName
+ * @property-read string $VATRegNum property VATRegNum
+ * @property int $AnnualInvoiceDeclarationReference property AnnualInvoiceDeclarationReference
+ * @property string $Supplier property Supplier
+ * @property int $Releaser property Releaser
+ * @property int $Receiver property Receiver
+ * @property int $BlanketAgreementNumber property BlanketAgreementNumber
+ * @property mixed|VT_USERDEFINED $IsAlteration property IsAlteration
+ * @property string|VT_DATE $AssetValueDate property AssetValueDate
+ * @property string $Requester property Requester
+ * @property string $RequesterName property RequesterName
+ * @property int $RequesterBranch property RequesterBranch
+ * @property int $RequesterDepartment property RequesterDepartment
+ * @property string $RequesterEmail property RequesterEmail
+ * @property mixed|VT_USERDEFINED $SendNotification property SendNotification
+ * @property int $AttachmentEntry property AttachmentEntry
+ * @property int $ReqType property ReqType
+ * @property-read mixed|VT_USERDEFINED $CancelStatus Property CancelStatus
+ * @property mixed|VT_USERDEFINED $DocumentDelivery Property DocumentDelivery
+ * @property mixed|VT_USERDEFINED $ReuseDocumentNum property ReuseDocumentNum
+ * @property mixed|VT_USERDEFINED $ReuseNotaFiscalNum property ReuseNotaFiscalNum
+ * @property string $AuthorizationCode property AuthorizationCode
+ * @property string|VT_DATE $StartDeliveryDate property StartDeliveryDate
+ * @property string|VT_DATE $StartDeliveryTime property StartDeliveryTime
+ * @property string|VT_DATE $EndDeliveryDate property EndDeliveryDate
+ * @property string|VT_DATE $EndDeliveryTime property EndDeliveryTime
+ * @property string $VehiclePlate property VehiclePlate
+ * @property string $ATDocumentType property ATDocumentType
+ * @property mixed|VT_USERDEFINED $ElecCommStatus property ElecCommStatus
+ * @property-read string $ElecCommMessage property ElecCommMessage
+ * @property mixed|VT_USERDEFINED $PrintSEPADirect property PrintSEPADirect
+ * @property string $FiscalDocNum property FiscalDocNum
+ * @property int $POSDailySummaryNo property POSDailySummaryNo
+ * @property int $POSReceiptNo property POSReceiptNo
+ * @property string $PointOfIssueCode property PointOfIssueCode
+ * @property mixed|VT_USERDEFINED $Letter property Letter
+ * @property int $FolioNumberFrom property FolioNumberFrom
+ * @property int $FolioNumberTo property FolioNumberTo
+ * @property mixed|VT_USERDEFINED $InterimType property InterimType
+ * @property int $RelatedType property RelatedType
+ * @property int $RelatedEntry property RelatedEntry
+ * @property-read mixed|VT_PTR $WithholdingTaxDataWTX property WithholdingTaxDataWTX
+ */
+class IDocuments
+{
     /**
-     * @var $Lines IDocument_Lines
+     * DISPID=1610612736
+     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param mixed|VT_PTR $ppvObj [out]
+     * @return void
+     */
+    function QueryInterface(
+        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [out] --> mixed|VT_PTR [26]  */ &$ppvObj
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610612737
+     * @return string
+     */
+    function AddRef()
+    {
+    }
+
+    /**
+     * DISPID=1610612738
+     * @return string
+     */
+    function Release()
+    {
+    }
+
+    /**
+     * DISPID=1610678272
+     * @param int $pctinfo [out]
+     * @return void
+     */
+    function GetTypeInfoCount(
+        /* mixed|VT_PTR [26] [out] --> int [23]  */ &$pctinfo
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610678273
+     * @param int $itinfo [in]
+     * @param string $lcid [in]
+     * @param mixed|VT_PTR $pptinfo [out]
+     * @return void
+     */
+    function GetTypeInfo(
+        /* int [23] [in] */ $itinfo,
+        /* string [19] [in] */ $lcid,
+        /* mixed|VT_PTR [26] [out] --> mixed|VT_PTR [26]  */ &$pptinfo
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610678274
+     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param mixed|VT_PTR $rgszNames [in]
+     * @param int $cNames [in]
+     * @param string $lcid [in]
+     * @param int $rgdispid [out]
+     * @return void
+     */
+    function GetIDsOfNames(
+        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* mixed|VT_PTR [26] [in] --> mixed|VT_PTR [26]  */ &$rgszNames,
+        /* int [23] [in] */ $cNames,
+        /* string [19] [in] */ $lcid,
+        /* mixed|VT_PTR [26] [out] --> int [3]  */ &$rgdispid
+    )
+    {
+    }
+
+    /**
+     * DISPID=1610678275
+     * @param int $dispidMember [in]
+     * @param mixed|VT_USERDEFINED $riid [in]
+     * @param string $lcid [in]
+     * @param string $wFlags [in]
+     * @param mixed|VT_USERDEFINED $pdispparams [in]
+     * @param variant|VT_VARIANT $pvarResult [out]
+     * @param mixed|VT_USERDEFINED $pexcepinfo [out]
+     * @param int $puArgErr [out]
+     * @return void
+     */
+    function Invoke(
+        /* int [3] [in] */ $dispidMember,
+        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$riid,
+        /* string [19] [in] */ $lcid,
+        /* string [18] [in] */ $wFlags,
+        /* mixed|VT_PTR [26] [in] --> mixed|VT_USERDEFINED [29]  */ &$pdispparams,
+        /* mixed|VT_PTR [26] [out] --> variant|VT_VARIANT [12]  */ &$pvarResult,
+        /* mixed|VT_PTR [26] [out] --> mixed|VT_USERDEFINED [29]  */ &$pexcepinfo,
+        /* mixed|VT_PTR [26] [out] --> int [23]  */ &$puArgErr
+    )
+    {
+    }
+
+    /**
+     * DISPID=1
+     * @return int
+     * Add
+     */
+    function Add()
+    {
+    }
+
+    /**
+     * DISPID=2
+     * @var IDocument_Lines $Lines [26] Invoke the lines object
      */
     var $Lines;
 
-    /* DISPID=3 */
-    /* VT_I4 [3] */
-    /* Doc num */
+    /**
+     * DISPID=3
+     * @var int $DocNum [3] Doc num
+     */
     var $DocNum;
 
-    /* DISPID=3 */
-    /* Doc num */
-    var $DocNum;
-
-    /* DISPID=4 */
-    /* ? [29] */
-    /* Doc type */
+    /**
+     * DISPID=4
+     * @var mixed|VT_USERDEFINED $DocType [29] Doc type
+     */
     var $DocType;
 
-    /* DISPID=4 */
-    /* Doc type */
-    var $DocType;
-
-    /* DISPID=5 */
-    /* ? [29] */
-    /* Hand Written */
+    /**
+     * DISPID=5
+     * @var mixed|VT_USERDEFINED $HandWritten [29] Hand Written
+     */
     var $HandWritten;
 
-    /* DISPID=5 */
-    /* Hand Written */
-    var $HandWritten;
-
-    /* DISPID=6 */
-    /* ? [29] */
-    /* Printed */
+    /**
+     * DISPID=6
+     * @var mixed|VT_USERDEFINED $Printed [29] Printed
+     */
     var $Printed;
 
-    /* DISPID=7 */
-    /* VT_DATE [7] */
-    /* Doc date */
+    /**
+     * DISPID=7
+     * @var string|VT_DATE $DocDate [7] Doc date
+     */
     var $DocDate;
 
-    /* DISPID=7 */
-    /* Doc date */
-    var $DocDate;
-
-    /* DISPID=8 */
-    /* VT_DATE [7] */
-    /* Doc due date */
+    /**
+     * DISPID=8
+     * @var string|VT_DATE $DocDueDate [7] Doc due date
+     */
     var $DocDueDate;
 
-    /* DISPID=8 */
-    /* Doc due date */
-    var $DocDueDate;
-
-    /* DISPID=9 */
-    /* VT_BSTR [8] */
-    /* Card code */
+    /**
+     * DISPID=9
+     * @var string $CardCode [8] Card code
+     */
     var $CardCode;
 
-    /* DISPID=9 */
-    /* Card code */
-    var $CardCode;
-
-    /* DISPID=10 */
-    /* VT_BSTR [8] */
-    /* Card name */
+    /**
+     * DISPID=10
+     * @var string $CardName [8] Card name
+     */
     var $CardName;
 
-    /* DISPID=10 */
-    /* Card name */
-    var $CardName;
-
-    /* DISPID=11 */
-    /* VT_BSTR [8] */
-    /* Address */
+    /**
+     * DISPID=11
+     * @var string $Address [8] Address
+     */
     var $Address;
 
-    /* DISPID=11 */
-    /* Address */
-    var $Address;
-
-    /* DISPID=12 */
-    /* VT_BSTR [8] */
-    /* Num at card */
+    /**
+     * DISPID=12
+     * @var string $NumAtCard [8] Num at card
+     */
     var $NumAtCard;
 
-    /* DISPID=12 */
-    /* Num at card */
-    var $NumAtCard;
-
-    /* DISPID=13 */
-    /* VT_BSTR [8] */
-    /* Doc currency */
+    /**
+     * DISPID=13
+     * @var string $DocCurrency [8] Doc currency
+     */
     var $DocCurrency;
 
-    /* DISPID=13 */
-    /* Doc currency */
-    var $DocCurrency;
-
-    /* DISPID=14 */
-    /* VT_R8 [5] */
-    /* Doc rate */
+    /**
+     * DISPID=14
+     * @var float $DocRate [5] Doc rate
+     */
     var $DocRate;
 
-    /* DISPID=14 */
-    /* Doc rate */
-    var $DocRate;
-
-    /* DISPID=15 */
-    /* VT_R8 [5] */
-    /* Doc total */
+    /**
+     * DISPID=15
+     * @var float $DocTotal [5] Doc total
+     */
     var $DocTotal;
 
-    /* DISPID=15 */
-    /* Doc total */
-    var $DocTotal;
-
-    /* DISPID=16 */
-    /* VT_BSTR [8] */
-    /* Referance 1 */
+    /**
+     * DISPID=16
+     * @var string $Reference1 [8] Referance 1
+     */
     var $Reference1;
 
-    /* DISPID=16 */
-    /* Referance 1 */
-    var $Reference1;
-
-    /* DISPID=17 */
-    /* VT_BSTR [8] */
-    /* Referance 2 */
+    /**
+     * DISPID=17
+     * @var string $Reference2 [8] Referance 2
+     */
     var $Reference2;
 
-    /* DISPID=17 */
-    /* Referance 2 */
-    var $Reference2;
-
-    /* DISPID=18 */
-    /* VT_BSTR [8] */
-    /* Comments */
+    /**
+     * DISPID=18
+     * @var string $Comments [8] Comments
+     */
     var $Comments;
 
-    /* DISPID=18 */
-    /* Comments */
-    var $Comments;
-
-    /* DISPID=19 */
-    /* VT_BSTR [8] */
-    /* Jurnal memo */
+    /**
+     * DISPID=19
+     * @var string $JournalMemo [8] Jurnal memo
+     */
     var $JournalMemo;
 
-    /* DISPID=19 */
-    /* Jurnal memo */
-    var $JournalMemo;
-
-    /* DISPID=20 */
-    /* VT_I4 [3] */
-    /* Payment group code */
+    /**
+     * DISPID=20
+     * @var int $PaymentGroupCode [3] Payment group code
+     */
     var $PaymentGroupCode;
 
-    /* DISPID=20 */
-    /* Payment group code */
-    var $PaymentGroupCode;
-
-    /* DISPID=21 */
-    /* VT_DATE [7] */
-    /* Doc time */
+    /**
+     * DISPID=21
+     * @var string|VT_DATE $DocTime [7] Doc time
+     */
     var $DocTime;
 
-    /* DISPID=21 */
-    /* Doc time */
-    var $DocTime;
-
-    /* DISPID=22 */
-    /* VT_I4 [3] */
-    /* Sales person code */
+    /**
+     * DISPID=22
+     * @var int $SalesPersonCode [3] Sales person code
+     */
     var $SalesPersonCode;
 
-    /* DISPID=22 */
-    /* Sales person code */
-    var $SalesPersonCode;
-
-    /* DISPID=23 */
-    /* VT_I4 [3] */
-    /* Transportation code */
+    /**
+     * DISPID=23
+     * @var int $TransportationCode [3] Transportation code
+     */
     var $TransportationCode;
 
-    /* DISPID=23 */
-    /* Transportation code */
-    var $TransportationCode;
-
-    /* DISPID=25 */
-    /* ? [29] */
-    /* Confirmed */
+    /**
+     * DISPID=25
+     * @var mixed|VT_USERDEFINED $Confirmed [29] Confirmed
+     */
     var $Confirmed;
 
-    /* DISPID=25 */
-    /* Confirmed */
-    var $Confirmed;
-
-    /* DISPID=26 */
-    /* VT_I4 [3] */
-    /* Import file num */
+    /**
+     * DISPID=26
+     * @var int $ImportFileNum [3] Import file num
+     */
     var $ImportFileNum;
 
-    /* DISPID=27 */
-    /* ? [29] */
-    /* Summery type */
+    /**
+     * DISPID=27
+     * @var mixed|VT_USERDEFINED $SummeryType [29] Summery type
+     */
     var $SummeryType;
 
-    /* DISPID=27 */
-    /* Summery type */
-    var $SummeryType;
-
-    /* DISPID=28 */
-    /* VT_I4 [3] */
-    /* Contact person code */
+    /**
+     * DISPID=28
+     * @var int $ContactPersonCode [3] Contact person code
+     */
     var $ContactPersonCode;
 
-    /* DISPID=28 */
-    /* Contact person code */
-    var $ContactPersonCode;
-
-    /* DISPID=29 */
-    /* ? [29] */
-    /* Show scn */
+    /**
+     * DISPID=29
+     * @var mixed|VT_USERDEFINED $ShowSCN [29] Show scn
+     */
     var $ShowSCN;
 
-    /* DISPID=29 */
-    /* Show scn */
-    var $ShowSCN;
-
-    /* DISPID=30 */
-    /* VT_I4 [3] */
-    /* Series */
+    /**
+     * DISPID=30
+     * @var int $Series [3] Series
+     */
     var $Series;
 
-    /* DISPID=30 */
-    /* Series */
-    var $Series;
-
-    /* DISPID=31 */
-    /* VT_DATE [7] */
-    /* Tax date */
+    /**
+     * DISPID=31
+     * @var string|VT_DATE $TaxDate [7] Tax date
+     */
     var $TaxDate;
 
-    /* DISPID=31 */
-    /* Tax date */
-    var $TaxDate;
-
-    /* DISPID=32 */
-    /* ? [29] */
-    /* Partial supply */
+    /**
+     * DISPID=32
+     * @var mixed|VT_USERDEFINED $PartialSupply [29] Partial supply
+     */
     var $PartialSupply;
 
-    /* DISPID=32 */
-    /* Partial supply */
-    var $PartialSupply;
-
-    /* DISPID=35 */
-    /* VT_BOOL [11] */
+    /**
+     * DISPID=35
+     * @param int $AbsEntry
+     * @return bool
+     * Get by key
+     */
     function GetByKey(
-        /* VT_I4 [3]  */ $AbsEntry
+        /* int [3]  */ $AbsEntry
     )
     {
-        /* Get by key */
     }
-    /* DISPID=37 */
-    /* VT_PTR [26] */
-    /* Invoke the user fields object */
+
+    /**
+     * DISPID=37
+     * @var mixed|VT_PTR $UserFields [26] Invoke the user fields object
+     */
     var $UserFields;
 
-    /* DISPID=38 */
+    /**
+     * DISPID=38
+     * @param string $FileName [in][out]
+     * @return void
+     * Save object as XML document
+     */
     function SaveXML(
-        /* VT_PTR [26] [in][out] --> VT_BSTR [8]  */ &$FileName
+        /* mixed|VT_PTR [26] [in][out] --> string [8]  */ &$FileName
     )
     {
-        /* Save object as XML document */
     }
-    /* DISPID=39 */
-    /* VT_I4 [3] */
-    function Update(
-    )
+
+    /**
+     * DISPID=39
+     * @return int
+     * method Update
+     */
+    function Update()
     {
-        /* method Update */
     }
-    /* DISPID=40 */
-    /* ? [29] */
-    /* property DocObjectCode */
+
+    /**
+     * DISPID=40
+     * @var mixed|VT_USERDEFINED $DocObjectCode [29] property DocObjectCode
+     */
     var $DocObjectCode;
 
-    /* DISPID=40 */
-    /* property DocObjectCode */
-    var $DocObjectCode;
-
-    /* DISPID=41 */
-    /* VT_BSTR [8] */
-    /* property ShipToCode */
+    /**
+     * DISPID=41
+     * @var string $ShipToCode [8] property ShipToCode
+     */
     var $ShipToCode;
 
-    /* DISPID=41 */
-    /* property ShipToCode */
-    var $ShipToCode;
-
-    /* DISPID=42 */
-    /* VT_BSTR [8] */
-    /* property Indicator */
+    /**
+     * DISPID=42
+     * @var string $Indicator [8] property Indicator
+     */
     var $Indicator;
 
-    /* DISPID=42 */
-    /* property Indicator */
-    var $Indicator;
-
-    /* DISPID=43 */
-    /* VT_BSTR [8] */
-    /* property FederalTaxID */
+    /**
+     * DISPID=43
+     * @var string $FederalTaxID [8] property FederalTaxID
+     */
     var $FederalTaxID;
 
-    /* DISPID=43 */
-    /* property FederalTaxID */
-    var $FederalTaxID;
+    /**
+     * DISPID=44
+     * @return int
+     * method Cancel
+     */
+    function Cancel()
+    {
+    }
 
-    /* DISPID=44 */
-    /* VT_I4 [3] */
-    function Cancel(
-    )
+    /**
+     * DISPID=45
+     * @return int
+     * method Close
+     */
+    function Close()
     {
-        /* method Cancel */
     }
-    /* DISPID=45 */
-    /* VT_I4 [3] */
-    function Close(
-    )
+
+    /**
+     * DISPID=46
+     * @return int
+     * method Remove
+     */
+    function Remove()
     {
-        /* method Close */
     }
-    /* DISPID=46 */
-    /* VT_I4 [3] */
-    function Remove(
-    )
-    {
-        /* method Remove */
-    }
-    /* DISPID=48 */
-    /* VT_PTR [26] */
-    /* User fields for this object. */
+
+    /**
+     * DISPID=48
+     * @var mixed|VT_PTR $Browser [26] User fields for this object.
+     */
     var $Browser;
 
-    /* DISPID=49 */
-    /* VT_R8 [5] */
-    /* property DiscountPercent */
+    /**
+     * DISPID=49
+     * @var float $DiscountPercent [5] property DiscountPercent
+     */
     var $DiscountPercent;
 
-    /* DISPID=49 */
-    /* property DiscountPercent */
-    var $DiscountPercent;
-
-    /* DISPID=50 */
-    /* VT_BSTR [8] */
-    /* property PaymentReference */
+    /**
+     * DISPID=50
+     * @var string $PaymentReference [8] property PaymentReference
+     */
     var $PaymentReference;
 
-    /* DISPID=51 */
-    /* VT_I4 [3] */
-    /* property DocEntry */
+    /**
+     * DISPID=51
+     * @var int $DocEntry [3] property DocEntry
+     */
     var $DocEntry;
 
-    /* DISPID=52 */
-    /* VT_DATE [7] */
-    /* property CreationDate */
+    /**
+     * DISPID=52
+     * @var string|VT_DATE $CreationDate [7] property CreationDate
+     */
     var $CreationDate;
 
-    /* DISPID=53 */
-    /* VT_DATE [7] */
-    /* property UpdateDate */
+    /**
+     * DISPID=53
+     * @var string|VT_DATE $UpdateDate [7] property UpdateDate
+     */
     var $UpdateDate;
 
-    /* DISPID=54 */
-    /* VT_I4 [3] */
-    /* property FinancialPeriod */
+    /**
+     * DISPID=54
+     * @var int $FinancialPeriod [3] property FinancialPeriod
+     */
     var $FinancialPeriod;
 
-    /* DISPID=55 */
-    /* VT_I4 [3] */
-    /* property TransNum */
+    /**
+     * DISPID=55
+     * @var int $TransNum [3] property TransNum
+     */
     var $TransNum;
 
-    /* DISPID=56 */
-    /* VT_R8 [5] */
-    /* property VatSum */
+    /**
+     * DISPID=56
+     * @var float $VatSum [5] property VatSum
+     */
     var $VatSum;
 
-    /* DISPID=57 */
-    /* VT_R8 [5] */
-    /* property VatSumSys */
+    /**
+     * DISPID=57
+     * @var float $VatSumSys [5] property VatSumSys
+     */
     var $VatSumSys;
 
-    /* DISPID=58 */
-    /* VT_R8 [5] */
-    /* property VatSumFc */
+    /**
+     * DISPID=58
+     * @var float $VatSumFc [5] property VatSumFc
+     */
     var $VatSumFc;
 
-    /* DISPID=59 */
-    /* ? [29] */
-    /* property NetProcedure */
+    /**
+     * DISPID=59
+     * @var mixed|VT_USERDEFINED $NetProcedure [29] property NetProcedure
+     */
     var $NetProcedure;
 
-    /* DISPID=60 */
-    /* VT_R8 [5] */
-    /* property DocTotalFc */
+    /**
+     * DISPID=60
+     * @var float $DocTotalFc [5] property DocTotalFc
+     */
     var $DocTotalFc;
 
-    /* DISPID=61 */
-    /* VT_R8 [5] */
-    /* property DocTotalSys */
+    /**
+     * DISPID=61
+     * @var float $DocTotalSys [5] property DocTotalSys
+     */
     var $DocTotalSys;
 
-    /* DISPID=62 */
-    /* VT_I4 [3] */
-    /* property Form1099 */
+    /**
+     * DISPID=62
+     * @var int $Form1099 [3] property Form1099
+     */
     var $Form1099;
 
-    /* DISPID=62 */
-    /* property Form1099 */
-    var $Form1099;
-
-    /* DISPID=63 */
-    /* VT_BSTR [8] */
-    /* property Box1099 */
+    /**
+     * DISPID=63
+     * @var string $Box1099 [8] property Box1099
+     */
     var $Box1099;
 
-    /* DISPID=63 */
-    /* property Box1099 */
-    var $Box1099;
-
-    /* DISPID=64 */
-    /* ? [29] */
-    /* property RevisionPo */
+    /**
+     * DISPID=64
+     * @var mixed|VT_USERDEFINED $RevisionPo [29] property RevisionPo
+     */
     var $RevisionPo;
 
-    /* DISPID=64 */
-    /* property RevisionPo */
-    var $RevisionPo;
-
-    /* DISPID=65 */
-    /* VT_DATE [7] */
-    /* property RequriedDate */
+    /**
+     * DISPID=65
+     * @var string|VT_DATE $RequriedDate [7] property RequriedDate
+     */
     var $RequriedDate;
 
-    /* DISPID=65 */
-    /* property RequriedDate */
-    var $RequriedDate;
-
-    /* DISPID=66 */
-    /* VT_DATE [7] */
-    /* property CancelDate */
+    /**
+     * DISPID=66
+     * @var string|VT_DATE $CancelDate [7] property CancelDate
+     */
     var $CancelDate;
 
-    /* DISPID=66 */
-    /* property CancelDate */
-    var $CancelDate;
-
-    /* DISPID=67 */
-    /* ? [29] */
-    /* property BlockDunning */
+    /**
+     * DISPID=67
+     * @var mixed|VT_USERDEFINED $BlockDunning [29] property BlockDunning
+     */
     var $BlockDunning;
 
-    /* DISPID=67 */
-    /* property BlockDunning */
-    var $BlockDunning;
-
-    /* DISPID=68 */
-    /* ? [29] */
-    /* property Submitted */
+    /**
+     * DISPID=68
+     * @var mixed|VT_USERDEFINED $Submitted [29] property Submitted
+     */
     var $Submitted;
 
-    /* DISPID=69 */
-    /* VT_I4 [3] */
-    /* property Segment */
+    /**
+     * DISPID=69
+     * @var int $Segment [3] property Segment
+     */
     var $Segment;
 
-    /* DISPID=70 */
-    /* ? [29] */
-    /* property PickStatus */
+    /**
+     * DISPID=70
+     * @var mixed|VT_USERDEFINED $PickStatus [29] property PickStatus
+     */
     var $PickStatus;
 
-    /* DISPID=71 */
-    /* ? [29] */
-    /* property Pick */
+    /**
+     * DISPID=71
+     * @var mixed|VT_USERDEFINED $Pick [29] property Pick
+     */
     var $Pick;
 
-    /* DISPID=72 */
-    /* VT_BSTR [8] */
-    /* property PaymentMethod */
+    /**
+     * DISPID=72
+     * @var string $PaymentMethod [8] property PaymentMethod
+     */
     var $PaymentMethod;
 
-    /* DISPID=72 */
-    /* property PaymentMethod */
-    var $PaymentMethod;
-
-    /* DISPID=73 */
-    /* ? [29] */
-    /* property PaymentBlock */
+    /**
+     * DISPID=73
+     * @var mixed|VT_USERDEFINED $PaymentBlock [29] property PaymentBlock
+     */
     var $PaymentBlock;
 
-    /* DISPID=73 */
-    /* property PaymentBlock */
-    var $PaymentBlock;
-
-    /* DISPID=74 */
-    /* VT_I4 [3] */
-    /* property PaymentBlockEntry */
+    /**
+     * DISPID=74
+     * @var int $PaymentBlockEntry [3] property PaymentBlockEntry
+     */
     var $PaymentBlockEntry;
 
-    /* DISPID=74 */
-    /* property PaymentBlockEntry */
-    var $PaymentBlockEntry;
-
-    /* DISPID=75 */
-    /* VT_BSTR [8] */
-    /* property CentralBankIndicator */
+    /**
+     * DISPID=75
+     * @var string $CentralBankIndicator [8] property CentralBankIndicator
+     */
     var $CentralBankIndicator;
 
-    /* DISPID=75 */
-    /* property CentralBankIndicator */
-    var $CentralBankIndicator;
-
-    /* DISPID=76 */
-    /* ? [29] */
-    /* property MaximumCashDiscount */
+    /**
+     * DISPID=76
+     * @var mixed|VT_USERDEFINED $MaximumCashDiscount [29] property MaximumCashDiscount
+     */
     var $MaximumCashDiscount;
 
-    /* DISPID=76 */
-    /* property MaximumCashDiscount */
-    var $MaximumCashDiscount;
-
-    /* DISPID=77 */
-    /* ? [29] */
-    /* property Reserve */
+    /**
+     * DISPID=77
+     * @var mixed|VT_USERDEFINED $Reserve [29] property Reserve
+     */
     var $Reserve;
 
-    /* DISPID=78 */
-    /* VT_BSTR [8] */
-    /* property Project */
-    var $Project;
-
-    /* DISPID=78 */
-    /* property Project */
-    var $Project;
-
-    /* DISPID=80 */
-    /* VT_DATE [7] */
-    /* property ExemptionValidityDateFrom */
-    var $ExemptionValidityDateFrom;
-
-    /* DISPID=80 */
-    /* property ExemptionValidityDateFrom */
-    var $ExemptionValidityDateFrom;
-
-    /* DISPID=81 */
-    /* VT_DATE [7] */
-    /* property ExemptionValidityDateTo */
-    var $ExemptionValidityDateTo;
-
-    /* DISPID=81 */
-    /* property ExemptionValidityDateTo */
-    var $ExemptionValidityDateTo;
-
-    /* DISPID=82 */
-    /* ? [29] */
-    /* property WareHouseUpdateType */
-    var $WareHouseUpdateType;
-
-    /* DISPID=82 */
-    /* property WareHouseUpdateType */
-    var $WareHouseUpdateType;
-
-    /* DISPID=83 */
-    /* VT_PTR [26] */
-    /* property Expenses */
     /**
-     * @var $Expenses IDocumentsAdditionalExpenses
+     * DISPID=78
+     * @var string $Project [8] property Project
+     */
+    var $Project;
+
+    /**
+     * DISPID=80
+     * @var string|VT_DATE $ExemptionValidityDateFrom [7] property ExemptionValidityDateFrom
+     */
+    var $ExemptionValidityDateFrom;
+
+    /**
+     * DISPID=81
+     * @var string|VT_DATE $ExemptionValidityDateTo [7] property ExemptionValidityDateTo
+     */
+    var $ExemptionValidityDateTo;
+
+    /**
+     * DISPID=82
+     * @var mixed|VT_USERDEFINED $WareHouseUpdateType [29] property WareHouseUpdateType
+     */
+    var $WareHouseUpdateType;
+
+    /**
+     * DISPID=83
+     * @var IDocumentsAdditionalExpenses $Expenses [26] property Expenses
      */
     var $Expenses;
 
-    /* DISPID=84 */
-    /* ? [29] */
-    /* property Rounding */
+    /**
+     * DISPID=84
+     * @var mixed|VT_USERDEFINED $Rounding [29] property Rounding
+     */
     var $Rounding;
 
-    /* DISPID=84 */
-    /* property Rounding */
-    var $Rounding;
-
-    /* DISPID=89 */
-    /* VT_BSTR [8] */
-    /* property ExternalCorrectedDocNum */
+    /**
+     * DISPID=89
+     * @var string $ExternalCorrectedDocNum [8] property ExternalCorrectedDocNum
+     */
     var $ExternalCorrectedDocNum;
 
-    /* DISPID=89 */
-    /* property ExternalCorrectedDocNum */
-    var $ExternalCorrectedDocNum;
-
-    /* DISPID=90 */
-    /* VT_I4 [3] */
-    /* property InternalCorrectedDocNum */
+    /**
+     * DISPID=90
+     * @var int $InternalCorrectedDocNum [3] property InternalCorrectedDocNum
+     */
     var $InternalCorrectedDocNum;
 
-    /* DISPID=90 */
-    /* property InternalCorrectedDocNum */
-    var $InternalCorrectedDocNum;
-
-    /* DISPID=91 */
-    /* VT_I4 [3] */
-    /* property NextCorrectingDocument */
+    /**
+     * DISPID=91
+     * @var int $NextCorrectingDocument [3] property NextCorrectingDocument
+     */
     var $NextCorrectingDocument;
 
-    /* DISPID=92 */
-    /* ? [29] */
-    /* property DeferredTax */
+    /**
+     * DISPID=92
+     * @var mixed|VT_USERDEFINED $DeferredTax [29] property DeferredTax
+     */
     var $DeferredTax;
 
-    /* DISPID=92 */
-    /* property DeferredTax */
-    var $DeferredTax;
-
-    /* DISPID=93 */
-    /* VT_BSTR [8] */
-    /* property TaxExemptionLetterNum */
+    /**
+     * DISPID=93
+     * @var string $TaxExemptionLetterNum [8] property TaxExemptionLetterNum
+     */
     var $TaxExemptionLetterNum;
 
-    /* DISPID=93 */
-    /* property TaxExemptionLetterNum */
-    var $TaxExemptionLetterNum;
-
-    /* DISPID=94 */
-    /* VT_R8 [5] */
-    /* property WTApplied */
+    /**
+     * DISPID=94
+     * @var float $WTApplied [5] property WTApplied
+     */
     var $WTApplied;
 
-    /* DISPID=95 */
-    /* VT_R8 [5] */
-    /* property WTAppliedFC */
+    /**
+     * DISPID=95
+     * @var float $WTAppliedFC [5] property WTAppliedFC
+     */
     var $WTAppliedFC;
 
-    /* DISPID=96 */
-    /* ? [29] */
-    /* property BillOfExchangeReserved */
+    /**
+     * DISPID=96
+     * @var mixed|VT_USERDEFINED $BillOfExchangeReserved [29] property BillOfExchangeReserved
+     */
     var $BillOfExchangeReserved;
 
-    /* DISPID=97 */
-    /* VT_BSTR [8] */
-    /* property AgentCode */
+    /**
+     * DISPID=97
+     * @var string $AgentCode [8] property AgentCode
+     */
     var $AgentCode;
 
-    /* DISPID=97 */
-    /* property AgentCode */
-    var $AgentCode;
-
-    /* DISPID=98 */
-    /* VT_R8 [5] */
-    /* property WTAppliedSC */
+    /**
+     * DISPID=98
+     * @var float $WTAppliedSC [5] property WTAppliedSC
+     */
     var $WTAppliedSC;
 
-    /* DISPID=99 */
-    /* VT_R8 [5] */
-    /* property TotalEqualizationTax */
+    /**
+     * DISPID=99
+     * @var float $TotalEqualizationTax [5] property TotalEqualizationTax
+     */
     var $TotalEqualizationTax;
 
-    /* DISPID=100 */
-    /* VT_R8 [5] */
-    /* property TotalEqualizationTaxFC */
+    /**
+     * DISPID=100
+     * @var float $TotalEqualizationTaxFC [5] property TotalEqualizationTaxFC
+     */
     var $TotalEqualizationTaxFC;
 
-    /* DISPID=101 */
-    /* VT_R8 [5] */
-    /* property TotalEqualizationTaxSC */
+    /**
+     * DISPID=101
+     * @var float $TotalEqualizationTaxSC [5] property TotalEqualizationTaxSC
+     */
     var $TotalEqualizationTaxSC;
 
-    /* DISPID=102 */
-    /* VT_I4 [3] */
-    /* property NumberOfInstallments */
+    /**
+     * DISPID=102
+     * @var int $NumberOfInstallments [3] property NumberOfInstallments
+     */
     var $NumberOfInstallments;
 
-    /* DISPID=102 */
-    /* property NumberOfInstallments */
-    var $NumberOfInstallments;
-
-    /* DISPID=103 */
-    /* ? [29] */
-    /* property ApplyTaxOnFirstInstallment */
+    /**
+     * DISPID=103
+     * @var mixed|VT_USERDEFINED $ApplyTaxOnFirstInstallment [29] property ApplyTaxOnFirstInstallment
+     */
     var $ApplyTaxOnFirstInstallment;
 
-    /* DISPID=103 */
-    /* property ApplyTaxOnFirstInstallment */
-    var $ApplyTaxOnFirstInstallment;
-
-    /* DISPID=104 */
-    /* VT_R8 [5] */
-    /* property WTNonSubjectAmount */
+    /**
+     * DISPID=104
+     * @var float $WTNonSubjectAmount [5] property WTNonSubjectAmount
+     */
     var $WTNonSubjectAmount;
 
-    /* DISPID=105 */
-    /* VT_R8 [5] */
-    /* property WTNonSubjectAmountSC */
+    /**
+     * DISPID=105
+     * @var float $WTNonSubjectAmountSC [5] property WTNonSubjectAmountSC
+     */
     var $WTNonSubjectAmountSC;
 
-    /* DISPID=106 */
-    /* VT_R8 [5] */
-    /* property WTNonSubjectAmountFC */
+    /**
+     * DISPID=106
+     * @var float $WTNonSubjectAmountFC [5] property WTNonSubjectAmountFC
+     */
     var $WTNonSubjectAmountFC;
 
-    /* DISPID=107 */
-    /* VT_R8 [5] */
-    /* property WTExemptedAmount */
+    /**
+     * DISPID=107
+     * @var float $WTExemptedAmount [5] property WTExemptedAmount
+     */
     var $WTExemptedAmount;
 
-    /* DISPID=108 */
-    /* VT_R8 [5] */
-    /* property WTExemptedAmountSC */
+    /**
+     * DISPID=108
+     * @var float $WTExemptedAmountSC [5] property WTExemptedAmountSC
+     */
     var $WTExemptedAmountSC;
 
-    /* DISPID=109 */
-    /* VT_R8 [5] */
-    /* property WTExemptedAmountFC */
+    /**
+     * DISPID=109
+     * @var float $WTExemptedAmountFC [5] property WTExemptedAmountFC
+     */
     var $WTExemptedAmountFC;
 
-    /* DISPID=110 */
-    /* VT_R8 [5] */
-    /* property BaseAmountSC */
+    /**
+     * DISPID=110
+     * @var float $BaseAmountSC [5] property BaseAmountSC
+     */
     var $BaseAmountSC;
 
-    /* DISPID=111 */
-    /* VT_R8 [5] */
-    /* property BaseAmountFC */
+    /**
+     * DISPID=111
+     * @var float $BaseAmountFC [5] property BaseAmountFC
+     */
     var $BaseAmountFC;
 
-    /* DISPID=112 */
-    /* VT_R8 [5] */
-    /* property WTAmountFC */
+    /**
+     * DISPID=112
+     * @var float $WTAmountFC [5] property WTAmountFC
+     */
     var $WTAmountFC;
 
-    /* DISPID=113 */
-    /* VT_R8 [5] */
-    /* property WTAmountSC */
+    /**
+     * DISPID=113
+     * @var float $WTAmountSC [5] property WTAmountSC
+     */
     var $WTAmountSC;
 
-    /* DISPID=114 */
-    /* VT_R8 [5] */
-    /* property BaseAmount */
+    /**
+     * DISPID=114
+     * @var float $BaseAmount [5] property BaseAmount
+     */
     var $BaseAmount;
 
-    /* DISPID=115 */
-    /* VT_R8 [5] */
-    /* property WTAmount */
+    /**
+     * DISPID=115
+     * @var float $WTAmount [5] property WTAmount
+     */
     var $WTAmount;
 
-    /* DISPID=116 */
-    /* VT_DATE [7] */
-    /* property VatDate */
+    /**
+     * DISPID=116
+     * @var string|VT_DATE $VatDate [7] property VatDate
+     */
     var $VatDate;
 
-    /* DISPID=116 */
-    /* property VatDate */
-    var $VatDate;
-
-    /* DISPID=117 */
-    /* VT_BSTR [8] */
-    /* property ManualNumber */
+    /**
+     * DISPID=117
+     * @var string $ManualNumber [8] property ManualNumber
+     */
     var $ManualNumber;
 
-    /* DISPID=117 */
-    /* property ManualNumber */
-    var $ManualNumber;
-
-    /* DISPID=118 */
-    /* ? [29] */
-    /* property UseShpdGoodsAct */
+    /**
+     * DISPID=118
+     * @var mixed|VT_USERDEFINED $UseShpdGoodsAct [29] property UseShpdGoodsAct
+     */
     var $UseShpdGoodsAct;
 
-    /* DISPID=118 */
-    /* property UseShpdGoodsAct */
-    var $UseShpdGoodsAct;
-
-    /* DISPID=119 */
-    /* VT_I4 [3] */
-    /* property FolioNumber */
+    /**
+     * DISPID=119
+     * @var int $FolioNumber [3] property FolioNumber
+     */
     var $FolioNumber;
 
-    /* DISPID=119 */
-    /* property FolioNumber */
-    var $FolioNumber;
-
-    /* DISPID=120 */
-    /* ? [29] */
-    /* property DocumentSubType */
+    /**
+     * DISPID=120
+     * @var mixed|VT_USERDEFINED $DocumentSubType [29] property DocumentSubType
+     */
     var $DocumentSubType;
 
-    /* DISPID=120 */
-    /* property DocumentSubType */
-    var $DocumentSubType;
-
-    /* DISPID=121 */
-    /* VT_BSTR [8] */
-    /* property BPChannelCode */
+    /**
+     * DISPID=121
+     * @var string $BPChannelCode [8] property BPChannelCode
+     */
     var $BPChannelCode;
 
-    /* DISPID=121 */
-    /* property BPChannelCode */
-    var $BPChannelCode;
-
-    /* DISPID=122 */
-    /* VT_I4 [3] */
-    /* property BPChannelContact */
+    /**
+     * DISPID=122
+     * @var int $BPChannelContact [3] property BPChannelContact
+     */
     var $BPChannelContact;
 
-    /* DISPID=122 */
-    /* property BPChannelContact */
-    var $BPChannelContact;
-
-    /* DISPID=123 */
-    /* VT_PTR [26] */
-    /* property WithholdingTaxData */
+    /**
+     * DISPID=123
+     * @var mixed|VT_PTR $WithholdingTaxData [26] property WithholdingTaxData
+     */
     var $WithholdingTaxData;
 
-    /* DISPID=124 */
-    /* VT_BSTR [8] */
-    /* property DocObjectCodeEx */
+    /**
+     * DISPID=124
+     * @var string $DocObjectCodeEx [8] property DocObjectCodeEx
+     */
     var $DocObjectCodeEx;
 
-    /* DISPID=124 */
-    /* property DocObjectCodeEx */
-    var $DocObjectCodeEx;
-
-    /* DISPID=125 */
-    /* VT_BSTR [8] */
-    /* property Address2 */
+    /**
+     * DISPID=125
+     * @var string $Address2 [8] property Address2
+     */
     var $Address2;
 
-    /* DISPID=125 */
-    /* property Address2 */
-    var $Address2;
-
-    /* DISPID=126 */
-    /* ? [29] */
-    /* property DocumentStatus */
+    /**
+     * DISPID=126
+     * @var mixed|VT_USERDEFINED $DocumentStatus [29] property DocumentStatus
+     */
     var $DocumentStatus;
 
-    /* DISPID=127 */
-    /* VT_BSTR [8] */
-    /* property Period Indicator */
+    /**
+     * DISPID=127
+     * @var string $PeriodIndicator [8] property Period Indicator
+     */
     var $PeriodIndicator;
 
-    /* DISPID=129 */
-    /* VT_BSTR [8] */
-    /* property Pay to code */
+    /**
+     * DISPID=129
+     * @var string $PayToCode [8] property Pay to code
+     */
     var $PayToCode;
 
-    /* DISPID=129 */
-    /* property Pay to code */
-    var $PayToCode;
-
-    /* DISPID=130 */
-    /* VT_I4 [3] */
-    /* property DocumentsOwner */
+    /**
+     * DISPID=130
+     * @var int $DocumentsOwner [3] property DocumentsOwner
+     */
     var $DocumentsOwner;
 
-    /* DISPID=130 */
-    /* property DocumentsOwner */
-    var $DocumentsOwner;
-
-    /* DISPID=131 */
-    /* VT_BSTR [8] */
-    /* property FolioPrefixString */
+    /**
+     * DISPID=131
+     * @var string $FolioPrefixString [8] property FolioPrefixString
+     */
     var $FolioPrefixString;
 
-    /* DISPID=131 */
-    /* property FolioPrefixString */
-    var $FolioPrefixString;
-
-    /* DISPID=132 */
-    /* ? [29] */
-    /* property IsPayToBank */
+    /**
+     * DISPID=132
+     * @var mixed|VT_USERDEFINED $IsPayToBank [29] property IsPayToBank
+     */
     var $IsPayToBank;
 
-    /* DISPID=132 */
-    /* property IsPayToBank */
-    var $IsPayToBank;
-
-    /* DISPID=133 */
-    /* VT_BSTR [8] */
-    /* property PayToBankCountry */
+    /**
+     * DISPID=133
+     * @var string $PayToBankCountry [8] property PayToBankCountry
+     */
     var $PayToBankCountry;
 
-    /* DISPID=133 */
-    /* property PayToBankCountry */
-    var $PayToBankCountry;
-
-    /* DISPID=134 */
-    /* VT_BSTR [8] */
-    /* property PayToBankCode */
+    /**
+     * DISPID=134
+     * @var string $PayToBankCode [8] property PayToBankCode
+     */
     var $PayToBankCode;
 
-    /* DISPID=134 */
-    /* property PayToBankCode */
-    var $PayToBankCode;
-
-    /* DISPID=135 */
-    /* VT_BSTR [8] */
-    /* property PayToBankAccountNo */
+    /**
+     * DISPID=135
+     * @var string $PayToBankAccountNo [8] property PayToBankAccountNo
+     */
     var $PayToBankAccountNo;
 
-    /* DISPID=135 */
-    /* property PayToBankAccountNo */
-    var $PayToBankAccountNo;
-
-    /* DISPID=136 */
-    /* VT_BSTR [8] */
-    /* property PayToBankBranch */
+    /**
+     * DISPID=136
+     * @var string $PayToBankBranch [8] property PayToBankBranch
+     */
     var $PayToBankBranch;
 
-    /* DISPID=136 */
-    /* property PayToBankBranch */
-    var $PayToBankBranch;
-
-    /* DISPID=137 */
-    /* VT_BSTR [8] */
-    function GetAsXML(
-    )
+    /**
+     * DISPID=137
+     * @return string
+     * Get the object's data in xml format.
+     */
+    function GetAsXML()
     {
-        /* Get the object's data in xml format. */
     }
-    /* DISPID=138 */
+
+    /**
+     * DISPID=138
+     * @param string $FileName [in]
+     * @return void
+     * Save the object's data in xml format.
+     */
     function SaveToFile(
-        /* VT_BSTR [8] [in] */ $FileName
+        /* string [8] [in] */ $FileName
     )
     {
-        /* Save the object's data in xml format. */
     }
-    /* DISPID=50 */
-    /* property PaymentReference */
-    var $PaymentReference;
 
-    /* DISPID=139 */
-    /* VT_I4 [3] */
-    /* property BPL_IDAssignedToInvoice */
+    /**
+     * DISPID=139
+     * @var int $BPL_IDAssignedToInvoice [3] property BPL_IDAssignedToInvoice
+     */
     var $BPL_IDAssignedToInvoice;
 
-    /* DISPID=139 */
-    /* property BPL_IDAssignedToInvoice */
-    var $BPL_IDAssignedToInvoice;
-
-    /* DISPID=140 */
-    /* VT_DATE [7] */
-    /* property ClosingDate */
+    /**
+     * DISPID=140
+     * @var string|VT_DATE $ClosingDate [7] property ClosingDate
+     */
     var $ClosingDate;
 
-    /* DISPID=140 */
-    /* property ClosingDate */
-    var $ClosingDate;
-
-    /* DISPID=141 */
-    /* VT_I4 [3] */
-    /* property SequenceSerial */
+    /**
+     * DISPID=141
+     * @var int $SequenceSerial [3] property SequenceSerial
+     */
     var $SequenceSerial;
 
-    /* DISPID=141 */
-    /* property SequenceSerial */
-    var $SequenceSerial;
-
-    /* DISPID=142 */
-    /* VT_I4 [3] */
-    /* property SequenceCode */
+    /**
+     * DISPID=142
+     * @var int $SequenceCode [3] property SequenceCode
+     */
     var $SequenceCode;
 
-    /* DISPID=142 */
-    /* property SequenceCode */
-    var $SequenceCode;
-
-    /* DISPID=143 */
-    /* VT_BSTR [8] */
-    /* property SeriesString */
+    /**
+     * DISPID=143
+     * @var string $SeriesString [8] property SeriesString
+     */
     var $SeriesString;
 
-    /* DISPID=143 */
-    /* property SeriesString */
-    var $SeriesString;
-
-    /* DISPID=144 */
-    /* VT_BSTR [8] */
-    /* property SubSeriesString */
+    /**
+     * DISPID=144
+     * @var string $SubSeriesString [8] property SubSeriesString
+     */
     var $SubSeriesString;
 
-    /* DISPID=144 */
-    /* property SubSeriesString */
-    var $SubSeriesString;
-
-    /* DISPID=145 */
-    /* VT_BSTR [8] */
-    /* property SequenceModel */
+    /**
+     * DISPID=145
+     * @var string $SequenceModel [8] property SequenceModel
+     */
     var $SequenceModel;
 
-    /* DISPID=145 */
-    /* property SequenceModel */
-    var $SequenceModel;
-
-    /* DISPID=146 */
-    /* VT_PTR [26] */
-    /* property TaxExtension */
-    /** @var $TaxExtension ITaxExtension */
+    /**
+     * DISPID=146
+     * @var ITaxExtension $TaxExtension [26] property TaxExtension
+     */
     var $TaxExtension;
 
-    /* DISPID=147 */
-    /* VT_R8 [5] */
-    /* property DownPayment */
+    /**
+     * DISPID=147
+     * @var float $DownPayment [5] property DownPayment
+     */
     var $DownPayment;
 
-    /* DISPID=147 */
-    /* property DownPayment */
-    var $DownPayment;
-
-    /* DISPID=148 */
-    /* ? [29] */
-    /* property ReserveInvoice */
+    /**
+     * DISPID=148
+     * @var mixed|VT_USERDEFINED $ReserveInvoice [29] property ReserveInvoice
+     */
     var $ReserveInvoice;
 
-    /* DISPID=149 */
-    /* VT_I4 [3] */
-    /* property LanguageCode */
+    /**
+     * DISPID=149
+     * @var int $LanguageCode [3] property LanguageCode
+     */
     var $LanguageCode;
 
-    /* DISPID=149 */
-    /* property LanguageCode */
-    var $LanguageCode;
-
-    /* DISPID=150 */
-    /* VT_BSTR [8] */
-    /* property TrackingNumber */
+    /**
+     * DISPID=150
+     * @var string $TrackingNumber [8] property TrackingNumber
+     */
     var $TrackingNumber;
 
-    /* DISPID=150 */
-    /* property TrackingNumber */
-    var $TrackingNumber;
-
-    /* DISPID=151 */
-    /* VT_BSTR [8] */
-    /* property PickRemark */
+    /**
+     * DISPID=151
+     * @var string $PickRemark [8] property PickRemark
+     */
     var $PickRemark;
 
-    /* DISPID=151 */
-    /* property PickRemark */
-    var $PickRemark;
-
-    /* DISPID=26 */
-    /* Import file num */
-    var $ImportFileNum;
-
-    /* DISPID=152 */
-    /* ? [29] */
-    /* property UseCorrectionVATGroup */
+    /**
+     * DISPID=152
+     * @var mixed|VT_USERDEFINED $UseCorrectionVATGroup [29] property UseCorrectionVATGroup
+     */
     var $UseCorrectionVATGroup;
 
-    /* DISPID=152 */
-    /* property UseCorrectionVATGroup */
-    var $UseCorrectionVATGroup;
-
-    /* DISPID=153 */
-    /* VT_R8 [5] */
-    /* property TotalDiscount */
+    /**
+     * DISPID=153
+     * @var float $TotalDiscount [5] property TotalDiscount
+     */
     var $TotalDiscount;
 
-    /* DISPID=71 */
-    /* property Pick */
-    var $Pick;
-
-    /* DISPID=154 */
-    /* VT_R8 [5] */
-    /* property VatPercent */
+    /**
+     * DISPID=154
+     * @var float $VatPercent [5] property VatPercent
+     */
     var $VatPercent;
 
-    /* DISPID=154 */
-    /* property VatPercent */
-    var $VatPercent;
-
-    /* DISPID=155 */
-    /* VT_PTR [26] */
-    /* property Packages */
+    /**
+     * DISPID=155
+     * @var mixed|VT_PTR $Packages [26] property Packages
+     */
     var $Packages;
 
-    /* DISPID=156 */
-    /* VT_PTR [26] */
-    /* property Installments */
+    /**
+     * DISPID=156
+     * @var mixed|VT_PTR $Installments [26] property Installments
+     */
     var $Installments;
 
-    /* DISPID=157 */
-    /* VT_PTR [26] */
-    /* property SpecialLines */
+    /**
+     * DISPID=157
+     * @var mixed|VT_PTR $SpecialLines [26] property SpecialLines
+     */
     var $SpecialLines;
 
-    /* DISPID=148 */
-    /* property ReserveInvoice */
-    var $ReserveInvoice;
-
-    /* DISPID=158 */
-    /* VT_R8 [5] */
-    /* property DownPaymentAmount */
+    /**
+     * DISPID=158
+     * @var float $DownPaymentAmount [5] property DownPaymentAmount
+     */
     var $DownPaymentAmount;
 
-    /* DISPID=159 */
-    /* VT_R8 [5] */
-    /* property DownPaymentPercentage */
+    /**
+     * DISPID=159
+     * @var float $DownPaymentPercentage [5] property DownPaymentPercentage
+     */
     var $DownPaymentPercentage;
 
-    /* DISPID=159 */
-    /* property DownPaymentPercentage */
-    var $DownPaymentPercentage;
-
-    /* DISPID=160 */
-    /* ? [29] */
-    /* property DownPaymentType */
+    /**
+     * DISPID=160
+     * @var mixed|VT_USERDEFINED $DownPaymentType [29] property DownPaymentType
+     */
     var $DownPaymentType;
 
-    /* DISPID=160 */
-    /* property DownPaymentType */
-    var $DownPaymentType;
-
-    /* DISPID=161 */
-    /* VT_PTR [26] */
-    /* property DownPaymentsToDraw */
+    /**
+     * DISPID=161
+     * @var mixed|VT_PTR $DownPaymentsToDraw [26] property DownPaymentsToDraw
+     */
     var $DownPaymentsToDraw;
 
-    /* DISPID=162 */
-    /* VT_R8 [5] */
-    /* property DownPaymentAmountFC */
+    /**
+     * DISPID=162
+     * @var float $DownPaymentAmountFC [5] property DownPaymentAmountFC
+     */
     var $DownPaymentAmountFC;
 
-    /* DISPID=163 */
-    /* VT_R8 [5] */
-    /* property DownPaymentAmountSC */
+    /**
+     * DISPID=163
+     * @var float $DownPaymentAmountSC [5] property DownPaymentAmountSC
+     */
     var $DownPaymentAmountSC;
 
-    /* DISPID=158 */
-    /* property DownPaymentAmount */
-    var $DownPaymentAmount;
-
-    /* DISPID=162 */
-    /* property DownPaymentAmountFC */
-    var $DownPaymentAmountFC;
-
-    /* DISPID=163 */
-    /* property DownPaymentAmountSC */
-    var $DownPaymentAmountSC;
-
-    /* DISPID=164 */
-    /* VT_BSTR [8] */
-    /* property OpeningRemarks */
+    /**
+     * DISPID=164
+     * @var string $OpeningRemarks [8] property OpeningRemarks
+     */
     var $OpeningRemarks;
 
-    /* DISPID=164 */
-    /* property OpeningRemarks */
-    var $OpeningRemarks;
-
-    /* DISPID=165 */
-    /* VT_BSTR [8] */
-    /* property ClosingRemarks */
+    /**
+     * DISPID=165
+     * @var string $ClosingRemarks [8] property ClosingRemarks
+     */
     var $ClosingRemarks;
 
-    /* DISPID=165 */
-    /* property ClosingRemarks */
-    var $ClosingRemarks;
-
-    /* DISPID=166 */
-    /* VT_R8 [5] */
-    /* property RoundingDiffAmount */
+    /**
+     * DISPID=166
+     * @var float $RoundingDiffAmount [5] property RoundingDiffAmount
+     */
     var $RoundingDiffAmount;
 
-    /* DISPID=166 */
-    /* property RoundingDiffAmount */
-    var $RoundingDiffAmount;
-
-    /* DISPID=167 */
-    /* VT_R8 [5] */
-    /* property RoundingDiffAmountFC */
+    /**
+     * DISPID=167
+     * @var float $RoundingDiffAmountFC [5] property RoundingDiffAmountFC
+     */
     var $RoundingDiffAmountFC;
 
-    /* DISPID=168 */
-    /* VT_R8 [5] */
-    /* property RoundingDiffAmountSC */
+    /**
+     * DISPID=168
+     * @var float $RoundingDiffAmountSC [5] property RoundingDiffAmountSC
+     */
     var $RoundingDiffAmountSC;
 
-    /* DISPID=169 */
-    /* ? [29] */
-    /* property Cancelled */
+    /**
+     * DISPID=169
+     * @var mixed|VT_USERDEFINED $Cancelled [29] property Cancelled
+     */
     var $Cancelled;
 
-    /* DISPID=171 */
-    /* VT_I4 [3] */
-    function Reopen(
-    )
+    /**
+     * DISPID=171
+     * @return int
+     * method Reopen
+     */
+    function Reopen()
     {
-        /* method Reopen */
     }
-    /* DISPID=170 */
-    /* ? [29] */
-    /* property InsuranceOperation347 */
+
+    /**
+     * DISPID=170
+     * @var mixed|VT_USERDEFINED $InsuranceOperation347 [29] property InsuranceOperation347
+     */
     var $InsuranceOperation347;
 
-    /* DISPID=170 */
-    /* property InsuranceOperation347 */
-    var $InsuranceOperation347;
-
-    /* DISPID=60 */
-    /* property DocTotalFc */
-    var $DocTotalFc;
-
-    /* DISPID=6 */
-    /* Printed */
-    var $Printed;
-
-    /* DISPID=172 */
-    /* VT_R8 [5] */
-    /* property ServiceGrossProfitPercent */
+    /**
+     * DISPID=172
+     * @var float $ServiceGrossProfitPercent [5] property ServiceGrossProfitPercent
+     */
     var $ServiceGrossProfitPercent;
 
-    /* DISPID=172 */
-    /* property ServiceGrossProfitPercent */
-    var $ServiceGrossProfitPercent;
-
-    /* DISPID=173 */
-    /* VT_PTR [26] */
-    /* property AddressExtension */
+    /**
+     * DISPID=173
+     * @var mixed|VT_PTR $AddressExtension [26] property AddressExtension
+     */
     var $AddressExtension;
 
-    /* DISPID=174 */
-    /* VT_BSTR [8] */
-    /* property ControlAccount */
+    /**
+     * DISPID=174
+     * @var string $ControlAccount [8] property ControlAccount
+     */
     var $ControlAccount;
 
-    /* DISPID=174 */
-    /* property ControlAccount */
-    var $ControlAccount;
-
-    /* DISPID=175 */
-    /* ? [29] */
-    /* property ArchiveNonremovableSalesQuotation */
+    /**
+     * DISPID=175
+     * @var mixed|VT_USERDEFINED $ArchiveNonremovableSalesQuotation [29] property ArchiveNonremovableSalesQuotation
+     */
     var $ArchiveNonremovableSalesQuotation;
 
-    /* DISPID=175 */
-    /* property ArchiveNonremovableSalesQuotation */
-    var $ArchiveNonremovableSalesQuotation;
-
-    /* DISPID=176 */
-    /* VT_I4 [3] */
-    /* property GTSChecker */
+    /**
+     * DISPID=176
+     * @var int $GTSChecker [3] property GTSChecker
+     */
     var $GTSChecker;
 
-    /* DISPID=176 */
-    /* property GTSChecker */
-    var $GTSChecker;
-
-    /* DISPID=177 */
-    /* VT_I4 [3] */
-    /* property GTSPayee */
+    /**
+     * DISPID=177
+     * @var int $GTSPayee [3] property GTSPayee
+     */
     var $GTSPayee;
 
-    /* DISPID=177 */
-    /* property GTSPayee */
-    var $GTSPayee;
-
-    /* DISPID=178 */
-    /* VT_I4 [3] */
-    /* property ExtraMonth */
+    /**
+     * DISPID=178
+     * @var int $ExtraMonth [3] property ExtraMonth
+     */
     var $ExtraMonth;
 
-    /* DISPID=178 */
-    /* property ExtraMonth */
-    var $ExtraMonth;
-
-    /* DISPID=179 */
-    /* VT_I4 [3] */
-    /* property ExtraDays */
+    /**
+     * DISPID=179
+     * @var int $ExtraDays [3] property ExtraDays
+     */
     var $ExtraDays;
 
-    /* DISPID=179 */
-    /* property ExtraDays */
-    var $ExtraDays;
-
-    /* DISPID=180 */
-    /* VT_I4 [3] */
-    /* property CashDiscountDateOffset */
+    /**
+     * DISPID=180
+     * @var int $CashDiscountDateOffset [3] property CashDiscountDateOffset
+     */
     var $CashDiscountDateOffset;
 
-    /* DISPID=180 */
-    /* property CashDiscountDateOffset */
-    var $CashDiscountDateOffset;
-
-    /* DISPID=181 */
-    /* ? [29] */
-    /* property StartFrom */
+    /**
+     * DISPID=181
+     * @var mixed|VT_USERDEFINED $StartFrom [29] property StartFrom
+     */
     var $StartFrom;
 
-    /* DISPID=181 */
-    /* property StartFrom */
-    var $StartFrom;
-
-    /* DISPID=182 */
-    /* ? [29] */
-    /* property NTSApproved */
+    /**
+     * DISPID=182
+     * @var mixed|VT_USERDEFINED $NTSApproved [29] property NTSApproved
+     */
     var $NTSApproved;
 
-    /* DISPID=182 */
-    /* property NTSApproved */
-    var $NTSApproved;
-
-    /* DISPID=183 */
-    /* VT_I4 [3] */
-    /* property ETaxWebSite */
+    /**
+     * DISPID=183
+     * @var int $ETaxWebSite [3] property ETaxWebSite
+     */
     var $ETaxWebSite;
 
-    /* DISPID=183 */
-    /* property ETaxWebSite */
-    var $ETaxWebSite;
-
-    /* DISPID=184 */
-    /* VT_BSTR [8] */
-    /* property ETaxNumber */
+    /**
+     * DISPID=184
+     * @var string $ETaxNumber [8] property ETaxNumber
+     */
     var $ETaxNumber;
 
-    /* DISPID=184 */
-    /* property ETaxNumber */
-    var $ETaxNumber;
-
-    /* DISPID=185 */
-    /* VT_BSTR [8] */
-    /* property NTSApprovedNumber */
+    /**
+     * DISPID=185
+     * @var string $NTSApprovedNumber [8] property NTSApprovedNumber
+     */
     var $NTSApprovedNumber;
 
-    /* DISPID=185 */
-    /* property NTSApprovedNumber */
-    var $NTSApprovedNumber;
-
-    /* DISPID=186 */
-    /* VT_BSTR [8] */
-    /* property SignatureInputMessage */
+    /**
+     * DISPID=186
+     * @var string $SignatureInputMessage [8] property SignatureInputMessage
+     */
     var $SignatureInputMessage;
 
-    /* DISPID=187 */
-    /* VT_BSTR [8] */
-    /* property SignatureDigest */
+    /**
+     * DISPID=187
+     * @var string $SignatureDigest [8] property SignatureDigest
+     */
     var $SignatureDigest;
 
-    /* DISPID=188 */
-    /* VT_BSTR [8] */
-    /* property CertificationNumber */
+    /**
+     * DISPID=188
+     * @var string $CertificationNumber [8] property CertificationNumber
+     */
     var $CertificationNumber;
 
-    /* DISPID=189 */
-    /* VT_I4 [3] */
-    /* property PrivateKeyVersion */
+    /**
+     * DISPID=189
+     * @var int $PrivateKeyVersion [3] property PrivateKeyVersion
+     */
     var $PrivateKeyVersion;
 
-    /* DISPID=190 */
-    /* VT_I4 [3] */
-    /* property GroupSeries */
+    /**
+     * DISPID=190
+     * @var int $GroupSeries [3] property GroupSeries
+     */
     var $GroupSeries;
 
-    /* DISPID=190 */
-    /* property GroupSeries */
-    var $GroupSeries;
-
-    /* DISPID=191 */
-    /* VT_I4 [3] */
-    /* property GroupNumber */
+    /**
+     * DISPID=191
+     * @var int $GroupNumber [3] property GroupNumber
+     */
     var $GroupNumber;
 
-    /* DISPID=191 */
-    /* property GroupNumber */
-    var $GroupNumber;
-
-    /* DISPID=192 */
-    /* ? [29] */
-    /* property GroupHandWritten */
+    /**
+     * DISPID=192
+     * @var mixed|VT_USERDEFINED $GroupHandWritten [29] property GroupHandWritten
+     */
     var $GroupHandWritten;
 
-    /* DISPID=192 */
-    /* property GroupHandWritten */
-    var $GroupHandWritten;
-
-    /* DISPID=193 */
-    /* ? [29] */
-    /* property ReopenOriginalDocument */
+    /**
+     * DISPID=193
+     * @var mixed|VT_USERDEFINED $ReopenOriginalDocument [29] property ReopenOriginalDocument
+     */
     var $ReopenOriginalDocument;
 
-    /* DISPID=193 */
-    /* property ReopenOriginalDocument */
-    var $ReopenOriginalDocument;
-
-    /* DISPID=194 */
-    /* ? [29] */
-    /* property ReopenManuallyClosedOrCanceledDocument */
+    /**
+     * DISPID=194
+     * @var mixed|VT_USERDEFINED $ReopenManuallyClosedOrCanceledDocument [29] property ReopenManuallyClosedOrCanceledDocument
+     */
     var $ReopenManuallyClosedOrCanceledDocument;
 
-    /* DISPID=194 */
-    /* property ReopenManuallyClosedOrCanceledDocument */
-    var $ReopenManuallyClosedOrCanceledDocument;
-
-    /* DISPID=195 */
-    /* ? [29] */
-    /* property EDocGenerationType */
+    /**
+     * DISPID=195
+     * @var mixed|VT_USERDEFINED $EDocGenerationType [29] property EDocGenerationType
+     */
     var $EDocGenerationType;
 
-    /* DISPID=195 */
-    /* property EDocGenerationType */
-    var $EDocGenerationType;
-
-    /* DISPID=196 */
-    /* VT_I4 [3] */
-    /* property EDocSeries */
+    /**
+     * DISPID=196
+     * @var int $EDocSeries [3] property EDocSeries
+     */
     var $EDocSeries;
 
-    /* DISPID=196 */
-    /* property EDocSeries */
-    var $EDocSeries;
-
-    /* DISPID=197 */
-    /* VT_BSTR [8] */
-    /* property EDocNum */
+    /**
+     * DISPID=197
+     * @var string $EDocNum [8] property EDocNum
+     */
     var $EDocNum;
 
-    /* DISPID=198 */
-    /* VT_I4 [3] */
-    /* property EDocExportFormat */
+    /**
+     * DISPID=198
+     * @var int $EDocExportFormat [3] property EDocExportFormat
+     */
     var $EDocExportFormat;
 
-    /* DISPID=198 */
-    /* property EDocExportFormat */
-    var $EDocExportFormat;
-
-    /* DISPID=199 */
-    /* ? [29] */
-    /* property DownPaymentStatus */
+    /**
+     * DISPID=199
+     * @var mixed|VT_USERDEFINED $DownPaymentStatus [29] property DownPaymentStatus
+     */
     var $DownPaymentStatus;
 
-    /* DISPID=199 */
-    /* property DownPaymentStatus */
-    var $DownPaymentStatus;
-
-    /* DISPID=200 */
-    /* ? [29] */
-    /* property CreateOnlineQuotation */
+    /**
+     * DISPID=200
+     * @var mixed|VT_USERDEFINED $CreateOnlineQuotation [29] property CreateOnlineQuotation
+     */
     var $CreateOnlineQuotation;
 
-    /* DISPID=200 */
-    /* property CreateOnlineQuotation */
-    var $CreateOnlineQuotation;
-
-    /* DISPID=201 */
-    /* VT_BSTR [8] */
-    /* property POSEquipmentNumber */
+    /**
+     * DISPID=201
+     * @var string $POSEquipmentNumber [8] property POSEquipmentNumber
+     */
     var $POSEquipmentNumber;
 
-    /* DISPID=201 */
-    /* property POSEquipmentNumber */
-    var $POSEquipmentNumber;
-
-    /* DISPID=202 */
-    /* VT_BSTR [8] */
-    /* property POSManufacturerSerialNumber */
+    /**
+     * DISPID=202
+     * @var string $POSManufacturerSerialNumber [8] property POSManufacturerSerialNumber
+     */
     var $POSManufacturerSerialNumber;
 
-    /* DISPID=202 */
-    /* property POSManufacturerSerialNumber */
-    var $POSManufacturerSerialNumber;
-
-    /* DISPID=203 */
-    /* VT_I4 [3] */
-    /* property POSCashierNumber */
+    /**
+     * DISPID=203
+     * @var int $POSCashierNumber [3] property POSCashierNumber
+     */
     var $POSCashierNumber;
 
-    /* DISPID=203 */
-    /* property POSCashierNumber */
-    var $POSCashierNumber;
-
-    /* DISPID=204 */
-    /* ? [29] */
-    /* property ApplyCurrentVATRatesForDownPaymentsToDraw */
+    /**
+     * DISPID=204
+     * @var mixed|VT_USERDEFINED $ApplyCurrentVATRatesForDownPaymentsToDraw [29] property ApplyCurrentVATRatesForDownPaymentsToDraw
+     */
     var $ApplyCurrentVATRatesForDownPaymentsToDraw;
 
-    /* DISPID=204 */
-    /* property ApplyCurrentVATRatesForDownPaymentsToDraw */
-    var $ApplyCurrentVATRatesForDownPaymentsToDraw;
-
-    /* DISPID=210 */
-    /* ? [29] */
-    /* property ClosingOption */
+    /**
+     * DISPID=210
+     * @var mixed|VT_USERDEFINED $ClosingOption [29] property ClosingOption
+     */
     var $ClosingOption;
 
-    /* DISPID=210 */
-    /* property ClosingOption */
-    var $ClosingOption;
-
-    /* DISPID=211 */
-    /* VT_DATE [7] */
-    /* property SpecifiedClosingDate */
+    /**
+     * DISPID=211
+     * @var string|VT_DATE $SpecifiedClosingDate [7] property SpecifiedClosingDate
+     */
     var $SpecifiedClosingDate;
 
-    /* DISPID=211 */
-    /* property SpecifiedClosingDate */
-    var $SpecifiedClosingDate;
-
-    /* DISPID=212 */
-    /* ? [29] */
-    /* property OpenForLandedCosts */
+    /**
+     * DISPID=212
+     * @var mixed|VT_USERDEFINED $OpenForLandedCosts [29] property OpenForLandedCosts
+     */
     var $OpenForLandedCosts;
 
-    /* DISPID=212 */
-    /* property OpenForLandedCosts */
-    var $OpenForLandedCosts;
+    /**
+     * DISPID=213
+     * @return int
+     * method SaveDraftToDocument
+     */
+    function SaveDraftToDocument()
+    {
+    }
 
-    /* DISPID=213 */
-    /* VT_I4 [3] */
-    function SaveDraftToDocument(
-    )
+    /**
+     * DISPID=214
+     * @return int
+     * method GetApprovalTemplates
+     */
+    function GetApprovalTemplates()
     {
-        /* method SaveDraftToDocument */
     }
-    /* DISPID=214 */
-    /* VT_I4 [3] */
-    function GetApprovalTemplates(
-    )
-    {
-        /* method GetApprovalTemplates */
-    }
-    /* DISPID=215 */
-    /* VT_PTR [26] */
-    /* property Document_ApprovalRequests */
+
+    /**
+     * DISPID=215
+     * @var mixed|VT_PTR $Document_ApprovalRequests [26] property Document_ApprovalRequests
+     */
     var $Document_ApprovalRequests;
 
-    /* DISPID=216 */
-    /* ? [29] */
-    /* property AuthorizationStatus */
+    /**
+     * DISPID=216
+     * @var mixed|VT_USERDEFINED $AuthorizationStatus [29] property AuthorizationStatus
+     */
     var $AuthorizationStatus;
 
-    /* DISPID=217 */
-    /* VT_I4 [3] */
+    /**
+     * DISPID=217
+     * @param string $FileName [in]
+     * @return int
+     * method UpdateFromXML
+     */
     function UpdateFromXML(
-        /* VT_BSTR [8] [in] */ $FileName
+        /* string [8] [in] */ $FileName
     )
     {
-        /* method UpdateFromXML */
     }
-    /* DISPID=218 */
-    /* VT_R8 [5] */
-    /* property TotalDiscountFC */
+
+    /**
+     * DISPID=218
+     * @var float $TotalDiscountFC [5] property TotalDiscountFC
+     */
     var $TotalDiscountFC;
 
-    /* DISPID=219 */
-    /* VT_R8 [5] */
-    /* property TotalDiscountSC */
+    /**
+     * DISPID=219
+     * @var float $TotalDiscountSC [5] property TotalDiscountSC
+     */
     var $TotalDiscountSC;
 
-    /* DISPID=220 */
-    /* ? [29] */
-    /* property RelevantToGTS */
+    /**
+     * DISPID=220
+     * @var mixed|VT_USERDEFINED $RelevantToGTS [29] property RelevantToGTS
+     */
     var $RelevantToGTS;
 
-    /* DISPID=220 */
-    /* property RelevantToGTS */
-    var $RelevantToGTS;
-
-    /* DISPID=221 */
-    /* ? [29] */
-    /* property EDocStatus */
+    /**
+     * DISPID=221
+     * @var mixed|VT_USERDEFINED $EDocStatus [29] property EDocStatus
+     */
     var $EDocStatus;
 
-    /* DISPID=221 */
-    /* property EDocStatus */
-    var $EDocStatus;
-
-    /* DISPID=222 */
-    /* VT_BSTR [8] */
-    /* property EDocErrorCode */
+    /**
+     * DISPID=222
+     * @var string $EDocErrorCode [8] property EDocErrorCode
+     */
     var $EDocErrorCode;
 
-    /* DISPID=222 */
-    /* property EDocErrorCode */
-    var $EDocErrorCode;
-
-    /* DISPID=223 */
-    /* VT_BSTR [8] */
-    /* property EDocErrorMessage */
+    /**
+     * DISPID=223
+     * @var string $EDocErrorMessage [8] property EDocErrorMessage
+     */
     var $EDocErrorMessage;
 
-    /* DISPID=223 */
-    /* property EDocErrorMessage */
-    var $EDocErrorMessage;
-
-    /* DISPID=224 */
-    /* VT_BSTR [8] */
-    /* property BPLName */
+    /**
+     * DISPID=224
+     * @var string $BPLName [8] property BPLName
+     */
     var $BPLName;
 
-    /* DISPID=225 */
-    /* VT_BSTR [8] */
-    /* property VATRegNum */
+    /**
+     * DISPID=225
+     * @var string $VATRegNum [8] property VATRegNum
+     */
     var $VATRegNum;
 
-    /* DISPID=226 */
-    /* VT_I4 [3] */
-    /* property AnnualInvoiceDeclarationReference */
+    /**
+     * DISPID=226
+     * @var int $AnnualInvoiceDeclarationReference [3] property AnnualInvoiceDeclarationReference
+     */
     var $AnnualInvoiceDeclarationReference;
 
-    /* DISPID=226 */
-    /* property AnnualInvoiceDeclarationReference */
-    var $AnnualInvoiceDeclarationReference;
-
-    /* DISPID=227 */
-    /* VT_BSTR [8] */
-    /* property Supplier */
+    /**
+     * DISPID=227
+     * @var string $Supplier [8] property Supplier
+     */
     var $Supplier;
 
-    /* DISPID=227 */
-    /* property Supplier */
-    var $Supplier;
-
-    /* DISPID=228 */
-    /* VT_I4 [3] */
-    /* property Releaser */
+    /**
+     * DISPID=228
+     * @var int $Releaser [3] property Releaser
+     */
     var $Releaser;
 
-    /* DISPID=228 */
-    /* property Releaser */
-    var $Releaser;
-
-    /* DISPID=229 */
-    /* VT_I4 [3] */
-    /* property Receiver */
+    /**
+     * DISPID=229
+     * @var int $Receiver [3] property Receiver
+     */
     var $Receiver;
 
-    /* DISPID=229 */
-    /* property Receiver */
-    var $Receiver;
-
-    /* DISPID=230 */
-    /* VT_I4 [3] */
-    /* property BlanketAgreementNumber */
+    /**
+     * DISPID=230
+     * @var int $BlanketAgreementNumber [3] property BlanketAgreementNumber
+     */
     var $BlanketAgreementNumber;
 
-    /* DISPID=230 */
-    /* property BlanketAgreementNumber */
-    var $BlanketAgreementNumber;
-
-    /* DISPID=231 */
-    /* ? [29] */
-    /* property IsAlteration */
+    /**
+     * DISPID=231
+     * @var mixed|VT_USERDEFINED $IsAlteration [29] property IsAlteration
+     */
     var $IsAlteration;
 
-    /* DISPID=231 */
-    /* property IsAlteration */
-    var $IsAlteration;
+    /**
+     * DISPID=232
+     * @return mixed|VT_PTR
+     * method CreateCancellationDocument
+     */
+    function CreateCancellationDocument()
+    {
+    }
+
+    /**
+     * DISPID=233
+     * @var string|VT_DATE $AssetValueDate [7] property AssetValueDate
+     */
+    var $AssetValueDate;
+
+    /**
+     * DISPID=234
+     * @var string $Requester [8] property Requester
+     */
+    var $Requester;
+
+    /**
+     * DISPID=235
+     * @var string $RequesterName [8] property RequesterName
+     */
+    var $RequesterName;
+
+    /**
+     * DISPID=236
+     * @var int $RequesterBranch [3] property RequesterBranch
+     */
+    var $RequesterBranch;
+
+    /**
+     * DISPID=237
+     * @var int $RequesterDepartment [3] property RequesterDepartment
+     */
+    var $RequesterDepartment;
+
+    /**
+     * DISPID=238
+     * @var string $RequesterEmail [8] property RequesterEmail
+     */
+    var $RequesterEmail;
+
+    /**
+     * DISPID=239
+     * @var mixed|VT_USERDEFINED $SendNotification [29] property SendNotification
+     */
+    var $SendNotification;
+
+    /**
+     * DISPID=240
+     * @var int $AttachmentEntry [3] property AttachmentEntry
+     */
+    var $AttachmentEntry;
+
+    /**
+     * DISPID=241
+     * @var int $ReqType [3] property ReqType
+     */
+    var $ReqType;
+
+    /**
+     * DISPID=242
+     * @var mixed|VT_USERDEFINED $CancelStatus [29] Property CancelStatus
+     */
+    var $CancelStatus;
+
+    /**
+     * DISPID=243
+     * @var mixed|VT_USERDEFINED $DocumentDelivery [29] Property DocumentDelivery
+     */
+    var $DocumentDelivery;
+
+    /**
+     * DISPID=244
+     * @var mixed|VT_USERDEFINED $ReuseDocumentNum [29] property ReuseDocumentNum
+     */
+    var $ReuseDocumentNum;
+
+    /**
+     * DISPID=245
+     * @var mixed|VT_USERDEFINED $ReuseNotaFiscalNum [29] property ReuseNotaFiscalNum
+     */
+    var $ReuseNotaFiscalNum;
+
+    /**
+     * DISPID=246
+     * @var string $AuthorizationCode [8] property AuthorizationCode
+     */
+    var $AuthorizationCode;
+
+    /**
+     * DISPID=247
+     * @var string|VT_DATE $StartDeliveryDate [7] property StartDeliveryDate
+     */
+    var $StartDeliveryDate;
+
+    /**
+     * DISPID=248
+     * @var string|VT_DATE $StartDeliveryTime [7] property StartDeliveryTime
+     */
+    var $StartDeliveryTime;
+
+    /**
+     * DISPID=249
+     * @var string|VT_DATE $EndDeliveryDate [7] property EndDeliveryDate
+     */
+    var $EndDeliveryDate;
+
+    /**
+     * DISPID=250
+     * @var string|VT_DATE $EndDeliveryTime [7] property EndDeliveryTime
+     */
+    var $EndDeliveryTime;
+
+    /**
+     * DISPID=251
+     * @var string $VehiclePlate [8] property VehiclePlate
+     */
+    var $VehiclePlate;
+
+    /**
+     * DISPID=252
+     * @var string $ATDocumentType [8] property ATDocumentType
+     */
+    var $ATDocumentType;
+
+    /**
+     * DISPID=253
+     * @return int
+     * method HandleApprovalRequest
+     */
+    function HandleApprovalRequest()
+    {
+    }
+
+    /**
+     * DISPID=254
+     * @var mixed|VT_USERDEFINED $ElecCommStatus [29] property ElecCommStatus
+     */
+    var $ElecCommStatus;
+
+    /**
+     * DISPID=255
+     * @var string $ElecCommMessage [8] property ElecCommMessage
+     */
+    var $ElecCommMessage;
+
+    /**
+     * DISPID=256
+     * @var mixed|VT_USERDEFINED $PrintSEPADirect [29] property PrintSEPADirect
+     */
+    var $PrintSEPADirect;
+
+    /**
+     * DISPID=257
+     * @var string $FiscalDocNum [8] property FiscalDocNum
+     */
+    var $FiscalDocNum;
+
+    /**
+     * DISPID=258
+     * @var int $POSDailySummaryNo [3] property POSDailySummaryNo
+     */
+    var $POSDailySummaryNo;
+
+    /**
+     * DISPID=259
+     * @var int $POSReceiptNo [3] property POSReceiptNo
+     */
+    var $POSReceiptNo;
+
+    /**
+     * DISPID=260
+     * @var string $PointOfIssueCode [8] property PointOfIssueCode
+     */
+    var $PointOfIssueCode;
+
+    /**
+     * DISPID=261
+     * @var mixed|VT_USERDEFINED $Letter [29] property Letter
+     */
+    var $Letter;
+
+    /**
+     * DISPID=262
+     * @var int $FolioNumberFrom [3] property FolioNumberFrom
+     */
+    var $FolioNumberFrom;
+
+    /**
+     * DISPID=263
+     * @var int $FolioNumberTo [3] property FolioNumberTo
+     */
+    var $FolioNumberTo;
+
+    /**
+     * DISPID=264
+     * @var mixed|VT_USERDEFINED $InterimType [29] property InterimType
+     */
+    var $InterimType;
+
+    /**
+     * DISPID=265
+     * @var int $RelatedType [3] property RelatedType
+     */
+    var $RelatedType;
+
+    /**
+     * DISPID=266
+     * @var int $RelatedEntry [3] property RelatedEntry
+     */
+    var $RelatedEntry;
+
+    /**
+     * DISPID=267
+     * @var mixed|VT_PTR $WithholdingTaxDataWTX [26] property WithholdingTaxDataWTX
+     */
+    var $WithholdingTaxDataWTX;
 
 }
+
