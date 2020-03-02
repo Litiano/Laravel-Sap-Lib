@@ -14,10 +14,12 @@ use Closure;
 use COM;
 use DB;
 use Exception;
+use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\Enum\BoWfTransOpt;
 use Litiano\Sap\IdeHelper\ICompany;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Throwable;
 
 final class NewCompany
@@ -69,22 +71,27 @@ final class NewCompany
 
     /**
      * @param Closure $closure
+     * @param int $attempts
      * @return mixed
      * @throws Throwable
      */
-    public function transaction(Closure $closure)
+    public static function transaction(Closure $closure, int $attempts = 1)
     {
         $sap = NewCompany::getInstance()->getCompany();
-        $sap->StartTransaction();
-        try {
-            $result = DB::transaction($closure);
-            $sap->EndTransaction(BoWfTransOpt::wf_Commit);
-            return $result;
-        } catch (Throwable $e) {
-            if ($sap->InTransaction) {
-                $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
+        for ($currentAttempt = 1; $currentAttempt <= $attempts; $currentAttempt++) {
+            $sap->StartTransaction();
+            try {
+                $result = DB::transaction($closure);
+                $sap->EndTransaction(BoWfTransOpt::wf_Commit);
+                return $result;
+            } catch (Throwable $e) {
+                if ($sap->InTransaction) {
+                    $sap->EndTransaction(BoWfTransOpt::wf_RollBack);
+                }
+                if($sap->GetLastErrorCode() !== -2038 || $currentAttempt === $attempts) {
+                    throw $e;
+                }
             }
-            throw $e;
         }
     }
 
@@ -191,4 +198,37 @@ final class NewCompany
         return resolve(self::class);
     }
 
+    /**
+     * @throws Exception
+     */
+    public static function generateIdeHelperClasses()
+    {
+        $sap = NewCompany::getInstance()->getCompany();
+        $reflection = new \ReflectionClass(BoObjectTypes::class);
+        $re = '/Class (.*?)$/m';
+        foreach ($reflection->getConstants() as $boObjectType) {
+            $class = "<?php\nnamespace Litiano\Sap\IdeHelper;\n\n";
+            $object = $sap->GetBusinessObject($boObjectType);
+            ob_start();
+            com_print_typeinfo($object);
+            $class .= ob_get_contents();
+            ob_clean();
+            preg_match($re, $class, $matches);
+            $className = $matches[1];
+            \Storage::put("sap-ide-helper/{$className}.php", $class);
+        }
+    }
+
+    /**
+     * @param $message
+     * @param null $code
+     * @throws Exception
+     */
+    public static function NewException($message, $code = null)
+    {
+        if(request()->ajax()) {
+            throw new BadRequestHttpException($message);
+        }
+        throw new Exception($message, $code);
+    }
 }
