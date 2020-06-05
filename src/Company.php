@@ -7,6 +7,11 @@ use Litiano\Sap\Enum\BoObjectTypes;
 use Litiano\Sap\IdeHelper\ICompany;
 use Litiano\Sap\IdeHelper\IRecordset;
 
+/**
+ * Class Company
+ * @package Litiano\Sap
+ * @deprecated use NewCompany
+ */
 class Company
 {
     use DatabaseTrait;

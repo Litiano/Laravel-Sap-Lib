@@ -174,7 +174,7 @@ final class NewCompany
             $this->log->error("Attempt {$attempt}, Connection Error:" . $msg);
             $this->log->error("Connection time + instance time:" . $this->startTime->diffForHumans());
             if ($attempt === (int)config("sap.login_attempts")) {
-                $msg = "Connection failed after {$attempt} attempts.";
+                $msg = "SAP connection failed after {$attempt} attempts.";
                 $this->log->error($msg);
                 throw new Exception($msg);
             }
