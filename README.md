@@ -2,7 +2,7 @@
 
 ## Instruções
 ### Adicionar as seguintes configurações em seu arquivo .env
-
+### Verificar System Landscape Directory SERVER:40000
 \#\# SAP CONFIG ##<br/>
 #### Obrigatórios
 SAP_SERVER_ADDRESS="HOST" ou "HOST\\\SQL_INSTANCE(se for nomeada)"<br/>
